@@ -1,0 +1,5201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══════════════════════════════════════════════════
+     VILLARES | LAYOUT MAKER — SEO COMPLETO
+     Criado por Willian Villares · willianvillares.com
+     ═══════════════════════════════════════════════════ -->
+
+<title>Villares | Layout Maker</title>
+<meta name="description" content="Villares Layout Maker — Ferramenta gratuita de planejamento visual de espaços físicos para logística, escritórios e ambientes residenciais. Criado por Willian Villares, desenvolvedor frontend em busca de oportunidades de emprego e colaboração.">
+<meta name="keywords" content="layout maker, planejamento de espaços, logística, armazém, CD, escritório, planta baixa, ferramenta gratuita, Willian Villares, desenvolvedor frontend, portfólio, emprego, colaborador, colaboração, vagas, hire, freelancer, developer, portfolio, space planning, warehouse layout, floor plan tool">
+<meta name="author" content="Willian Villares">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://willianvillares.com">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://willianvillares.com">
+<meta property="og:title" content="Villares | Layout Maker — Planejamento Visual de Espaços">
+<meta property="og:description" content="Ferramenta gratuita para desenhar e visualizar layouts de armazéns, escritórios e residências. Criado por Willian Villares, desenvolvedor frontend disponível para emprego e colaboração.">
+<meta property="og:image" content="https://willianvillares.com/og-layout-maker.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Villares | Layout Maker">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@willianvillares">
+<meta name="twitter:creator" content="@willianvillares">
+<meta name="twitter:title" content="Villares | Layout Maker">
+<meta name="twitter:description" content="Ferramenta gratuita de planejamento visual de espaços — logística, escritório, residencial. Por Willian Villares.">
+<meta name="twitter:image" content="https://willianvillares.com/og-layout-maker.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Villares | Layout Maker",
+  "description": "Ferramenta gratuita de planejamento visual de espaços físicos para logística, escritórios e residências.",
+  "url": "https://willianvillares.com",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "author": {
+    "@type": "Person",
+    "name": "Willian Villares",
+    "url": "https://willianvillares.com",
+    "jobTitle": "Frontend Developer",
+    "description": "Desenvolvedor frontend em busca de oportunidades de emprego e colaboração em projetos de tecnologia.",
+    "sameAs": [
+      "https://github.com/Willian-Villares",
+      "https://willian-villares-portfolio.netlify.app"
+    ]
+  }
+}
+</script>
+
+<!-- Favicon — "V" em estilo minimalista -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d0d'/><text x='50%25' y='54%25' font-family='Inter,sans-serif' font-size='20' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='middle' letter-spacing='-1'>V</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d0d'/><text x='50%25' y='54%25' font-family='Inter,sans-serif' font-size='20' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='middle' letter-spacing='-1'>V</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --panel: #181818;
+  --border: #2a2a2a;
+  --border2: #383838;
+  --text: #f0f0f0;
+  --text-dim: #777;
+  --text-mid: #aaa;
+  --accent-green: #10B981;
+  --accent-red: #F43F5E;
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+  --grid-line: rgba(255,255,255,0.04);
+  --grid-major: rgba(255,255,255,0.09);
+  --canvas-bg: #0a0a0a;
+  --block-label-color: #fff;
+
+  /* Wave colors */
+  --wave1: #F43F5E;
+  --wave2: #F59E0B;
+  --wave3: #8B5CF6;
+  --wave4: #3B82F6;
+  --wave5: #10B981;
+  --wave6: #EC4899;
+}
+
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+  --bg: #f7f8fa;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --border2: #cbd0d7;
+  --text: #0f172a;
+  --text-dim: #64748b;
+  --text-mid: #334155;
+  --accent-green: #059669;
+  --accent-red: #dc2626;
+  --shadow: 0 4px 20px rgba(15,23,42,0.08), 0 1px 3px rgba(15,23,42,0.06);
+  --grid-line: rgba(15,23,42,0.04);
+  --grid-major: rgba(15,23,42,0.08);
+  --canvas-bg: #eef1f6;
+  --block-label-color: #0f172a;
+  --btn-hover-bg: rgba(15,23,42,0.05);
+  --btn-active-bg: rgba(15,23,42,0.08);
+  --primary-bg: #0f172a;
+  --primary-text: #ffffff;
+  --input-bg: #ffffff;
+}
+body:not(.light-mode) {
+  --btn-hover-bg: rgba(255,255,255,0.06);
+  --btn-active-bg: rgba(255,255,255,0.10);
+  --primary-bg: #f0f0f0;
+  --primary-text: #0a0a0a;
+  --input-bg: #0d0d0d;
+}
+body.light-mode {
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body.light-mode .canvas-area {
+  background-color: var(--canvas-bg) !important;
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) !important;
+}
+body.light-mode ::-webkit-scrollbar-track { background: #f0f2f5; }
+body.light-mode ::-webkit-scrollbar-thumb { background: #cbd0d7; border-radius: 2px; }
+body.light-mode ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Light mode: improve specific UI elements */
+body.light-mode .logo-main { color: #0f172a; font-weight: 600; letter-spacing: 0.22em; }
+body.light-mode .logo-sub { color: #94a3b8; font-weight: 700; }
+body.light-mode .sidebar-title { color: #64748b; font-weight: 700; letter-spacing: 0.14em; }
+body.light-mode .prop-label { color: #64748b; }
+body.light-mode .prop-val { color: #0f172a; font-weight: 600; }
+body.light-mode .wave-label { color: #334155; font-weight: 500; }
+body.light-mode .wave-row.active .wave-label { color: #0f172a; font-weight: 600; }
+body.light-mode .header-stats { color: #64748b; }
+body.light-mode .header-stats .stat-val { color: #0f172a; }
+body.light-mode .stat-val { color: #0f172a; }
+body.light-mode .mode-indicator { color: #0f172a; }
+body.light-mode .bottom-bar { color: #475569; background: #ffffff; }
+body.light-mode .tool-btn { background: #ffffff; color: #475569; font-weight: 500; }
+body.light-mode .tool-btn:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .tool-btn.active { background: #e0e7ef; border-color: #475569; color: #0f172a; font-weight: 600; }
+body.light-mode .mode-chip { background: #ffffff; color: #64748b; }
+body.light-mode .mode-chip:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .mode-chip.active { background: #e0e7ef; color: #0f172a; border-color: #475569; }
+body.light-mode .dir-btn { background: #ffffff; color: #64748b; }
+body.light-mode .dir-btn:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .dir-btn.active { background: #e0e7ef; color: #0f172a; border-color: #475569; }
+body.light-mode .zoom-btn { background: #ffffff; color: #475569; }
+body.light-mode .zoom-btn:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .area-banner { background: #ffffff; color: #475569; }
+body.light-mode .area-banner:hover { border-color: #94a3b8; color: #0f172a; }
+body.light-mode .area-name { color: #0f172a; }
+body.light-mode .play-panel { background: #ffffff; }
+body.light-mode .play-title { color: #94a3b8; }
+body.light-mode .theme-toggle { background: #ffffff; color: #475569; }
+body.light-mode .theme-toggle:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .btn { background: #ffffff; color: #475569; font-weight: 500; }
+body.light-mode .btn:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .btn.primary { background: #0f172a; color: #ffffff; border-color: #0f172a; font-weight: 600; }
+body.light-mode .btn.primary:hover { background: #1e293b; color: #ffffff; border-color: #1e293b; }
+body.light-mode .btn.danger { background: #ffffff; border-color: #dc2626; color: #dc2626; }
+body.light-mode .btn.danger:hover { background: #fef2f2; color: #b91c1c; border-color: #b91c1c; }
+body.light-mode .add-wave-btn { background: #fafbfc; color: #64748b; border-color: #cbd0d7; }
+body.light-mode .add-wave-btn:hover { background: #f1f5f9; color: #0f172a; border-color: #94a3b8; }
+body.light-mode .space-hint { background: #ffffff; color: #475569; }
+body.light-mode .modal { background: #ffffff; }
+body.light-mode .modal h3 { color: #0f172a; border-color: #e5e7eb; }
+body.light-mode .modal label { color: #64748b; }
+body.light-mode .modal input, body.light-mode .modal select { background: #ffffff; color: #0f172a; border-color: #cbd0d7; }
+body.light-mode .modal input:focus, body.light-mode .modal select:focus { border-color: #0f172a; }
+body.light-mode .setup-info { color: #475569; }
+body.light-mode .area-preview { background: #f7f8fa; color: #475569; }
+body.light-mode #areaPreviewText { color: #0f172a; }
+body.light-mode .ctx-menu { background: #ffffff; box-shadow: 0 4px 20px rgba(15,23,42,0.12); }
+body.light-mode .ctx-item { color: #334155; }
+body.light-mode .ctx-item:hover { background: #f1f5f9; color: #0f172a; }
+body.light-mode .wave-row { background: #ffffff; }
+body.light-mode .wave-row:hover { background: #f1f5f9; border-color: #94a3b8; }
+body.light-mode .wave-row.active { background: #e0e7ef; border-color: #475569; }
+body.light-mode .wave-edit-btn { color: #94a3b8; }
+body.light-mode .wave-edit-btn:hover { color: #0f172a; }
+body.light-mode .prop-input { background: #ffffff; color: #0f172a; border-color: #cbd0d7; }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  flex-shrink: 0;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 100px at 20% 0%, rgba(139, 92, 246, 0.04), transparent 60%),
+    radial-gradient(ellipse 600px 80px at 80% 100%, rgba(59, 130, 246, 0.03), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+body.light-mode header::before {
+  background:
+    radial-gradient(ellipse 800px 100px at 20% 0%, rgba(139, 92, 246, 0.05), transparent 60%),
+    radial-gradient(ellipse 600px 80px at 80% 100%, rgba(59, 130, 246, 0.04), transparent 60%);
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+  min-height: 48px;
+}
+
+.header-row-top {
+  border-bottom: 1px solid var(--border);
+}
+
+.header-divider-v {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, var(--border2), transparent);
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+  padding-right: 8px;
+}
+.logo-main {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text);
+  line-height: 1;
+}
+.logo-sub {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: var(--text-dim);
+  margin-top: 4px;
+  line-height: 1;
+}
+
+body.light-mode .logo-main {
+  background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body:not(.light-mode) .logo-main {
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 10.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 0 14px;
+  white-space: nowrap;
+  position: relative;
+}
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+}
+.stat-val {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  color: var(--text-dim);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.header-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-actions .btn-group {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+body.light-mode .header-actions .btn-group {
+  background: rgba(15,23,42,0.03);
+}
+
+.header-actions .btn-group .btn {
+  border: 1px solid transparent;
+  padding: 4px 10px;
+}
+.header-actions .btn-group .btn:hover {
+  border-color: var(--border2);
+}
+
+.btn {
+  padding: 6px 13px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 0;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn:hover {
+  border-color: #555;
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-0.5px);
+}
+.btn:active { transform: translateY(0); }
+
+.btn.primary {
+  background: linear-gradient(180deg, #f5f5f5 0%, #d4d4d4 100%);
+  color: #000;
+  border-color: #d4d4d4;
+  font-weight: 600;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 1px 3px rgba(0,0,0,0.2);
+}
+.btn.primary:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 100%);
+  border-color: #e5e5e5;
+}
+.btn.danger { border-color: var(--accent-red); color: var(--accent-red); }
+.btn.danger:hover { background: rgba(244,63,94,0.1); }
+.btn.active { border-color: var(--text); color: var(--text); background: rgba(255,255,255,0.06); }
+
+/* ===== LAYOUT ===== */
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 230px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: relative;
+}
+.sidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(139,92,246,0.02), transparent 200px);
+  pointer-events: none;
+  z-index: 0;
+}
+body.light-mode .sidebar::before {
+  background: linear-gradient(180deg, rgba(139,92,246,0.025), transparent 200px);
+}
+
+.sidebar-section {
+  padding: 14px 14px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-title {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar-title::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-mid);
+  opacity: 0.6;
+}
+
+/* Tool grid */
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.tool-btn {
+  padding: 9px 5px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  color: var(--text-mid);
+  cursor: pointer;
+  font-size: 10.5px;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.tool-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+body.light-mode .tool-btn::before {
+  background: linear-gradient(135deg, rgba(139,92,246,0.04), transparent 60%);
+}
+.tool-btn:hover::before { opacity: 1; }
+.tool-btn .icon { font-size: 15px; line-height: 1; }
+.tool-btn:hover { border-color: #666; color: var(--text); background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+.tool-btn.active {
+  border-color: var(--text);
+  background: rgba(255,255,255,0.09);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset;
+}
+
+/* Wave selector */
+.wave-list { display: flex; flex-direction: column; gap: 5px; }
+
+.wave-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255,255,255,0.02);
+}
+.wave-row:hover { border-color: #555; background: rgba(255,255,255,0.05); transform: translateX(1px); }
+.wave-row.active {
+  border-color: var(--text);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 1px var(--text) inset;
+}
+
+.wave-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset, 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.wave-label {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.01em;
+}
+.wave-row.active .wave-label { color: var(--text); font-weight: 600; }
+
+.wave-edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 11px;
+  padding: 2px 4px;
+  transition: all 0.15s;
+  line-height: 1;
+  border-radius: 3px;
+  opacity: 0.6;
+}
+.wave-row:hover .wave-edit-btn { opacity: 1; }
+.wave-edit-btn:hover { color: var(--text); background: var(--btn-hover-bg); }
+
+/* Wave mode */
+.wave-mode-row {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+body.light-mode .wave-mode-row { background: #f1f5f9; }
+.mode-chip {
+  flex: 1;
+  padding: 6px 4px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text-dim);
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+}
+.mode-chip:hover { color: var(--text); }
+.mode-chip.active {
+  border-color: var(--border2);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+body.light-mode .mode-chip.active { box-shadow: 0 1px 3px rgba(15,23,42,0.08); }
+
+/* Props */
+.prop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+.prop-label { color: var(--text-mid); font-weight: 500; }
+.prop-val { color: var(--text); font-weight: 600; font-size: 11px; }
+
+.prop-input {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 3px 6px;
+  font-size: 11px;
+  border-radius: 0;
+  width: 70px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Add wave btn */
+.add-wave-btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 5px;
+  border: 1px dashed var(--border2);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  transition: all 0.12s;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+.add-wave-btn:hover { border-color: #555; color: var(--text); }
+
+/* ===== CANVAS ===== */
+.canvas-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-bg);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px, 12px 12px, 12px 12px;
+}
+
+#mainCanvas {
+  position: absolute;
+  top: 0; left: 0;
+  display: block;
+}
+
+/* Zoom */
+.zoom-controls {
+  position: absolute;
+  bottom: 56px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 50;
+  padding: 4px;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.light-mode .zoom-controls {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 20px rgba(15,23,42,0.08);
+}
+.zoom-btn {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.zoom-btn:hover { border-color: var(--border2); color: var(--text); background: var(--btn-hover-bg); }
+.zoom-btn:active { transform: scale(0.92); }
+
+/* ===== BOTTOM BAR ===== */
+.bottom-bar {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 10.5px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.mode-indicator {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 9.5px;
+  padding: 3px 9px;
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  background: rgba(255,255,255,0.03);
+}
+body.light-mode .mode-indicator { background: #f1f5f9; }
+.sep { color: var(--border2); }
+
+/* ===== CONTEXT MENU ===== */
+.ctx-menu {
+  position: fixed;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 5px 0;
+  z-index: 2000;
+  min-width: 170px;
+  display: none;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2);
+}
+body.light-mode .ctx-menu { box-shadow: 0 12px 40px rgba(15,23,42,0.15), 0 2px 8px rgba(15,23,42,0.08); }
+.ctx-item {
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.12s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-mid);
+}
+.ctx-item:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+.ctx-item.danger:hover { background: rgba(244,63,94,0.08); color: var(--accent-red); }
+.ctx-divider { border-top: 1px solid var(--border); margin: 4px 0; }
+
+/* ===== TOOLTIP ===== */
+.tooltip {
+  position: fixed;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  padding: 6px 10px;
+  font-size: 11px;
+  border-radius: 0;
+  pointer-events: none;
+  z-index: 1000;
+  color: var(--text-mid);
+  display: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* ===== MODALS ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.modal {
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 28px;
+  width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+body.light-mode .modal { box-shadow: 0 20px 60px rgba(15,23,42,0.15), 0 4px 12px rgba(15,23,42,0.08); }
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+body.light-mode .modal::before { background: linear-gradient(90deg, transparent, rgba(15,23,42,0.08), transparent); }
+
+.modal h3 {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  padding-bottom: 0;
+  border: none;
+}
+.modal-subtitle {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.modal label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-bottom: 5px;
+  margin-top: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.modal input, .modal select {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 9px 11px;
+  font-size: 13px;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+.modal input:hover, .modal select:hover { border-color: #666; }
+.modal input:focus, .modal select:focus {
+  outline: none;
+  border-color: var(--text);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+}
+body.light-mode .modal input:focus, body.light-mode .modal select:focus {
+  box-shadow: 0 0 0 3px rgba(15,23,42,0.08);
+}
+.modal-actions { display: flex; gap: 8px; margin-top: 24px; justify-content: flex-end; }
+
+/* Color input row */
+.color-row { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+.color-input {
+  width: 44px !important;
+  height: 34px;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 0;
+  border: 1px solid var(--border2);
+}
+
+/* ===== SETUP AREA MODAL (first run) ===== */
+.setup-modal {
+  width: 460px;
+}
+.setup-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.setup-info {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.setup-field label { margin-top: 0; }
+.area-preview {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 11px;
+  color: var(--text-mid);
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+#areaPreviewText { color: var(--text); font-weight: 600; font-size: 13px; }
+
+/* ===== ORIENTATION PANEL (top right of canvas) ===== */
+.play-panel {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 50;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.light-mode .play-panel {
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+  background: rgba(255,255,255,0.95);
+}
+.play-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.play-title::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-mid);
+}
+.play-dir-row {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+body.light-mode .play-dir-row { background: #f1f5f9; }
+.dir-btn {
+  flex: 1;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.dir-btn:hover { color: var(--text); }
+.dir-btn.active {
+  border-color: var(--border2);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+body.light-mode .dir-btn.active { box-shadow: 0 1px 3px rgba(15,23,42,0.08); }
+
+.play-execute-btn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--text);
+  border-radius: 0;
+  background: var(--text);
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+.play-execute-btn:hover { background: #ddd; }
+
+/* ===== SPACE PAN HINT ===== */
+.space-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-mid);
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.space-hint.visible { opacity: 1; }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  padding: 6px 11px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 0;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.theme-toggle:hover {
+  border-color: #777;
+  color: var(--text);
+  background: var(--btn-hover-bg);
+  transform: translateY(-0.5px);
+}
+
+/* ===== SPACE PAN ACTIVE CURSOR ===== */
+.canvas-area.space-pan { cursor: grab; }
+.canvas-area.space-pan.panning { cursor: grabbing; }
+
+/* =============================================================
+   SPLASH / LOADING SCREEN
+   ============================================================= */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  background: #020202;
+  z-index: 6000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.splash-overlay.visible { display: flex; }
+.splash-overlay.fading { opacity: 0; pointer-events: none; }
+
+/* Subtle ambient light in the background */
+.splash-overlay::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.splash-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* VILLARES logotype in the Design System style */
+.splash-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  animation: splashLogoIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+.splash-logo-main {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: #ffffff;
+  line-height: 1;
+}
+.splash-logo-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  color: #555;
+  line-height: 1;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+@keyframes splashLogoIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The thin animated progress line */
+.splash-progress {
+  width: 220px;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInSimple 0.6s ease 0.6s forwards;
+}
+.splash-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  animation: splashProgress 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.6s infinite;
+}
+@keyframes splashProgress {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* Greeting text cycles through languages */
+.splash-greeting {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #555;
+  opacity: 0;
+  animation: fadeInSimple 0.6s ease 0.9s forwards;
+  height: 12px;
+  position: relative;
+  min-width: 160px;
+  text-align: center;
+}
+.splash-greeting-text {
+  display: inline-block;
+  transition: opacity 0.4s ease;
+}
+
+@keyframes fadeInSimple {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =============================================================
+   WELCOME / MODE SELECTION — luxury minimal
+   Follows design system: #020202 bg, #101010 card, thin borders,
+   extreme typography contrast, uppercase micro-labels with tracking,
+   thin "/" dividers, no decorative color — only pure B&W hierarchy.
+   ============================================================= */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: #020202;
+  z-index: 5000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 48px 24px;
+}
+.welcome-overlay.visible { display: flex; animation: welcomeFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+
+@keyframes welcomeFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Single ambient glow — same treatment as the design system reference */
+.welcome-overlay::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 800px;
+  height: 800px;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid overlay — very subtle, masked to center */
+.welcome-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.welcome-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 840px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Header block — inspired by the Design System header */
+.welcome-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 56px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #1a1a1a;
+  animation: welcomeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+.welcome-brand {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  user-select: none;
+}
+.welcome-brand-main {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: #ffffff;
+  line-height: 1;
+}
+.welcome-brand-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  color: #555;
+  line-height: 1;
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+.welcome-title-block {
+  margin-top: 40px;
+}
+.welcome-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.welcome-title-big {
+  font-size: 40px;
+  font-weight: 200;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.welcome-title-big .slash {
+  color: #333;
+  font-weight: 100;
+  margin: 0 2px;
+}
+.welcome-title-big .accent {
+  color: #777;
+  font-weight: 200;
+}
+.welcome-description {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7;
+  max-width: 54ch;
+  font-weight: 400;
+}
+
+/* Section label ala design system */
+.welcome-section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 28px;
+  animation: welcomeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+/* Mode cards — luxury minimal */
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid #1a1a1a;
+  background: #101010;
+  animation: welcomeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.mode-card {
+  padding: 36px 28px 32px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: #101010;
+  border-right: 1px solid #1a1a1a;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mode-card:last-child { border-right: none; }
+
+.mode-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.mode-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+
+.mode-card:hover {
+  background: #141414;
+}
+.mode-card:hover::before { opacity: 1; }
+.mode-card:hover::after { opacity: 1; }
+
+.mode-card.selected {
+  background: #161616;
+}
+.mode-card.selected::before { opacity: 1; }
+.mode-card.selected::after { opacity: 1; }
+
+/* The geometric icon — pure line-art, thin stroke */
+.mode-card-glyph {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mode-card-glyph svg {
+  width: 100%;
+  height: 100%;
+  stroke: #ffffff;
+  stroke-width: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+  transition: opacity 0.35s, stroke-width 0.35s;
+}
+/* Flag SVGs override: they use fills, not strokes */
+.mode-card-glyph svg.flag-svg {
+  stroke: none;
+  fill: initial;
+  opacity: 0.9;
+}
+.mode-card:hover .mode-card-glyph { transform: translateY(-2px); }
+.mode-card:hover .mode-card-glyph svg { opacity: 1; }
+.mode-card.selected .mode-card-glyph svg { opacity: 1; stroke-width: 1.2; }
+
+/* Small number/index above card title, design system style */
+.mode-card-index {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #444;
+}
+.mode-card.selected .mode-card-index { color: #777; }
+
+.mode-card-title {
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.mode-card-subtitle {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 18px;
+}
+.mode-card-desc {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.65;
+  margin-top: auto;
+  font-weight: 400;
+}
+
+/* Selection indicator at bottom of card */
+.mode-card-indicator {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.mode-card.selected .mode-card-indicator {
+  border-color: #ffffff;
+}
+.mode-card-indicator::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  transition: background 0.3s;
+}
+.mode-card.selected .mode-card-indicator::after {
+  background: #ffffff;
+}
+
+/* Action row at bottom */
+.welcome-actions {
+  margin-top: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: welcomeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.welcome-helper {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.welcome-helper-dot {
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.welcome-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.welcome-skip {
+  padding: 14px 22px;
+  background: transparent;
+  color: #666;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: all 0.25s;
+}
+.welcome-skip:hover { color: #ffffff; background: rgba(255,255,255,0.03); }
+
+.welcome-cta {
+  padding: 14px 28px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.welcome-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.welcome-cta:hover::before { transform: translateX(0); }
+.welcome-cta-label { position: relative; z-index: 1; transition: color 0.3s; }
+.welcome-cta-arrow { position: relative; z-index: 1; transition: color 0.3s; font-size: 14px; font-weight: 300; letter-spacing: 0; }
+.welcome-cta:hover .welcome-cta-label,
+.welcome-cta:hover .welcome-cta-arrow {
+  color: #020202;
+}
+
+@keyframes welcomeSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= LIGHT MODE OVERRIDES FOR WELCOME ======= */
+body.light-mode .splash-overlay { background: #fafbfc; }
+body.light-mode .splash-logo-main { color: #0f172a; }
+body.light-mode .splash-logo-sub { color: #94a3b8; }
+body.light-mode .splash-progress { background: rgba(15,23,42,0.06); }
+body.light-mode .splash-progress::before { background: linear-gradient(90deg, transparent, #0f172a, transparent); }
+body.light-mode .splash-greeting { color: #94a3b8; }
+
+body.light-mode .welcome-overlay { background: #fafbfc; }
+body.light-mode .welcome-overlay::before { background: rgba(139,92,246,0.06); }
+body.light-mode .welcome-overlay::after {
+  background-image:
+    linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px);
+}
+body.light-mode .welcome-header { border-bottom-color: #e5e7eb; }
+body.light-mode .welcome-brand-main { color: #0f172a; }
+body.light-mode .welcome-brand-sub { color: #94a3b8; }
+body.light-mode .welcome-eyebrow { color: #64748b; }
+body.light-mode .welcome-title-big { color: #0f172a; }
+body.light-mode .welcome-title-big .slash { color: #cbd5e1; }
+body.light-mode .welcome-title-big .accent { color: #94a3b8; }
+body.light-mode .welcome-description { color: #475569; }
+body.light-mode .welcome-section-label { color: #0f172a; border-bottom-color: rgba(15,23,42,0.15); }
+body.light-mode .mode-grid { background: #ffffff; border-color: #e5e7eb; }
+body.light-mode .mode-card { background: #ffffff; border-right-color: #e5e7eb; }
+body.light-mode .mode-card:hover { background: #fafbfc; }
+body.light-mode .mode-card.selected { background: #f8fafc; }
+body.light-mode .mode-card::before { background: linear-gradient(90deg, transparent, rgba(15,23,42,0.2), transparent); }
+body.light-mode .mode-card-glyph svg { stroke: #0f172a; }
+body.light-mode .mode-card-index { color: #cbd5e1; }
+body.light-mode .mode-card.selected .mode-card-index { color: #64748b; }
+body.light-mode .mode-card-title { color: #0f172a; }
+body.light-mode .mode-card-subtitle { color: #94a3b8; }
+body.light-mode .mode-card-desc { color: #64748b; }
+body.light-mode .mode-card-indicator { border-color: #cbd5e1; }
+body.light-mode .mode-card.selected .mode-card-indicator { border-color: #0f172a; }
+body.light-mode .mode-card.selected .mode-card-indicator::after { background: #0f172a; }
+body.light-mode .welcome-helper { color: #94a3b8; }
+body.light-mode .welcome-helper-dot { background: #0f172a; }
+body.light-mode .welcome-skip { color: #64748b; }
+body.light-mode .welcome-skip:hover { color: #0f172a; background: rgba(15,23,42,0.04); }
+body.light-mode .welcome-cta { color: #0f172a; border-color: #0f172a; }
+body.light-mode .welcome-cta::before { background: #0f172a; }
+body.light-mode .welcome-cta:hover .welcome-cta-label,
+body.light-mode .welcome-cta:hover .welcome-cta-arrow { color: #ffffff; }
+
+
+/* ===== MODE BADGE (header) ===== */
+.mode-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 10px;
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+body.light-mode .mode-badge {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+.mode-badge:hover {
+  border-color: var(--text);
+  background: var(--btn-hover-bg);
+  transform: translateY(-0.5px);
+}
+.mode-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 0;
+  background: #10B981;
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.18);
+  flex-shrink: 0;
+}
+.mode-badge-chevron {
+  font-size: 8px;
+  color: var(--text-dim);
+  margin-left: 2px;
+}
+
+/* ===== SHAPE PICKER ===== */
+.shape-row { display: flex; gap: 6px; margin-top: 4px; }
+.shape-btn {
+  flex: 1;
+  aspect-ratio: 1;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+  padding: 8px;
+}
+.shape-btn:hover { border-color: var(--text); color: var(--text); background: var(--btn-hover-bg); }
+.shape-btn.active { border-color: var(--text); background: var(--btn-active-bg); color: var(--text); }
+.shape-btn svg { width: 100%; height: 100%; }
+
+/* ===== APPLY SCOPE MODAL ===== */
+.scope-modal { width: 480px; }
+.scope-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 8px;
+  background: var(--bg);
+}
+body.light-mode .scope-option { background: #fafbfc; }
+.scope-option:hover { border-color: var(--border2); background: var(--btn-hover-bg); }
+.scope-option.selected { border-color: var(--text); background: var(--btn-active-bg); }
+.scope-radio {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+  position: relative;
+}
+.scope-option.selected .scope-radio { border-color: var(--text); }
+.scope-option.selected .scope-radio::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: var(--text);
+  border-radius: 50%;
+}
+.scope-content { flex: 1; }
+.scope-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.scope-desc { font-size: 11px; color: var(--text-dim); line-height: 1.45; }
+.scope-count {
+  font-size: 10px;
+  color: var(--text-mid);
+  margin-top: 4px;
+  padding: 2px 6px;
+  background: var(--btn-hover-bg);
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 500;
+}
+.scope-preset-list {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.scope-preset-chip {
+  padding: 4px 10px;
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s;
+  color: var(--text-mid);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+.scope-preset-chip:hover { border-color: var(--text); color: var(--text); }
+.scope-preset-chip.selected { background: var(--text); color: var(--bg); border-color: var(--text); }
+body.light-mode .scope-preset-chip.selected { background: #0f172a; color: #fff; border-color: #0f172a; }
+
+/* ===== F2 HINT CALLOUT ===== */
+.f2-hint {
+  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.06));
+  border: 1px solid rgba(59,130,246,0.22);
+  border-radius: 0;
+  padding: 7px 9px;
+  font-size: 10px;
+  color: var(--text-mid);
+  line-height: 1.55;
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+body.light-mode .f2-hint {
+  background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+  border-color: #c7d2fe;
+  color: #475569;
+}
+.f2-key {
+  display: inline-block;
+  min-width: 22px;
+  padding: 1px 5px;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 0 var(--border2);
+}
+body.light-mode .f2-key { background: #fff; box-shadow: 0 1px 0 #cbd0d7; }
+
+/* ===== KO-FI POPUP ===== */
+.kofi-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 4000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.kofi-popup-overlay.visible { display: flex; animation: fadeIn 0.2s ease-out; }
+.kofi-popup {
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  width: 380px;
+  padding: 32px;
+  position: relative;
+  animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kofi-popup::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+body.light-mode .kofi-popup::before { background: linear-gradient(90deg, transparent, rgba(15,23,42,0.08), transparent); }
+.kofi-heart {
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+.kofi-title {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.kofi-msg {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.kofi-actions {
+  display: flex;
+  gap: 8px;
+}
+.kofi-btn-main {
+  flex: 1;
+  padding: 11px 16px;
+  background: transparent;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.kofi-btn-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--text);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.kofi-btn-main:hover::before { transform: translateX(0); }
+.kofi-btn-main span { position: relative; z-index: 1; transition: color 0.3s; }
+.kofi-btn-main:hover span { color: var(--bg); }
+.kofi-btn-close {
+  padding: 11px 16px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.kofi-btn-close:hover { border-color: var(--text); color: var(--text); }
+
+/* ===== MULTI-SELECT LASSO ===== */
+.lasso-rect {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.05);
+  pointer-events: none;
+  z-index: 10;
+  display: none;
+}
+body.light-mode .lasso-rect {
+  border-color: rgba(15,23,42,0.5);
+  background: rgba(15,23,42,0.04);
+}
+
+/* Multi-select prop panel */
+.multi-select-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--btn-hover-bg);
+  border: 1px solid var(--border2);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+/* ===== ADD ELEMENT NAME MODAL ===== */
+.add-elem-modal { width: 420px; }
+.style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.area-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 8px 16px;
+  font-size: 11px;
+  color: var(--text-mid);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.light-mode .area-banner {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 14px rgba(15,23,42,0.06);
+}
+.area-banner:hover {
+  border-color: var(--text);
+  color: var(--text);
+  transform: translateX(-50%) translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+body.light-mode .area-banner:hover { box-shadow: 0 8px 24px rgba(15,23,42,0.08); }
+.area-name {
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.area-dims {
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+  padding: 2px 7px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+}
+body.light-mode .area-dims { background: #f1f5f9; }
+</style>
+</head>
+<body>
+
+<!-- ===== SPLASH LOADER ===== -->
+<div class="splash-overlay" id="splashOverlay">
+  <div class="splash-content">
+    <div class="splash-logo">
+      <span class="splash-logo-main">VILLARES</span>
+      <span class="splash-logo-sub">LAYOUT MAKER</span>
+    </div>
+    <div class="splash-progress"></div>
+    <div class="splash-greeting">
+      <span class="splash-greeting-text" id="splashGreeting">Bem-vindo</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WELCOME / MODE SELECTION ===== -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-inner">
+
+    <!-- STEP 1: Language selection (same card style as mode grid) -->
+    <div id="langStep">
+
+      <div class="welcome-header" style="margin-bottom:40px">
+        <div class="welcome-brand">
+          <span class="welcome-brand-main">VILLARES</span>
+          <span class="welcome-brand-sub">LAYOUT MAKER</span>
+        </div>
+        <div class="welcome-title-block">
+          <div class="welcome-eyebrow" id="langEyebrow">Bem-vindo · Welcome · Bienvenido</div>
+          <h1 class="welcome-title-big" style="font-size:32px">IDIOMA <span class="slash">/</span> <span class="accent">LANGUAGE</span></h1>
+        </div>
+      </div>
+
+      <div class="welcome-section-label" style="letter-spacing:0.28em">SELECIONE <span style="color:#333;font-weight:100;margin:0 4px">/</span> <span style="color:#777">SELECT</span></div>
+
+      <div class="mode-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+        <!-- Português -->
+        <div class="mode-card selected" data-lang="pt" onclick="pickLanguage('pt')">
+          <div class="mode-card-index">01</div>
+          <div class="mode-card-glyph">
+            <!-- Brazil flag in B&W: green→dark fill, yellow→white diamond, blue→mid circle -->
+            <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg" class="flag-svg">
+              <!-- Background (green band) -->
+              <rect x="0" y="0" width="60" height="44" fill="#1a1a1a" stroke="#555" stroke-width="0.5"/>
+              <!-- Yellow diamond -->
+              <path d="M30 4 L56 22 L30 40 L4 22 Z" fill="#3a3a3a" stroke="#888" stroke-width="0.6"/>
+              <!-- Blue circle -->
+              <circle cx="30" cy="22" r="10" fill="#222" stroke="#aaa" stroke-width="0.7"/>
+              <!-- White band (Ordem e Progresso) -->
+              <path d="M20 20.5 Q30 17.5 40 20.5" fill="none" stroke="#ccc" stroke-width="1.5"/>
+              <!-- Stars (simplified 5 dots) -->
+              <circle cx="26" cy="18" r="0.8" fill="#ddd"/>
+              <circle cx="30" cy="16.5" r="0.8" fill="#ddd"/>
+              <circle cx="34" cy="18" r="0.8" fill="#ddd"/>
+              <circle cx="27" cy="24" r="0.8" fill="#ddd"/>
+              <circle cx="33" cy="24" r="0.8" fill="#ddd"/>
+            </svg>
+          </div>
+          <div class="mode-card-title">Português</div>
+          <div class="mode-card-subtitle">BRASIL</div>
+          <div class="mode-card-desc">Continue em português do Brasil.</div>
+          <div class="mode-card-indicator"></div>
+        </div>
+
+        <!-- English -->
+        <div class="mode-card" data-lang="en" onclick="pickLanguage('en')">
+          <div class="mode-card-index">02</div>
+          <div class="mode-card-glyph">
+            <!-- UK Union Jack in B&W -->
+            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" class="flag-svg">
+              <!-- Background (blue) -->
+              <rect x="0" y="0" width="60" height="40" fill="#111" stroke="#555" stroke-width="0.5"/>
+              <!-- White diagonals (St Andrew cross) -->
+              <line x1="0" y1="0" x2="60" y2="40" stroke="#888" stroke-width="5"/>
+              <line x1="60" y1="0" x2="0" y2="40" stroke="#888" stroke-width="5"/>
+              <!-- Red diagonals (St Patrick) — narrower, offset -->
+              <line x1="0" y1="0" x2="60" y2="40" stroke="#444" stroke-width="2.5"/>
+              <line x1="60" y1="0" x2="0" y2="40" stroke="#444" stroke-width="2.5"/>
+              <!-- White vertical cross (St George) -->
+              <rect x="24" y="0" width="12" height="40" fill="#bbb"/>
+              <!-- White horizontal cross (St George) -->
+              <rect x="0" y="15" width="60" height="10" fill="#bbb"/>
+              <!-- Red vertical bar (St George center) -->
+              <rect x="27" y="0" width="6" height="40" fill="#555"/>
+              <!-- Red horizontal bar (St George center) -->
+              <rect x="0" y="17" width="60" height="6" fill="#555"/>
+            </svg>
+          </div>
+          <div class="mode-card-title">English</div>
+          <div class="mode-card-subtitle">UNITED STATES</div>
+          <div class="mode-card-desc">Continue in English.</div>
+          <div class="mode-card-indicator"></div>
+        </div>
+
+        <!-- Español -->
+        <div class="mode-card" data-lang="es" onclick="pickLanguage('es')">
+          <div class="mode-card-index">03</div>
+          <div class="mode-card-glyph">
+            <!-- Spain flag in B&W: red-yellow-red bands -->
+            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" class="flag-svg">
+              <!-- Top red band -->
+              <rect x="0" y="0" width="60" height="10" fill="#333" stroke="#555" stroke-width="0.5"/>
+              <!-- Yellow (center) band -->
+              <rect x="0" y="10" width="60" height="20" fill="#888" stroke="#555" stroke-width="0.5"/>
+              <!-- Bottom red band -->
+              <rect x="0" y="30" width="60" height="10" fill="#333" stroke="#555" stroke-width="0.5"/>
+              <!-- Coat of arms: left pillar -->
+              <rect x="16" y="12" width="4" height="16" fill="#444" stroke="#777" stroke-width="0.4"/>
+              <!-- Coat of arms: right pillar -->
+              <rect x="40" y="12" width="4" height="16" fill="#444" stroke="#777" stroke-width="0.4"/>
+              <!-- Crown arch between pillars -->
+              <path d="M20 15 Q30 9 40 15" fill="none" stroke="#555" stroke-width="1"/>
+              <!-- Shield center -->
+              <rect x="24" y="14" width="12" height="12" fill="#666" stroke="#888" stroke-width="0.5"/>
+              <!-- Shield stripes -->
+              <line x1="24" y1="18" x2="36" y2="18" stroke="#444" stroke-width="1"/>
+              <line x1="24" y1="22" x2="36" y2="22" stroke="#444" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="mode-card-title">Español</div>
+          <div class="mode-card-subtitle">ESPAÑA</div>
+          <div class="mode-card-desc">Continúa en español.</div>
+          <div class="mode-card-indicator"></div>
+        </div>
+
+      </div>
+
+      <div class="welcome-actions">
+        <div class="welcome-helper">
+          <span class="welcome-helper-dot"></span>
+          <span id="langHelperText">ESCOLHA SEU IDIOMA PARA CONTINUAR</span>
+        </div>
+        <div class="welcome-buttons">
+          <button class="welcome-cta" onclick="confirmLanguage()">
+            <span class="welcome-cta-label" id="langCtaLabel">Continuar</span>
+            <span class="welcome-cta-arrow">→</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /langStep -->
+
+    <!-- STEP 2: Mode selection (hidden until language confirmed) -->
+    <div id="modeStep" style="display:none">
+
+    <div class="welcome-header">
+      <div class="welcome-brand">
+        <span class="welcome-brand-main">VILLARES</span>
+        <span class="welcome-brand-sub">LAYOUT MAKER</span>
+      </div>
+      <div class="welcome-title-block">
+        <div class="welcome-eyebrow">Planejamento visual de espaços</div>
+        <h1 class="welcome-title-big">COMECE <span class="slash">/</span> <span class="accent">ESCOLHENDO UM MODO</span></h1>
+        <p class="welcome-description">Desenhe e visualize qualquer espaço físico — de um centro de distribuição a um escritório ou ambiente pessoal. Cada modo ajusta as ferramentas, os padrões e a linguagem visual ao seu contexto.</p>
+      </div>
+    </div>
+
+    <div class="welcome-section-label">MODOS <span style="color:#333;font-weight:100;margin:0 4px">/</span> <span style="color:#777">DISPONÍVEIS</span></div>
+
+    <div class="mode-grid">
+      <!-- Logística -->
+      <div class="mode-card selected" data-mode="logistica" onclick="selectWelcomeMode('logistica')">
+        <div class="mode-card-index">01</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <!-- Warehouse outline -->
+            <path d="M6 48 L6 22 L30 8 L54 22 L54 48 Z"/>
+            <!-- Vertical pillars -->
+            <line x1="18" y1="48" x2="18" y2="28"/>
+            <line x1="42" y1="48" x2="42" y2="28"/>
+            <!-- Belt/floor line -->
+            <line x1="6" y1="48" x2="54" y2="48"/>
+            <line x1="10" y1="42" x2="50" y2="42" stroke-dasharray="2 3" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Logística</div>
+        <div class="mode-card-subtitle">CD · ARMAZÉM</div>
+        <div class="mode-card-desc">Esteiras, docas, pilares, corredores e fluxos operacionais por onda.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+
+      <!-- Escritório -->
+      <div class="mode-card" data-mode="escritorio" onclick="selectWelcomeMode('escritorio')">
+        <div class="mode-card-index">02</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <!-- Building outline -->
+            <rect x="10" y="8" width="40" height="44"/>
+            <!-- Windows grid -->
+            <line x1="10" y1="20" x2="50" y2="20"/>
+            <line x1="10" y1="32" x2="50" y2="32"/>
+            <line x1="10" y1="44" x2="50" y2="44"/>
+            <line x1="23" y1="8" x2="23" y2="52"/>
+            <line x1="37" y1="8" x2="37" y2="52"/>
+            <!-- Door -->
+            <rect x="27" y="44" width="6" height="8" fill="#ffffff" opacity="0.1"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Escritório</div>
+        <div class="mode-card-subtitle">CORPORATIVO</div>
+        <div class="mode-card-desc">Mesas, salas de reunião, pessoas, copa e áreas comuns.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+
+      <!-- Pessoal -->
+      <div class="mode-card" data-mode="pessoal" onclick="selectWelcomeMode('pessoal')">
+        <div class="mode-card-index">03</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <!-- House silhouette -->
+            <path d="M8 52 L8 28 L30 10 L52 28 L52 52 Z"/>
+            <!-- Door -->
+            <rect x="26" y="38" width="8" height="14"/>
+            <!-- Windows -->
+            <rect x="14" y="34" width="6" height="6"/>
+            <rect x="40" y="34" width="6" height="6"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Pessoal</div>
+        <div class="mode-card-subtitle">RESIDENCIAL</div>
+        <div class="mode-card-desc">Cômodos, móveis, cama, cozinha e decoração do lar.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+    </div>
+
+    <div class="welcome-actions">
+      <div class="welcome-helper">
+        <span class="welcome-helper-dot"></span>
+        <span id="modeHelperText">SELECIONE UM MODO PARA CONTINUAR</span>
+      </div>
+      <div class="welcome-buttons">
+        <button class="welcome-skip" id="modeSkipBtn" onclick="closeWelcome(true)">Pular</button>
+        <button class="welcome-cta" onclick="startFromWelcome()">
+          <span class="welcome-cta-label" id="modeCtaLabel">Começar</span>
+          <span class="welcome-cta-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    </div><!-- /modeStep -->
+  </div>
+</div>
+
+<header>
+  <!-- TOP ROW: Logo | Mode + Theme | Primary actions -->
+  <div class="header-row header-row-top">
+    <div class="logo">
+      <span class="logo-main">VILLARES</span>
+      <span class="logo-sub">LAYOUT MAKER</span>
+    </div>
+    <div class="header-divider-v"></div>
+    <button class="mode-badge" id="modeBadge" onclick="openModeSwitcher()">
+      <span class="mode-badge-dot"></span>
+      <span id="modeBadgeLabel">Logística</span>
+      <span class="mode-badge-chevron">▾</span>
+    </button>
+    <div style="flex:1"></div>
+    <div class="header-actions">
+      <button class="theme-toggle" id="kofiBtn" onclick="openKofiPopup()" title="Apoiar o projeto">
+        <span>♥</span>
+        <span id="kofiLabel" data-i18n="support">Apoiar</span>
+      </button>
+      <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">
+        <span id="themeToggleIcon">☀</span>
+        <span id="themeToggleLabel" data-i18n="lightMode">Modo Claro</span>
+      </button>
+      <button class="btn" onclick="importJSON()" title="Importar JSON" data-i18n="importBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+        Importar
+      </button>
+      <button class="btn" onclick="exportJSON()" title="Exportar JSON">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        JSON
+      </button>
+      <button class="btn primary" onclick="exportImage()" title="Salvar PNG" data-i18n="saveBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        Salvar PNG
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW: Stats | Secondary actions -->
+  <div class="header-row">
+    <div class="header-stats">
+      <div class="stat">
+        <span class="stat-val" id="countElements">0</span>
+        <span class="stat-label" id="statElementsLabel" data-i18n="stat_elementos">elementos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val" id="countPilares">0</span>
+        <span class="stat-label" id="statPilarLabel">pilares</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val" id="countEsteiras">0</span>
+        <span class="stat-label" id="statEsteiraLabel">esteiras</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val" id="zoomLevel">100%</span>
+        <span class="stat-label" data-i18n="stat_zoom">zoom</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="btn-group">
+        <button class="btn" onclick="undoAction()" title="Ctrl+Z" data-i18n="undo">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+          Desfazer
+        </button>
+        <button class="btn" onclick="redoAction()" title="Ctrl+Y" data-i18n="redo">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/></svg>
+          Refazer
+        </button>
+      </div>
+      <button class="btn" onclick="openSetupModal()" data-i18n="areaBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        Área
+      </button>
+      <button class="btn" onclick="loadDefault()" data-i18n="defaultBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Layout Padrão
+      </button>
+      <button class="btn" onclick="clearAll()" data-i18n="clearBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Limpar
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="workspace">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="sidebar-section">
+      <div class="sidebar-title" data-i18n="tools">Ferramentas</div>
+      <div class="tool-grid" id="toolGrid"></div>
+      <div class="f2-hint">
+        <span class="f2-key">F2</span>
+        <span data-i18n="f2hint">Pressione <strong>F2</strong> ou dê duplo clique em um elemento para editar o nome rapidamente.</span>
+      </div>
+      <div style="margin-top:8px;font-size:10px;color:var(--text-mid);line-height:1.6" data-i18n="shortcuts">
+        <strong>R</strong> = Rotacionar · <strong>DEL</strong> = Remover<br>
+        <strong>Espaço</strong> = Mover tela · <strong>Ctrl+Z/Y</strong> = Desfazer/Refazer<br>
+        <strong>Ctrl+C/V/X</strong> = Copiar/Colar/Recortar
+      </div>
+    </div>
+
+    <!-- ONDAS -->
+    <div class="sidebar-section">
+      <div class="sidebar-title" data-i18n="waves">Ondas / Fluxo</div>
+      <div style="margin-bottom:6px;">
+        <div class="sidebar-title" style="font-size:8px;margin-bottom:5px;color:var(--text-dim)" data-i18n="vizMode">MODO DE VISUALIZAÇÃO</div>
+        <div class="wave-mode-row">
+          <div class="mode-chip active" id="mode-sinal" onclick="requestWaveMode('sinal')" data-i18n="chipSignal">Sinal</div>
+          <div class="mode-chip" id="mode-bloco" onclick="requestWaveMode('bloco')" data-i18n="chipBlock">Bloco</div>
+          <div class="mode-chip" id="mode-calor" onclick="requestWaveMode('calor')" data-i18n="chipHeat">Calor</div>
+        </div>
+        <div style="font-size:9px;color:var(--text-dim);margin-top:6px;line-height:1.4" data-i18n="waveHint">
+          A troca pergunta se aplica em tudo, em seleção ou em conjuntos salvos.
+        </div>
+      </div>
+      <div class="wave-list" id="waveList"></div>
+      <button class="add-wave-btn" onclick="addWave()" data-i18n="addWave">+ Nova Onda</button>
+    </div>
+
+    <!-- PROPRIEDADES -->
+    <div class="sidebar-section">
+      <div class="sidebar-title" data-i18n="properties">Propriedades</div>
+      <div id="propPanel">
+        <div style="color:var(--text-dim);font-size:11px;text-align:center;padding:8px 0;" data-i18n="selectEl">Selecione um elemento</div>
+      </div>
+    </div>
+
+    <!-- VISUALIZAÇÃO -->
+    <div class="sidebar-section">
+      <div class="sidebar-title" data-i18n="visualization">Visualização</div>
+      <div class="prop-row">
+        <span class="prop-label" data-i18n="isoMode">Modo ISO</span>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:5px">
+          <input type="checkbox" id="isoToggle" checked onchange="toggleIso(this.checked)">
+          <span style="font-size:11px;color:var(--text)">2.5D</span>
+        </label>
+      </div>
+      <div class="prop-row">
+        <span class="prop-label" data-i18n="labels">Rótulos</span>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:5px">
+          <input type="checkbox" id="labelsToggle" checked onchange="toggleLabels(this.checked)">
+          <span style="font-size:11px;color:var(--text)" data-i18n="show">Mostrar</span>
+        </label>
+      </div>
+      <div class="prop-row">
+        <span class="prop-label" data-i18n="snapGrid">Snap Grade</span>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:5px">
+          <input type="checkbox" id="gridSnap" checked>
+          <span style="font-size:11px;color:var(--text)" data-i18n="active">Ativo</span>
+        </label>
+      </div>
+      <div class="prop-row">
+        <span class="prop-label" data-i18n="gridSize">Tamanho Grade</span>
+        <select id="gridSizeSelect" class="prop-input" onchange="changeGridSize(this.value)">
+          <option value="30">30px</option>
+          <option value="40">40px</option>
+          <option value="60" selected>60px</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CANVAS -->
+  <div class="canvas-area" id="canvasArea">
+    <canvas id="mainCanvas"></canvas>
+    <div class="lasso-rect" id="lassoRect"></div>
+
+    <!-- Area banner -->
+    <div class="area-banner" id="areaBanner" onclick="openSetupModal()">
+      <span data-i18n="areaBannerLabel">Área:</span>
+      <span class="area-name" id="areaNameDisplay">—</span>
+      <span class="area-dims" id="areaDimsDisplay"></span>
+      <span style="font-size:10px;color:var(--text-dim)">✎</span>
+    </div>
+
+    <!-- Space pan hint -->
+    <div class="space-hint" id="spaceHint" data-i18n="spaceHint">🖐 Segure ESPAÇO e arraste para mover a tela</div>
+
+    <!-- Playback controls -->
+    <div class="play-panel">
+      <div class="play-title" data-i18n="layoutOrientation">Orientação do Layout</div>
+      <div class="play-dir-row">
+        <div class="dir-btn active" id="dir-horizontal" onclick="setOrientation('horizontal')" data-i18n="horizontal">↔ Horizontal</div>
+        <div class="dir-btn" id="dir-vertical" onclick="setOrientation('vertical')" data-i18n="vertical">↕ Vertical</div>
+      </div>
+      <div style="font-size:9px;color:var(--text-dim);line-height:1.4;margin-top:2px" data-i18n="orientationNote">
+        A orientação é <strong style="color:var(--text-mid)">fixa</strong> — escolhida por você, sem rotação automática.
+      </div>
+    </div>
+
+    <!-- Zoom -->
+    <div class="zoom-controls">
+      <button class="zoom-btn" onclick="zoom(1.2)">+</button>
+      <button class="zoom-btn" onclick="zoom(1/1.2)">−</button>
+      <button class="zoom-btn" onclick="resetView()" title="Reset">⌂</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-bar">
+  <span class="mode-indicator" id="modeText">SELECT</span>
+  <span class="sep">|</span>
+  <span id="coordText">X: 0  Y: 0</span>
+  <span class="sep">|</span>
+  <span id="hintText">Clique para selecionar · R=Rotacionar · DEL=Remover · F2 ou Duplo Clique=Editar · ESPAÇO=Mover tela</span>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<!-- Context Menu -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-item" onclick="ctxAction('edit')" data-i18n="ctxEdit">✎ Editar</div>
+  <div class="ctx-item" onclick="ctxAction('duplicate')" data-i18n="ctxDuplicate">⊕ Duplicar</div>
+  <div class="ctx-item" onclick="ctxAction('rotate')" data-i18n="ctxRotate">↻ Rotacionar 90°</div>
+  <div class="ctx-divider"></div>
+  <div class="ctx-item danger" onclick="ctxAction('delete')" data-i18n="ctxDelete">✕ Remover</div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 data-i18n="editTitle">Editar Elemento</h3>
+    <label data-i18n="labelName">Nome / Rótulo</label>
+    <input type="text" id="editLabel" placeholder="Ex: Esteira A">
+    <label data-i18n="labelWave">Onda / Fluxo</label>
+    <select id="editWave" style="margin-top:4px"></select>
+    <label data-i18n="labelType">Tipo</label>
+    <select id="editType" style="margin-top:4px"></select>
+    <label data-i18n="labelShape">Forma</label>
+    <div class="shape-row" id="shapeRow">
+      <button class="shape-btn active" data-shape="rect" onclick="selectShape('rect')" title="Retângulo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="1"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="square" onclick="selectShape('square')" title="Quadrado">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="12" height="12" rx="1"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="circle" onclick="selectShape('circle')" title="Círculo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="6.5"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="triangle" onclick="selectShape('triangle')" title="Triângulo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M10 3 L17 16 L3 16 Z"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="diamond" onclick="selectShape('diamond')" title="Losango">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M10 3 L17 10 L10 17 L3 10 Z"/></svg>
+      </button>
+    </div>
+    <label data-i18n="labelColor">Cor Personalizada</label>
+    <div class="color-row">
+      <input type="color" id="editCustomColor" class="color-input" value="#6B7280">
+      <label style="margin-top:0;font-size:11px;color:var(--text-mid)" data-i18n="colorHint">Deixe cinza (#6B7280) para usar cor da onda</label>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div>
+        <label data-i18n="labelWidth">Largura (células)</label>
+        <input type="number" id="editWidth" min="1" max="30" value="4">
+      </div>
+      <div>
+        <label data-i18n="labelHeight">Altura (células)</label>
+        <input type="number" id="editHeight" min="1" max="30" value="2">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn primary" onclick="saveEdit()" data-i18n="save">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Wave Mode Scope Modal -->
+<div class="modal-overlay" id="scopeModalOverlay">
+  <div class="modal scope-modal">
+    <h3 data-i18n="scopeTitle">Aplicar Modo <span id="scopeModeLabel" style="color:var(--text-mid);font-weight:500"></span></h3>
+    <p class="setup-info" style="margin-bottom:12px" data-i18n="scopeInfo">Escolha onde aplicar esta mudança de visualização. Itens não incluídos mantêm o modo atual.</p>
+    <div class="scope-option selected" data-scope="all" onclick="selectScope('all')">
+      <div class="scope-radio"></div>
+      <div class="scope-content">
+        <div class="scope-title" data-i18n="scopeAll">Aplicar em todos os elementos</div>
+        <div class="scope-desc" data-i18n="scopeAllDesc">Todos os itens do layout adotam o novo modo visual.</div>
+        <div class="scope-count" id="scopeCountAll">0 elementos</div>
+      </div>
+    </div>
+    <div class="scope-option" data-scope="selection" onclick="selectScope('selection')">
+      <div class="scope-radio"></div>
+      <div class="scope-content">
+        <div class="scope-title" data-i18n="scopeSel">Apenas no elemento selecionado</div>
+        <div class="scope-desc" data-i18n="scopeSelDesc">Só o item atualmente selecionado é afetado.</div>
+        <div class="scope-count" id="scopeCountSel" data-i18n="scopeNone">Nenhum selecionado</div>
+      </div>
+    </div>
+    <div class="scope-option" data-scope="preset" onclick="selectScope('preset')">
+      <div class="scope-radio"></div>
+      <div class="scope-content">
+        <div class="scope-title" data-i18n="scopePreset">Conjuntos pré-definidos</div>
+        <div class="scope-desc" data-i18n="scopePresetDesc">Aplicar por tipo de item ou por onda. Clique nos chips abaixo para adicionar.</div>
+        <div class="scope-preset-list" id="scopePresetList"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeScopeModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn primary" onclick="applyScope()" data-i18n="apply">Aplicar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mode Switcher Modal -->
+<div class="modal-overlay" id="modeSwitcherOverlay">
+  <div class="modal" style="width:720px;padding:36px">
+    <h3 data-i18n="switchModeTitle">Alternar Modo</h3>
+    <p class="modal-subtitle" data-i18n="switchModeSubtitle">Escolha o contexto do seu projeto. As ferramentas e padrões visuais se ajustam automaticamente.</p>
+    <div class="mode-grid" style="margin-top:8px">
+      <div class="mode-card" data-mode="logistica" onclick="switchMode('logistica')">
+        <div class="mode-card-index">01</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 48 L6 22 L30 8 L54 22 L54 48 Z"/>
+            <line x1="18" y1="48" x2="18" y2="28"/>
+            <line x1="42" y1="48" x2="42" y2="28"/>
+            <line x1="6" y1="48" x2="54" y2="48"/>
+            <line x1="10" y1="42" x2="50" y2="42" stroke-dasharray="2 3" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Logística</div>
+        <div class="mode-card-subtitle">CD · ARMAZÉM</div>
+        <div class="mode-card-desc">Esteiras, docas, pilares e fluxos por onda.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+      <div class="mode-card" data-mode="escritorio" onclick="switchMode('escritorio')">
+        <div class="mode-card-index">02</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="8" width="40" height="44"/>
+            <line x1="10" y1="20" x2="50" y2="20"/>
+            <line x1="10" y1="32" x2="50" y2="32"/>
+            <line x1="10" y1="44" x2="50" y2="44"/>
+            <line x1="23" y1="8" x2="23" y2="52"/>
+            <line x1="37" y1="8" x2="37" y2="52"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Escritório</div>
+        <div class="mode-card-subtitle">CORPORATIVO</div>
+        <div class="mode-card-desc">Mesas, salas, pessoas e áreas comuns.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+      <div class="mode-card" data-mode="pessoal" onclick="switchMode('pessoal')">
+        <div class="mode-card-index">03</div>
+        <div class="mode-card-glyph">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 52 L8 28 L30 10 L52 28 L52 52 Z"/>
+            <rect x="26" y="38" width="8" height="14"/>
+            <rect x="14" y="34" width="6" height="6"/>
+            <rect x="40" y="34" width="6" height="6"/>
+          </svg>
+        </div>
+        <div class="mode-card-title">Pessoal</div>
+        <div class="mode-card-subtitle">RESIDENCIAL</div>
+        <div class="mode-card-desc">Cômodos, móveis e decoração do lar.</div>
+        <div class="mode-card-indicator"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModeSwitcher()" data-i18n="close">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Wave Edit Modal -->
+<div class="modal-overlay" id="waveModalOverlay">
+  <div class="modal">
+    <h3 data-i18n="waveTitle">Configurar Onda</h3>
+    <label data-i18n="waveName">Nome da Onda</label>
+    <input type="text" id="waveEditName" placeholder="Ex: Onda Prioritária">
+    <label data-i18n="waveColor">Cor</label>
+    <div class="color-row">
+      <input type="color" id="waveEditColor" class="color-input">
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeWaveModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn danger" id="waveDeleteBtn" onclick="deleteEditingWave()" data-i18n="waveDelete">Remover Onda</button>
+      <button class="btn primary" onclick="saveWaveEdit()" data-i18n="save">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Setup Area Modal -->
+<div class="modal-overlay" id="setupModalOverlay">
+  <div class="modal setup-modal">
+    <h3 data-i18n="setupTitle">Configurar Área</h3>
+    <p class="setup-info" data-i18n="setupInfo">Defina as propriedades da área de trabalho. Este é o espaço físico que será representado no layout.</p>
+    <div class="setup-grid">
+      <div class="setup-field">
+        <label data-i18n="setupAreaName">Nome da Área</label>
+        <input type="text" id="areaNameInput" placeholder="Ex: CD São Paulo">
+      </div>
+      <div class="setup-field">
+        <label data-i18n="setupDesc">Descrição</label>
+        <input type="text" id="areaDescInput" placeholder="Ex: Galpão principal">
+      </div>
+      <div class="setup-field">
+        <label data-i18n="setupWidth">Largura (metros)</label>
+        <input type="number" id="areaWidthM" placeholder="60" value="60" min="1" oninput="updateAreaPreview()">
+      </div>
+      <div class="setup-field">
+        <label data-i18n="setupLength">Comprimento (metros)</label>
+        <input type="number" id="areaLengthM" placeholder="40" value="40" min="1" oninput="updateAreaPreview()">
+      </div>
+      <div class="setup-field">
+        <label data-i18n="setupDocks">Nº de Docas</label>
+        <input type="number" id="areaDocas" placeholder="10" value="10" min="0">
+      </div>
+      <div class="setup-field">
+        <label data-i18n="setupPillars">Nº de Pilares</label>
+        <input type="number" id="areaPilares" placeholder="12" value="12" min="0">
+      </div>
+    </div>
+    <div class="area-preview">
+      <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px" data-i18n="setupPreview">Pré-visualização</div>
+      <div id="areaPreviewText">— × —</div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeSetupModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn primary" onclick="saveSetup()" data-i18n="setupConfirm">Confirmar Área</button>
+    </div>
+  </div>
+</div>
+
+<!-- Export Warning Popup -->
+<div class="modal-overlay" id="exportWarnOverlay" style="display:none">
+  <div class="modal" style="width:420px">
+    <span style="font-size:28px;display:block;margin-bottom:12px">⚠</span>
+    <h3 id="exportWarnTitle">Elementos fora do limite</h3>
+    <p class="modal-subtitle" id="exportWarnMsg">Alguns elementos estão fora da área definida no layout.</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+      <button id="exportWarnAuto" class="btn primary" style="width:100%;justify-content:center;padding:10px">Cortar automaticamente para a área definida</button>
+      <button id="exportWarnFull" class="btn" style="width:100%;justify-content:center;padding:10px">Exportar imagem completa (fora do padrão)</button>
+      <button id="exportWarnCancel" class="btn danger" style="width:100%;justify-content:center;padding:10px">Cancelar e ajustar manualmente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Import JSON input (hidden) -->
+<input type="file" id="importFileInput" accept=".json" style="display:none" onchange="handleImport(event)">
+
+<!-- Ko-fi Support Popup -->
+<div class="kofi-popup-overlay" id="kofiPopupOverlay" onclick="closeKofiPopup(event)">
+  <div class="kofi-popup">
+    <span class="kofi-heart" id="kofiHeart">♥</span>
+    <div class="kofi-title" id="kofiTitle" data-i18n="kofiTitle">Obrigado por usar o Villares Layout Maker!</div>
+    <p class="kofi-msg" id="kofiMsg" data-i18n="kofiMsg">Este aplicativo é gratuito e feito com muito cuidado. Se ele foi útil para você e quiser contribuir para que continue evoluindo, qualquer ajuda é muito bem-vinda. ☕</p>
+    <div class="kofi-actions">
+      <a class="kofi-btn-main" href="https://ko-fi.com/willianvillares" target="_blank" rel="noopener">
+        <span data-i18n="kofiBtn">♥ Contribuir no Ko-fi</span>
+      </a>
+      <button class="kofi-btn-close" onclick="closeKofiPopup(null)" id="kofiCloseBtn" data-i18n="kofiClose">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Element Name Modal -->
+<div class="modal-overlay" id="addElemModalOverlay">
+  <div class="modal add-elem-modal">
+    <h3 id="addElemModalTitle">Adicionar Elemento</h3>
+    <p class="modal-subtitle" id="addElemModalSubtitle">Configure o nome, cor e forma do novo elemento.</p>
+    <label id="addElemLabelLabel">NOME / RÓTULO</label>
+    <input type="text" id="addElemLabel" placeholder="Ex: Esteira A">
+    <div class="style-grid">
+      <div>
+        <label>COR PERSONALIZADA</label>
+        <div class="color-row" style="margin-top:4px">
+          <input type="color" id="addElemColor" class="color-input" value="#6B7280">
+          <span style="font-size:10px;color:var(--text-dim)">Cinza = cor da onda</span>
+        </div>
+      </div>
+      <div>
+        <label>ONDA / FLUXO</label>
+        <select id="addElemWave" style="margin-top:4px"></select>
+      </div>
+    </div>
+    <label>FORMA</label>
+    <div class="shape-row" id="addElemShapeRow" style="margin-top:4px">
+      <button class="shape-btn active" data-shape="rect" onclick="selectAddShape('rect')" title="Retângulo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="1"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="square" onclick="selectAddShape('square')" title="Quadrado">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="12" height="12" rx="1"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="circle" onclick="selectAddShape('circle')" title="Círculo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="6.5"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="triangle" onclick="selectAddShape('triangle')" title="Triângulo">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M10 3 L17 16 L3 16 Z"/></svg>
+      </button>
+      <button class="shape-btn" data-shape="diamond" onclick="selectAddShape('diamond')" title="Losango">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M10 3 L17 10 L10 17 L3 10 Z"/></svg>
+      </button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px">
+      <div>
+        <label>LARGURA (CÉLULAS)</label>
+        <input type="number" id="addElemWidth" min="1" max="30" value="4">
+      </div>
+      <div>
+        <label>ALTURA (CÉLULAS)</label>
+        <input type="number" id="addElemHeight" min="1" max="30" value="2">
+      </div>
+    </div>
+    <div id="addElemCountInfo" style="display:none;margin-top:10px;padding:8px 10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:10px;color:var(--text-dim);line-height:1.5"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeAddElemModal()">Cancelar</button>
+      <button class="btn primary" id="addElemConfirmBtn" onclick="confirmAddElements()">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  STATE
+// ============================================================
+const canvas = document.getElementById('mainCanvas');
+const ctx = canvas.getContext('2d');
+const area = document.getElementById('canvasArea');
+
+let elements = [];
+let selected = null;
+let currentTool = 'select';
+let currentWave = 1;
+let isIso = true;
+let showLabels = true;
+let gridSize = 60;
+let viewX = 100, viewY = 80;
+let scale = 1;
+let isDragging = false;
+let dragStart = { x: 0, y: 0 };
+let elementDragStart = null;
+let editingElement = null;
+let editingWaveId = null;
+let idCounter = 1;
+let mousePan = false;
+let panStart = { x: 0, y: 0 };
+let ctxTarget = null;
+let waveMode = 'sinal'; // global fallback only; each element now stores its own
+let currentOrientation = 'horizontal'; // fixed — user-controlled
+let resizeHandle = null;
+let currentEditShape = 'rect';
+
+// ===== HISTORY (Undo/Redo) =====
+let history = [];
+let historyIndex = -1;
+let clipboard = null;
+let spaceDown = false;
+let lightMode = false;
+
+// ===== APP MODE =====
+let appMode = 'logistica'; // logistica | escritorio | pessoal
+let welcomeSelectedMode = 'logistica';
+
+// ===== LANGUAGE =====
+let currentLang = 'pt';
+
+// ===== MULTI-SELECT =====
+let multiSelected = []; // array of selected elements
+let isLassoActive = false;
+let lassoStart = null;
+let lassoEnd = null;
+
+// ===== ADD ELEMENT PENDING =====
+let pendingAddType = null;
+let pendingAddGx = 0;
+let pendingAddGy = 0;
+let currentAddShape = 'rect';
+
+// ===== WAVE MODE APPLICATION SCOPE (pending state) =====
+let pendingWaveMode = null;
+let scopeSelection = 'all';
+let selectedPresets = []; // array of "type:xxx" or "wave:N"
+
+function saveHistory() {
+  // Trim any forward history
+  history = history.slice(0, historyIndex + 1);
+  history.push(JSON.parse(JSON.stringify(elements)));
+  if (history.length > 50) history.shift();
+  historyIndex = history.length - 1;
+}
+
+function undoAction() {
+  if (historyIndex <= 0) return;
+  historyIndex--;
+  elements = JSON.parse(JSON.stringify(history[historyIndex]));
+  selected = null;
+  updatePropPanel();
+  render();
+  updateStats();
+}
+
+function redoAction() {
+  if (historyIndex >= history.length - 1) return;
+  historyIndex++;
+  elements = JSON.parse(JSON.stringify(history[historyIndex]));
+  selected = null;
+  updatePropPanel();
+  render();
+  updateStats();
+}
+
+function toggleTheme() {
+  lightMode = !lightMode;
+  document.body.classList.toggle('light-mode', lightMode);
+  document.getElementById('themeToggleIcon').textContent = lightMode ? '🌙' : '☀';
+  document.getElementById('themeToggleLabel').textContent = lightMode ? T('darkMode') : T('lightMode');
+  render();
+}
+
+// ============================================================
+//  TRANSLATIONS
+// ============================================================
+const TRANSLATIONS = {
+  pt: {
+    // Welcome
+    eyebrow: 'Planejamento visual de espaços',
+    titleBig: 'COMECE <span class="slash">/</span> <span class="accent">ESCOLHENDO UM MODO</span>',
+    description: 'Desenhe e visualize qualquer espaço físico — de um centro de distribuição a um escritório ou ambiente pessoal. Cada modo ajusta as ferramentas, os padrões e a linguagem visual ao seu contexto.',
+    sectionLabel: 'MODOS <span style="color:#333;font-weight:100;margin:0 4px">/</span> <span style="color:#777">DISPONÍVEIS</span>',
+    selectHelper: 'SELECIONE UM MODO PARA CONTINUAR',
+    skip: 'Pular', start: 'Começar',
+    // Modes
+    m_logistica: 'Logística', m_logistica_sub: 'CD · ARMAZÉM',
+    m_logistica_desc: 'Esteiras, docas, pilares, corredores e fluxos operacionais por onda.',
+    m_escritorio: 'Escritório', m_escritorio_sub: 'CORPORATIVO',
+    m_escritorio_desc: 'Mesas, salas de reunião, pessoas, copa e áreas comuns.',
+    m_pessoal: 'Pessoal', m_pessoal_sub: 'RESIDENCIAL',
+    m_pessoal_desc: 'Cômodos, móveis, cama, cozinha e decoração do lar.',
+    // Header
+    lightMode: 'Modo Claro', darkMode: 'Modo Escuro', support: 'Apoiar',
+    importBtn: 'Importar', saveBtn: 'Salvar PNG',
+    undo: 'Desfazer', redo: 'Refazer',
+    areaBtn: 'Área', defaultBtn: 'Layout Padrão', clearBtn: 'Limpar',
+    // Sidebar
+    tools: 'Ferramentas', waves: 'Ondas / Fluxo', properties: 'Propriedades', visualization: 'Visualização',
+    vizMode: 'MODO DE VISUALIZAÇÃO',
+    chipSignal: 'Sinal', chipBlock: 'Bloco', chipHeat: 'Calor',
+    waveHint: 'A troca pergunta se aplica em tudo, em seleção ou em conjuntos salvos.',
+    addWave: '+ Nova Onda',
+    selectEl: 'Selecione um elemento',
+    isoMode: 'Modo ISO', labels: 'Rótulos', snapGrid: 'Snap Grade', gridSize: 'Tamanho Grade',
+    show: 'Mostrar', active: 'Ativo',
+    f2hint: 'Pressione <strong>F2</strong> ou dê duplo clique em um elemento para editar o nome rapidamente.',
+    shortcuts: '<strong>R</strong> = Rotacionar · <strong>DEL</strong> = Remover<br><strong>Espaço</strong> = Mover tela · <strong>Ctrl+Z/Y</strong> = Desfazer/Refazer<br><strong>Ctrl+C/V/X</strong> = Copiar/Colar/Recortar',
+    // Canvas
+    areaBannerLabel: 'Área:',
+    spaceHint: '🖐 Segure ESPAÇO e arraste para mover a tela',
+    layoutOrientation: 'Orientação do Layout',
+    horizontal: '↔ Horizontal', vertical: '↕ Vertical',
+    orientationNote: 'A orientação é <strong style="color:var(--text-mid)">fixa</strong> — escolhida por você, sem rotação automática.',
+    // Context menu
+    ctxEdit: '✎ Editar', ctxDuplicate: '⊕ Duplicar', ctxRotate: '↻ Rotacionar 90°', ctxDelete: '✕ Remover',
+    // Edit modal
+    editTitle: 'Editar Elemento', labelName: 'NOME / RÓTULO', labelWave: 'ONDA / FLUXO',
+    labelType: 'TIPO', labelShape: 'FORMA', labelColor: 'COR PERSONALIZADA',
+    colorHint: 'Deixe cinza (#6B7280) para usar cor da onda',
+    labelWidth: 'Largura (células)', labelHeight: 'Altura (células)',
+    cancel: 'Cancelar', save: 'Salvar', close: 'Fechar', apply: 'Aplicar',
+    // Scope modal
+    scopeTitle: 'Aplicar Modo', scopeInfo: 'Escolha onde aplicar esta mudança de visualização. Itens não incluídos mantêm o modo atual.',
+    scopeAll: 'Aplicar em todos os elementos', scopeAllDesc: 'Todos os itens do layout adotam o novo modo visual.',
+    scopeSel: 'Apenas no elemento selecionado', scopeSelDesc: 'Só o item atualmente selecionado é afetado.',
+    scopeNone: 'Nenhum selecionado',
+    scopePreset: 'Conjuntos pré-definidos', scopePresetDesc: 'Aplicar por tipo de item ou por onda. Clique nos chips abaixo para adicionar.',
+    // Mode switcher
+    switchModeTitle: 'Alternar Modo', switchModeSubtitle: 'Escolha o contexto do seu projeto. As ferramentas e padrões visuais se ajustam automaticamente.',
+    // Wave modal
+    waveTitle: 'Configurar Onda', waveName: 'Nome da Onda', waveColor: 'Cor', waveDelete: 'Remover Onda',
+    // Setup modal
+    setupTitle: 'Configurar Área', setupInfo: 'Defina as propriedades da área de trabalho. Este é o espaço físico que será representado no layout.',
+    setupAreaName: 'Nome da Área', setupDesc: 'Descrição', setupWidth: 'Largura (metros)',
+    setupLength: 'Comprimento (metros)', setupDocks: 'Nº de Docas', setupPillars: 'Nº de Pilares',
+    setupPreview: 'Pré-visualização', setupConfirm: 'Confirmar Área',
+    // Element labels
+    el_pilar: 'Pilar', el_esteira: 'Esteira (Barenice)', el_impressora: 'Impressora',
+    el_climatizador: 'Climatizador', el_doca: 'Doca', el_corredor: 'Corredor',
+    el_pallet: 'Pallet', el_setor: 'Setor', el_pessoa: 'Pessoa',
+    el_mesa: 'Mesa', el_sala: 'Sala de Reunião', el_armario: 'Armário',
+    el_copa: 'Copa', el_recepcao: 'Recepção',
+    el_cama: 'Cama', el_sofa: 'Sofá', el_mesa_jantar: 'Mesa de Jantar',
+    el_geladeira: 'Geladeira', el_comodo: 'Cômodo', el_planta: 'Planta',
+    el_item: 'Item',
+    // Tool labels
+    tool_select: 'Selecionar', tool_esteira: 'Esteira', tool_climatiz: 'Climatiz.',
+    tool_sala: 'Sala', tool_newitem: 'Novo Item',
+    // Mode badge labels
+    mode_logistica: 'Logística', mode_escritorio: 'Escritório', mode_pessoal: 'Pessoal',
+    placeHint: 'Clique para colocar',
+    // Wave names
+    wave_default: 'Onda',
+    kofiMsg: 'Este aplicativo é gratuito e feito com muito cuidado. Se ele foi útil para você e quiser contribuir para que continue evoluindo, qualquer ajuda é muito bem-vinda. ☕',
+    kofiBtn: '♥ Contribuir no Ko-fi', kofiClose: 'Fechar',
+    // Add element modal
+    addElemTitle: 'Adicionar Elemento', addElemSubtitle: 'Configure o nome, cor e forma do novo elemento.',
+    addElemLabelLabel: 'NOME / RÓTULO',
+    addElemCount: (n, name) => n > 1 ? `Serão criados ${n} elementos com nomes sequenciais: "${name} 1", "${name} 2"… "${name} ${n}".` : `Será criado 1 elemento com o nome "${name}".`,
+    addElemConfirm: 'Adicionar',
+    // Bottom bar
+    hint_select: 'Clique para selecionar · Arraste para lasso-select · F2=Editar · DEL=Remover',
+    stat_elementos: 'elementos', stat_zoom: 'zoom',
+    stat_pilares: 'pilares', stat_esteiras: 'esteiras',
+    stat_mesas: 'mesas', stat_pessoas: 'pessoas', stat_comodos: 'cômodos',
+    clearConfirm: 'Limpar todos os elementos?',
+    importError: 'Erro ao importar JSON: ',
+    switchModeConfirm: 'Alternar modo vai limpar o layout atual. Continuar?',
+  },
+  en: {
+    eyebrow: 'Visual space planning',
+    titleBig: 'START <span class="slash">/</span> <span class="accent">BY CHOOSING A MODE</span>',
+    description: 'Draw and visualize any physical space — from a distribution center to an office or personal environment. Each mode adjusts tools, patterns and visual language to your context.',
+    sectionLabel: 'MODES <span style="color:#333;font-weight:100;margin:0 4px">/</span> <span style="color:#777">AVAILABLE</span>',
+    selectHelper: 'SELECT A MODE TO CONTINUE',
+    skip: 'Skip', start: 'Start',
+    m_logistica: 'Logistics', m_logistica_sub: 'DC · WAREHOUSE',
+    m_logistica_desc: 'Conveyors, docks, pillars, corridors and wave-based operational flows.',
+    m_escritorio: 'Office', m_escritorio_sub: 'CORPORATE',
+    m_escritorio_desc: 'Desks, meeting rooms, people, kitchen and common areas.',
+    m_pessoal: 'Personal', m_pessoal_sub: 'RESIDENTIAL',
+    m_pessoal_desc: 'Rooms, furniture, bed, kitchen and home décor.',
+    lightMode: 'Light Mode', darkMode: 'Dark Mode', support: 'Support',
+    importBtn: 'Import', saveBtn: 'Save PNG',
+    undo: 'Undo', redo: 'Redo',
+    areaBtn: 'Area', defaultBtn: 'Default Layout', clearBtn: 'Clear',
+    tools: 'Tools', waves: 'Waves / Flow', properties: 'Properties', visualization: 'Visualization',
+    vizMode: 'VISUALIZATION MODE',
+    chipSignal: 'Signal', chipBlock: 'Block', chipHeat: 'Heat',
+    waveHint: 'The switch asks whether to apply to all, selection or saved groups.',
+    addWave: '+ New Wave',
+    selectEl: 'Select an element',
+    isoMode: 'ISO Mode', labels: 'Labels', snapGrid: 'Snap Grid', gridSize: 'Grid Size',
+    show: 'Show', active: 'Active',
+    f2hint: 'Press <strong>F2</strong> or double-click an element to quickly edit its name.',
+    shortcuts: '<strong>R</strong> = Rotate · <strong>DEL</strong> = Remove<br><strong>Space</strong> = Pan view · <strong>Ctrl+Z/Y</strong> = Undo/Redo<br><strong>Ctrl+C/V/X</strong> = Copy/Paste/Cut',
+    areaBannerLabel: 'Area:',
+    spaceHint: '🖐 Hold SPACE and drag to pan the view',
+    layoutOrientation: 'Layout Orientation',
+    horizontal: '↔ Horizontal', vertical: '↕ Vertical',
+    orientationNote: 'Orientation is <strong style="color:var(--text-mid)">fixed</strong> — chosen by you, no auto-rotation.',
+    ctxEdit: '✎ Edit', ctxDuplicate: '⊕ Duplicate', ctxRotate: '↻ Rotate 90°', ctxDelete: '✕ Remove',
+    editTitle: 'Edit Element', labelName: 'NAME / LABEL', labelWave: 'WAVE / FLOW',
+    labelType: 'TYPE', labelShape: 'SHAPE', labelColor: 'CUSTOM COLOR',
+    colorHint: 'Leave grey (#6B7280) to use wave color',
+    labelWidth: 'Width (cells)', labelHeight: 'Height (cells)',
+    cancel: 'Cancel', save: 'Save', close: 'Close', apply: 'Apply',
+    scopeTitle: 'Apply Mode', scopeInfo: 'Choose where to apply this visualization change. Items not included keep the current mode.',
+    scopeAll: 'Apply to all elements', scopeAllDesc: 'All layout items adopt the new visual mode.',
+    scopeSel: 'Only on selected element', scopeSelDesc: 'Only the currently selected item is affected.',
+    scopeNone: 'None selected',
+    scopePreset: 'Predefined groups', scopePresetDesc: 'Apply by item type or wave. Click the chips below to add.',
+    switchModeTitle: 'Switch Mode', switchModeSubtitle: 'Choose your project context. Tools and visual patterns adjust automatically.',
+    waveTitle: 'Configure Wave', waveName: 'Wave Name', waveColor: 'Color', waveDelete: 'Remove Wave',
+    setupTitle: 'Configure Area', setupInfo: 'Define the workspace properties. This is the physical space that will be represented in the layout.',
+    setupAreaName: 'Area Name', setupDesc: 'Description', setupWidth: 'Width (meters)',
+    setupLength: 'Length (meters)', setupDocks: 'No. of Docks', setupPillars: 'No. of Pillars',
+    setupPreview: 'Preview', setupConfirm: 'Confirm Area',
+    // Element labels
+    el_pilar: 'Pillar', el_esteira: 'Conveyor (Barenice)', el_impressora: 'Printer',
+    el_climatizador: 'Air Unit', el_doca: 'Dock', el_corredor: 'Corridor',
+    el_pallet: 'Pallet', el_setor: 'Sector', el_pessoa: 'Person',
+    el_mesa: 'Desk', el_sala: 'Meeting Room', el_armario: 'Cabinet',
+    el_copa: 'Kitchen', el_recepcao: 'Reception',
+    el_cama: 'Bed', el_sofa: 'Sofa', el_mesa_jantar: 'Dining Table',
+    el_geladeira: 'Fridge', el_comodo: 'Room', el_planta: 'Plant',
+    el_item: 'Item',
+    tool_select: 'Select', tool_esteira: 'Conveyor', tool_climatiz: 'Air Unit',
+    tool_sala: 'Room', tool_newitem: 'New Item',
+    mode_logistica: 'Logistics', mode_escritorio: 'Office', mode_pessoal: 'Personal',
+    placeHint: 'Click to place',
+    wave_default: 'Wave',
+    kofiMsg: "This app is free and made with great care. If it was useful to you and you'd like to help it keep growing, any contribution is very welcome. ☕",
+    kofiBtn: '♥ Support on Ko-fi', kofiClose: 'Close',
+    addElemTitle: 'Add Element', addElemSubtitle: 'Configure the name, color and shape of the new element.',
+    addElemLabelLabel: 'NAME / LABEL',
+    addElemCount: (n, name) => n > 1 ? `${n} elements will be created with sequential names: "${name} 1", "${name} 2"… "${name} ${n}".` : `1 element will be created named "${name}".`,
+    addElemConfirm: 'Add',
+    hint_select: 'Click to select · Drag to lasso-select · F2=Edit · DEL=Remove',
+    stat_elementos: 'elements', stat_zoom: 'zoom',
+    stat_pilares: 'pillars', stat_esteiras: 'conveyors',
+    stat_mesas: 'desks', stat_pessoas: 'people', stat_comodos: 'rooms',
+    clearConfirm: 'Clear all elements?',
+    importError: 'Error importing JSON: ',
+    switchModeConfirm: 'Switching mode will clear the current layout. Continue?',
+  },
+  es: {
+    eyebrow: 'Planificación visual de espacios',
+    titleBig: 'COMIENZA <span class="slash">/</span> <span class="accent">ELIGIENDO UN MODO</span>',
+    description: 'Dibuja y visualiza cualquier espacio físico — desde un centro de distribución hasta una oficina o ambiente personal. Cada modo ajusta las herramientas, los patrones y el lenguaje visual a tu contexto.',
+    sectionLabel: 'MODOS <span style="color:#333;font-weight:100;margin:0 4px">/</span> <span style="color:#777">DISPONIBLES</span>',
+    selectHelper: 'SELECCIONA UN MODO PARA CONTINUAR',
+    skip: 'Saltar', start: 'Comenzar',
+    m_logistica: 'Logística', m_logistica_sub: 'CD · ALMACÉN',
+    m_logistica_desc: 'Cintas, muelles, pilares, pasillos y flujos operacionales por ola.',
+    m_escritorio: 'Oficina', m_escritorio_sub: 'CORPORATIVO',
+    m_escritorio_desc: 'Mesas, salas de reunión, personas, cocina y áreas comunes.',
+    m_pessoal: 'Personal', m_pessoal_sub: 'RESIDENCIAL',
+    m_pessoal_desc: 'Habitaciones, muebles, cama, cocina y decoración del hogar.',
+    lightMode: 'Modo Claro', darkMode: 'Modo Oscuro', support: 'Apoyar',
+    importBtn: 'Importar', saveBtn: 'Guardar PNG',
+    undo: 'Deshacer', redo: 'Rehacer',
+    areaBtn: 'Área', defaultBtn: 'Layout Predeterminado', clearBtn: 'Limpiar',
+    tools: 'Herramientas', waves: 'Olas / Flujo', properties: 'Propiedades', visualization: 'Visualización',
+    vizMode: 'MODO DE VISUALIZACIÓN',
+    chipSignal: 'Señal', chipBlock: 'Bloque', chipHeat: 'Calor',
+    waveHint: 'El cambio pregunta si se aplica a todo, a la selección o a conjuntos guardados.',
+    addWave: '+ Nueva Ola',
+    selectEl: 'Selecciona un elemento',
+    isoMode: 'Modo ISO', labels: 'Etiquetas', snapGrid: 'Snap Cuadrícula', gridSize: 'Tamaño Cuadrícula',
+    show: 'Mostrar', active: 'Activo',
+    f2hint: 'Presiona <strong>F2</strong> o haz doble clic en un elemento para editar su nombre rápidamente.',
+    shortcuts: '<strong>R</strong> = Rotar · <strong>DEL</strong> = Eliminar<br><strong>Espacio</strong> = Mover vista · <strong>Ctrl+Z/Y</strong> = Deshacer/Rehacer<br><strong>Ctrl+C/V/X</strong> = Copiar/Pegar/Cortar',
+    areaBannerLabel: 'Área:',
+    spaceHint: '🖐 Mantén ESPACIO y arrastra para mover la vista',
+    layoutOrientation: 'Orientación del Layout',
+    horizontal: '↔ Horizontal', vertical: '↕ Vertical',
+    orientationNote: 'La orientación es <strong style="color:var(--text-mid)">fija</strong> — elegida por ti, sin rotación automática.',
+    ctxEdit: '✎ Editar', ctxDuplicate: '⊕ Duplicar', ctxRotate: '↻ Rotar 90°', ctxDelete: '✕ Eliminar',
+    editTitle: 'Editar Elemento', labelName: 'NOMBRE / ETIQUETA', labelWave: 'OLA / FLUJO',
+    labelType: 'TIPO', labelShape: 'FORMA', labelColor: 'COLOR PERSONALIZADO',
+    colorHint: 'Deja gris (#6B7280) para usar el color de la ola',
+    labelWidth: 'Ancho (celdas)', labelHeight: 'Alto (celdas)',
+    cancel: 'Cancelar', save: 'Guardar', close: 'Cerrar', apply: 'Aplicar',
+    scopeTitle: 'Aplicar Modo', scopeInfo: 'Elige dónde aplicar este cambio de visualización. Los elementos no incluidos mantienen el modo actual.',
+    scopeAll: 'Aplicar a todos los elementos', scopeAllDesc: 'Todos los elementos del layout adoptan el nuevo modo visual.',
+    scopeSel: 'Solo en el elemento seleccionado', scopeSelDesc: 'Solo el elemento actualmente seleccionado se ve afectado.',
+    scopeNone: 'Ninguno seleccionado',
+    scopePreset: 'Conjuntos predefinidos', scopePresetDesc: 'Aplicar por tipo de elemento u ola. Haz clic en los chips para agregar.',
+    switchModeTitle: 'Cambiar Modo', switchModeSubtitle: 'Elige el contexto de tu proyecto. Las herramientas y patrones visuales se ajustan automáticamente.',
+    waveTitle: 'Configurar Ola', waveName: 'Nombre de la Ola', waveColor: 'Color', waveDelete: 'Eliminar Ola',
+    setupTitle: 'Configurar Área', setupInfo: 'Define las propiedades del área de trabajo. Este es el espacio físico que se representará en el layout.',
+    setupAreaName: 'Nombre del Área', setupDesc: 'Descripción', setupWidth: 'Ancho (metros)',
+    setupLength: 'Largo (metros)', setupDocks: 'Nº de Muelles', setupPillars: 'Nº de Pilares',
+    setupPreview: 'Previsualización', setupConfirm: 'Confirmar Área',
+    // Element labels
+    el_pilar: 'Pilar', el_esteira: 'Cinta (Barenice)', el_impressora: 'Impresora',
+    el_climatizador: 'Climatizador', el_doca: 'Muelle', el_corredor: 'Pasillo',
+    el_pallet: 'Pallet', el_setor: 'Sector', el_pessoa: 'Persona',
+    el_mesa: 'Mesa', el_sala: 'Sala de Reunión', el_armario: 'Armario',
+    el_copa: 'Cocina', el_recepcao: 'Recepción',
+    el_cama: 'Cama', el_sofa: 'Sofá', el_mesa_jantar: 'Mesa de Comedor',
+    el_geladeira: 'Nevera', el_comodo: 'Habitación', el_planta: 'Planta',
+    el_item: 'Elemento',
+    tool_select: 'Seleccionar', tool_esteira: 'Cinta', tool_climatiz: 'Climatiz.',
+    tool_sala: 'Sala', tool_newitem: 'Nuevo Elemento',
+    mode_logistica: 'Logística', mode_escritorio: 'Oficina', mode_pessoal: 'Personal',
+    placeHint: 'Clic para colocar',
+    wave_default: 'Ola',
+    kofiMsg: 'Esta aplicación es gratuita y está hecha con mucho cuidado. Si te fue útil y quieres contribuir para que siga creciendo, cualquier ayuda es muy bienvenida. ☕',
+    kofiBtn: '♥ Apoyar en Ko-fi', kofiClose: 'Cerrar',
+    addElemTitle: 'Agregar Elemento', addElemSubtitle: 'Configure el nombre, color y forma del nuevo elemento.',
+    addElemLabelLabel: 'NOMBRE / ETIQUETA',
+    addElemCount: (n, name) => n > 1 ? `Se crearán ${n} elementos con nombres secuenciales: "${name} 1", "${name} 2"… "${name} ${n}".` : `Se creará 1 elemento con el nombre "${name}".`,
+    addElemConfirm: 'Agregar',
+    hint_select: 'Clic para seleccionar · Arrastra para lasso-select · F2=Editar · DEL=Eliminar',
+    stat_elementos: 'elementos', stat_zoom: 'zoom',
+    stat_pilares: 'pilares', stat_esteiras: 'cintas',
+    stat_mesas: 'mesas', stat_pessoas: 'personas', stat_comodos: 'habitaciones',
+    clearConfirm: '¿Limpiar todos los elementos?',
+    importError: 'Error al importar JSON: ',
+    switchModeConfirm: 'Cambiar de modo borrará el layout actual. ¿Continuar?',
+  },
+};
+
+function T(key) {
+  return (TRANSLATIONS[currentLang] || TRANSLATIONS['pt'])[key] || key;
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  // Update old inline lang buttons if present
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  applyLanguageToUI();
+}
+
+// Called when user clicks a language card in the new lang step
+function pickLanguage(lang) {
+  currentLang = lang;
+  // Update card selection state
+  document.querySelectorAll('#langStep .mode-card').forEach(c => {
+    c.classList.toggle('selected', c.dataset.lang === lang);
+  });
+  // Update CTA label and helper text live
+  const labels = {
+    pt: { cta: 'Continuar', helper: 'ESCOLHA SEU IDIOMA PARA CONTINUAR' },
+    en: { cta: 'Continue',  helper: 'CHOOSE YOUR LANGUAGE TO CONTINUE' },
+    es: { cta: 'Continuar', helper: 'ELIGE TU IDIOMA PARA CONTINUAR' },
+  };
+  const l = labels[lang] || labels.pt;
+  document.getElementById('langCtaLabel').textContent = l.cta;
+  document.getElementById('langHelperText').textContent = l.helper;
+  applyLanguageToUI();
+}
+
+// Advance from language step to mode step
+function confirmLanguage() {
+  document.getElementById('langStep').style.display = 'none';
+  const modeStep = document.getElementById('modeStep');
+  modeStep.style.display = 'block';
+  modeStep.style.animation = 'welcomeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both';
+  applyLanguageToUI();
+}
+
+function applyLanguageToUI() {
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+
+  // ── Generic data-i18n engine ──────────────────────────────
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined && typeof t[key] === 'string') {
+      el.innerHTML = t[key];
+    }
+  });
+
+  // ── Welcome modeStep dynamic content ──────────────────────
+  const eyebrow = document.querySelector('#modeStep .welcome-eyebrow');
+  if (eyebrow) eyebrow.textContent = t.eyebrow;
+  const titleBig = document.querySelector('#modeStep .welcome-title-big');
+  if (titleBig) titleBig.innerHTML = t.titleBig;
+  const desc = document.querySelector('#modeStep .welcome-description');
+  if (desc) desc.textContent = t.description;
+  const sectionLabel = document.querySelector('#modeStep .welcome-section-label');
+  if (sectionLabel) sectionLabel.innerHTML = t.sectionLabel;
+
+  // ── Mode cards (modeStep + modeSwitcher) ──────────────────
+  const modes = ['logistica','escritorio','pessoal'];
+  ['#modeStep', '#modeSwitcherOverlay'].forEach(scope => {
+    document.querySelectorAll(scope + ' .mode-card[data-mode]').forEach((card, i) => {
+      const m = modes[i];
+      if (!m) return;
+      const titleEl = card.querySelector('.mode-card-title');
+      const subEl = card.querySelector('.mode-card-subtitle');
+      const descEl = card.querySelector('.mode-card-desc');
+      if (titleEl) titleEl.textContent = t['m_' + m] || titleEl.textContent;
+      if (subEl) subEl.textContent = t['m_' + m + '_sub'] || subEl.textContent;
+      if (descEl) descEl.textContent = t['m_' + m + '_desc'] || descEl.textContent;
+    });
+  });
+
+  // ── Mode step helper / buttons ────────────────────────────
+  const modeHelper = document.getElementById('modeHelperText');
+  if (modeHelper) modeHelper.textContent = t.selectHelper;
+  const modeSkip = document.getElementById('modeSkipBtn');
+  if (modeSkip) modeSkip.textContent = t.skip;
+  const modeCta = document.getElementById('modeCtaLabel');
+  if (modeCta) modeCta.textContent = t.start;
+
+  // ── Ko-fi popup (innerHTML to preserve link span) ─────────
+  const kofiBtn = document.querySelector('.kofi-btn-main span');
+  if (kofiBtn) kofiBtn.textContent = t.kofiBtn;
+
+  // ── Refresh dynamic UI that uses translated labels ─────────
+  renderToolGrid();
+  populateTypeDropdown();
+  updateModeBadge();
+  updateStats();
+}
+
+// ============================================================
+//  KO-FI POPUP
+// ============================================================
+function openKofiPopup() {
+  document.getElementById('kofiPopupOverlay').classList.add('visible');
+}
+function closeKofiPopup(e) {
+  if (e === null || e.target === document.getElementById('kofiPopupOverlay')) {
+    document.getElementById('kofiPopupOverlay').classList.remove('visible');
+  }
+}
+
+let areaConfig = {
+  name: 'Área de Volumosos',
+  desc: '',
+  widthM: 60,
+  lengthM: 40,
+  docas: 10,
+  pilares: 12
+};
+
+// Wave definitions
+let waves = [
+  { id: 1, name: 'Onda 1', color: '#F43F5E' },
+  { id: 2, name: 'Onda 2', color: '#F59E0B' },
+  { id: 3, name: 'Onda 3', color: '#8B5CF6' },
+  { id: 4, name: 'Onda 4', color: '#3B82F6' },
+  { id: 5, name: 'Onda 5', color: '#10B981' },
+];
+let nextWaveId = 6;
+
+// Element configs (w/h in grid cells) — all types used across all modes
+const ELEM_CONFIGS = {
+  // Logística
+  pilar:        { w: 2, h: 2, color: '#3f3f46', labelKey: 'el_pilar', icon: '⬛', shape: 'rect' },
+  esteira:      { w: 8, h: 2, color: '#3B82F6', labelKey: 'el_esteira', icon: '▬', shape: 'rect' },
+  impressora:   { w: 2, h: 2, color: '#90CAF9', labelKey: 'el_impressora', icon: '▣', shape: 'rect' },
+  climatizador: { w: 2, h: 2, color: '#6EE7B7', labelKey: 'el_climatizador', icon: '◈', shape: 'rect' },
+  doca:         { w: 3, h: 4, color: '#6B7280', labelKey: 'el_doca', icon: '▷', shape: 'rect' },
+  corredor:     { w: 14, h: 2, color: '#374151', labelKey: 'el_corredor', icon: '↔', shape: 'rect' },
+  pallet:       { w: 2, h: 2, color: '#10B981', labelKey: 'el_pallet', icon: '⊞', shape: 'square' },
+  setor:        { w: 8, h: 5, color: '#374151', labelKey: 'el_setor', icon: '▦', shape: 'rect' },
+  // Cross-mode
+  pessoas:      { w: 2, h: 2, color: '#F59E0B', labelKey: 'el_pessoa', icon: '👤', shape: 'circle' },
+  // Escritório
+  mesa:         { w: 4, h: 2, color: '#8B5CF6', labelKey: 'el_mesa', icon: '▭', shape: 'rect' },
+  sala_reuniao: { w: 6, h: 5, color: '#6366F1', labelKey: 'el_sala', icon: '◱', shape: 'rect' },
+  armario:      { w: 2, h: 1, color: '#78716C', labelKey: 'el_armario', icon: '▤', shape: 'rect' },
+  copa:         { w: 5, h: 4, color: '#F97316', labelKey: 'el_copa', icon: '☕', shape: 'rect' },
+  recepcao:     { w: 5, h: 3, color: '#EC4899', labelKey: 'el_recepcao', icon: '✦', shape: 'rect' },
+  // Pessoal
+  cama:         { w: 4, h: 5, color: '#EC4899', labelKey: 'el_cama', icon: '▭', shape: 'rect' },
+  sofa:         { w: 5, h: 2, color: '#8B5CF6', labelKey: 'el_sofa', icon: '═', shape: 'rect' },
+  mesa_jantar:  { w: 4, h: 3, color: '#F59E0B', labelKey: 'el_mesa_jantar', icon: '▭', shape: 'rect' },
+  geladeira:    { w: 2, h: 2, color: '#06B6D4', labelKey: 'el_geladeira', icon: '▮', shape: 'rect' },
+  comodo:       { w: 10, h: 8, color: '#475569', labelKey: 'el_comodo', icon: '▦', shape: 'rect' },
+  planta:       { w: 2, h: 2, color: '#10B981', labelKey: 'el_planta', icon: '🌿', shape: 'circle' },
+  // Custom
+  custom:       { w: 3, h: 2, color: '#6B7280', labelKey: 'el_item', icon: '+', shape: 'rect' },
+};
+
+// Helper: get translated label for an element config
+function cfgLabel(type) {
+  const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  return t[cfg.labelKey] || cfg.labelKey;
+}
+
+// Mode → available tools configuration
+const MODE_TOOLS = {
+  logistica: {
+    labelKey: 'mode_logistica', icon: '🏭',
+    tools: [
+      { id: 'select', icon: '↖', labelKey: 'tool_select' },
+      { id: 'pilar', icon: '⬛', labelKey: 'el_pilar' },
+      { id: 'esteira', icon: '▬', labelKey: 'tool_esteira' },
+      { id: 'impressora', icon: '▣', labelKey: 'el_impressora' },
+      { id: 'climatizador', icon: '◈', labelKey: 'tool_climatiz' },
+      { id: 'doca', icon: '▷', labelKey: 'el_doca' },
+      { id: 'corredor', icon: '↔', labelKey: 'el_corredor' },
+      { id: 'pallet', icon: '⊞', labelKey: 'el_pallet' },
+      { id: 'setor', icon: '▦', labelKey: 'el_setor' },
+      { id: 'pessoas', icon: '👤', labelKey: 'el_pessoa' },
+      { id: 'custom', icon: '+', labelKey: 'tool_newitem', special: true },
+    ],
+  },
+  escritorio: {
+    labelKey: 'mode_escritorio', icon: '🏢',
+    tools: [
+      { id: 'select', icon: '↖', labelKey: 'tool_select' },
+      { id: 'mesa', icon: '▭', labelKey: 'el_mesa' },
+      { id: 'sala_reuniao', icon: '◱', labelKey: 'tool_sala' },
+      { id: 'pessoas', icon: '👤', labelKey: 'el_pessoa' },
+      { id: 'copa', icon: '☕', labelKey: 'el_copa' },
+      { id: 'recepcao', icon: '✦', labelKey: 'el_recepcao' },
+      { id: 'armario', icon: '▤', labelKey: 'el_armario' },
+      { id: 'impressora', icon: '▣', labelKey: 'el_impressora' },
+      { id: 'corredor', icon: '↔', labelKey: 'el_corredor' },
+      { id: 'pilar', icon: '⬛', labelKey: 'el_pilar' },
+      { id: 'custom', icon: '+', labelKey: 'tool_newitem', special: true },
+    ],
+  },
+  pessoal: {
+    labelKey: 'mode_pessoal', icon: '🏠',
+    tools: [
+      { id: 'select', icon: '↖', labelKey: 'tool_select' },
+      { id: 'comodo', icon: '▦', labelKey: 'el_comodo' },
+      { id: 'cama', icon: '▭', labelKey: 'el_cama' },
+      { id: 'sofa', icon: '═', labelKey: 'el_sofa' },
+      { id: 'mesa_jantar', icon: '▭', labelKey: 'el_mesa' },
+      { id: 'geladeira', icon: '▮', labelKey: 'el_geladeira' },
+      { id: 'pessoas', icon: '👤', labelKey: 'el_pessoa' },
+      { id: 'planta', icon: '🌿', labelKey: 'el_planta' },
+      { id: 'armario', icon: '▤', labelKey: 'el_armario' },
+      { id: 'custom', icon: '+', labelKey: 'tool_newitem', special: true },
+    ],
+  },
+};
+
+// ============================================================
+//  INIT
+// ============================================================
+function init() {
+  renderWaveList();
+  renderToolGrid();
+  populateTypeDropdown();
+  updateAreaBanner();
+  updateModeBadge();
+  resizeCanvas();
+  saveHistory();
+  applyLanguageToUI();
+  showSplashThenWelcome();
+}
+
+// ========== SPLASH ==========
+const SPLASH_GREETINGS = [
+  'BEM-VINDO',
+  'WELCOME',
+  'BIENVENIDO',
+  'BIENVENUE',
+  'WILLKOMMEN',
+  'VILLARES'
+];
+
+function showSplashThenWelcome() {
+  const splash = document.getElementById('splashOverlay');
+  splash.classList.add('visible');
+
+  // Cycle greetings
+  const greetingEl = document.getElementById('splashGreeting');
+  let idx = 0;
+  greetingEl.textContent = SPLASH_GREETINGS[0];
+  const greetingTimer = setInterval(() => {
+    idx = (idx + 1) % SPLASH_GREETINGS.length;
+    greetingEl.style.opacity = '0';
+    setTimeout(() => {
+      greetingEl.textContent = SPLASH_GREETINGS[idx];
+      greetingEl.style.opacity = '1';
+    }, 300);
+  }, 700);
+
+  // Total splash duration: ~3.2s for 4-5 greetings
+  setTimeout(() => {
+    clearInterval(greetingTimer);
+    splash.classList.add('fading');
+    showWelcome();
+    setTimeout(() => {
+      splash.classList.remove('visible');
+      splash.classList.remove('fading');
+    }, 700);
+  }, 3200);
+}
+
+function showWelcome() {
+  document.getElementById('welcomeOverlay').classList.add('visible');
+}
+
+function selectWelcomeMode(mode) {
+  welcomeSelectedMode = mode;
+  document.querySelectorAll('#modeStep .mode-card').forEach(c => {
+    c.classList.toggle('selected', c.dataset.mode === mode);
+  });
+}
+
+function startFromWelcome() {
+  appMode = welcomeSelectedMode;
+  closeWelcome(false);
+  renderToolGrid();
+  populateTypeDropdown();
+  updateModeBadge();
+  // Then open setup modal
+  openSetupModal();
+}
+
+function closeWelcome(skipSetup) {
+  document.getElementById('welcomeOverlay').classList.remove('visible');
+  if (skipSetup) {
+    // User pulou — still render with current state but allow them to work
+    renderToolGrid();
+    populateTypeDropdown();
+    updateModeBadge();
+  }
+}
+
+// ============================================================
+//  MODE SWITCHER
+// ============================================================
+function openModeSwitcher() {
+  document.querySelectorAll('#modeSwitcherOverlay .mode-card').forEach(c => {
+    c.classList.toggle('selected', c.dataset.mode === appMode);
+  });
+  document.getElementById('modeSwitcherOverlay').style.display = 'flex';
+}
+
+function closeModeSwitcher() {
+  document.getElementById('modeSwitcherOverlay').style.display = 'none';
+}
+
+function switchMode(mode) {
+  appMode = mode;
+  setTool('select');
+  renderToolGrid();
+  populateTypeDropdown();
+  updateModeBadge();
+  closeModeSwitcher();
+}
+
+function updateModeBadge() {
+  const cfg = MODE_TOOLS[appMode];
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  document.getElementById('modeBadgeLabel').textContent = t[cfg.labelKey] || cfg.labelKey;
+  updateStats();
+}
+
+// ============================================================
+//  TOOL GRID (dynamic per mode)
+// ============================================================
+function renderToolGrid() {
+  const grid = document.getElementById('toolGrid');
+  const cfg = MODE_TOOLS[appMode];
+  grid.innerHTML = '';
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  cfg.tools.forEach(tool => {
+    const btn = document.createElement('div');
+    btn.className = 'tool-btn' + (currentTool === tool.id ? ' active' : '');
+    btn.id = 'tool-' + tool.id;
+    const lbl = t[tool.labelKey] || tool.labelKey;
+    btn.innerHTML = `<span class="icon">${tool.icon}</span>${lbl}`;
+    btn.onclick = tool.special ? addCustomItem : () => setTool(tool.id);
+    grid.appendChild(btn);
+  });
+}
+
+function populateTypeDropdown() {
+  const sel = document.getElementById('editType');
+  const cfg = MODE_TOOLS[appMode];
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  sel.innerHTML = '';
+  cfg.tools.filter(tool => tool.id !== 'select').forEach(tool => {
+    const opt = document.createElement('option');
+    opt.value = tool.id;
+    opt.textContent = t[(ELEM_CONFIGS[tool.id] || ELEM_CONFIGS.custom).labelKey] || tool.id;
+    sel.appendChild(opt);
+  });
+  const sep = document.createElement('option');
+  sep.disabled = true;
+  sep.textContent = '─────────';
+  sel.appendChild(sep);
+  const allIds = Object.keys(ELEM_CONFIGS);
+  const modeIds = new Set(cfg.tools.map(tool => tool.id));
+  allIds.filter(id => !modeIds.has(id) && id !== 'select').forEach(id => {
+    const opt = document.createElement('option');
+    opt.value = id;
+    opt.textContent = t[(ELEM_CONFIGS[id] || ELEM_CONFIGS.custom).labelKey] || id;
+    sel.appendChild(opt);
+  });
+}
+
+function resizeCanvas() {
+  canvas.width = area.clientWidth;
+  canvas.height = area.clientHeight;
+  render();
+}
+window.addEventListener('resize', resizeCanvas);
+
+// ============================================================
+//  WAVE MANAGEMENT
+// ============================================================
+function getWaveColor(waveId) {
+  const w = waves.find(w => w.id === waveId);
+  return w ? w.color : '#555';
+}
+function getWaveName(waveId) {
+  const w = waves.find(w => w.id === waveId);
+  return w ? w.name : '—';
+}
+
+function renderWaveList() {
+  const list = document.getElementById('waveList');
+  list.innerHTML = '';
+  waves.forEach(w => {
+    const row = document.createElement('div');
+    row.className = 'wave-row' + (w.id === currentWave ? ' active' : '');
+    row.onclick = () => setWave(w.id);
+    row.innerHTML = `
+      <div class="wave-color" style="background:${w.color}"></div>
+      <span class="wave-label">${w.name}</span>
+      <button class="wave-edit-btn" onclick="event.stopPropagation();openWaveModal(${w.id})">✎</button>
+    `;
+    list.appendChild(row);
+  });
+  // Also update wave select in edit modal
+  updateWaveSelect();
+}
+
+function setWave(id) {
+  currentWave = id;
+  renderWaveList();
+  if (selected && selected.type !== 'pilar') {
+    selected.wave = id;
+    updatePropPanel();
+    render();
+  }
+}
+
+function addWave() {
+  const colors = ['#F43F5E','#F59E0B','#8B5CF6','#3B82F6','#10B981','#EC4899','#F97316','#06B6D4'];
+  const col = colors[waves.length % colors.length];
+  waves.push({ id: nextWaveId, name: 'Onda ' + nextWaveId, color: col });
+  nextWaveId++;
+  renderWaveList();
+}
+
+function openWaveModal(id) {
+  editingWaveId = id;
+  const w = waves.find(w => w.id === id);
+  if (!w) return;
+  document.getElementById('waveEditName').value = w.name;
+  document.getElementById('waveEditColor').value = w.color;
+  document.getElementById('waveDeleteBtn').style.display = waves.length > 1 ? 'block' : 'none';
+  document.getElementById('waveModalOverlay').style.display = 'flex';
+}
+
+function closeWaveModal() {
+  document.getElementById('waveModalOverlay').style.display = 'none';
+  editingWaveId = null;
+}
+
+function saveWaveEdit() {
+  const w = waves.find(w => w.id === editingWaveId);
+  if (!w) return;
+  w.name = document.getElementById('waveEditName').value || w.name;
+  w.color = document.getElementById('waveEditColor').value;
+  closeWaveModal();
+  renderWaveList();
+  render();
+}
+
+function deleteEditingWave() {
+  if (waves.length <= 1) return;
+  waves = waves.filter(w => w.id !== editingWaveId);
+  // Reassign elements from deleted wave to first remaining
+  elements.forEach(e => {
+    if (e.wave === editingWaveId) e.wave = waves[0].id;
+  });
+  if (currentWave === editingWaveId) currentWave = waves[0].id;
+  closeWaveModal();
+  renderWaveList();
+  render();
+}
+
+function updateWaveSelect() {
+  const sel = document.getElementById('editWave');
+  if (!sel) return;
+  const cur = sel.value;
+  sel.innerHTML = '<option value="0">— Sem onda —</option>';
+  waves.forEach(w => {
+    const opt = document.createElement('option');
+    opt.value = w.id;
+    opt.textContent = w.name;
+    sel.appendChild(opt);
+  });
+  sel.value = cur || 0;
+}
+
+// ============================================================
+//  WAVE MODE + APPLY SCOPE
+// ============================================================
+// Each element stores its own `waveMode` property. Global `waveMode` serves
+// as the default for NEW elements placed later.
+
+function requestWaveMode(mode) {
+  // User clicked Sinal/Bloco/Calor chip — ask where to apply
+  pendingWaveMode = mode;
+  scopeSelection = 'all';
+  selectedPresets = [];
+
+  // Update counts
+  document.getElementById('scopeCountAll').textContent = `${elements.length} elemento${elements.length !== 1 ? 's' : ''}`;
+  document.getElementById('scopeCountSel').textContent = selected
+    ? `Selecionado: ${selected.label || cfgLabel(selected.type)}`
+    : 'Nenhum selecionado';
+  document.getElementById('scopeModeLabel').textContent = '"' + mode.charAt(0).toUpperCase() + mode.slice(1) + '"';
+
+  // Default selection states
+  document.querySelectorAll('.scope-option').forEach(o => {
+    o.classList.toggle('selected', o.dataset.scope === 'all');
+  });
+
+  // Build preset chips
+  renderPresetChips();
+
+  document.getElementById('scopeModalOverlay').style.display = 'flex';
+}
+
+function renderPresetChips() {
+  const list = document.getElementById('scopePresetList');
+  list.innerHTML = '';
+  // Types present in the layout
+  const typesInUse = [...new Set(elements.map(e => e.type))];
+  typesInUse.forEach(type => {
+    const count = elements.filter(e => e.type === type).length;
+    const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+    const chip = document.createElement('button');
+    chip.className = 'scope-preset-chip';
+    const key = 'type:' + type;
+    if (selectedPresets.includes(key)) chip.classList.add('selected');
+    chip.textContent = `${cfgLabel(type)} (${count})`;
+    chip.onclick = () => togglePreset(key);
+    list.appendChild(chip);
+  });
+  // Waves with elements attached
+  const wavesInUse = [...new Set(elements.map(e => e.wave).filter(w => w > 0))];
+  wavesInUse.forEach(wid => {
+    const w = waves.find(w => w.id === wid);
+    if (!w) return;
+    const count = elements.filter(e => e.wave === wid).length;
+    const chip = document.createElement('button');
+    chip.className = 'scope-preset-chip';
+    const key = 'wave:' + wid;
+    if (selectedPresets.includes(key)) chip.classList.add('selected');
+    chip.textContent = `${w.name} (${count})`;
+    chip.style.borderLeft = `3px solid ${w.color}`;
+    chip.onclick = () => togglePreset(key);
+    list.appendChild(chip);
+  });
+  if (list.children.length === 0) {
+    list.innerHTML = '<span style="font-size:10px;color:var(--text-dim)">Nenhum conjunto disponível</span>';
+  }
+}
+
+function togglePreset(key) {
+  const idx = selectedPresets.indexOf(key);
+  if (idx >= 0) selectedPresets.splice(idx, 1);
+  else selectedPresets.push(key);
+  // Switch scope to preset when user clicks chip
+  selectScope('preset');
+  renderPresetChips();
+}
+
+function selectScope(scope) {
+  scopeSelection = scope;
+  document.querySelectorAll('.scope-option').forEach(o => {
+    o.classList.toggle('selected', o.dataset.scope === scope);
+  });
+}
+
+function applyScope() {
+  if (!pendingWaveMode) return;
+  const mode = pendingWaveMode;
+  let affected = [];
+  if (scopeSelection === 'all') {
+    affected = elements;
+    // Also update global default
+    waveMode = mode;
+  } else if (scopeSelection === 'selection') {
+    if (selected) affected = [selected];
+  } else if (scopeSelection === 'preset') {
+    affected = elements.filter(e => {
+      return selectedPresets.some(k => {
+        const [kind, val] = k.split(':');
+        if (kind === 'type') return e.type === val;
+        if (kind === 'wave') return e.wave === parseInt(val);
+        return false;
+      });
+    });
+  }
+  affected.forEach(e => { e.waveMode = mode; });
+
+  // Update UI
+  document.querySelectorAll('.wave-mode-row .mode-chip').forEach(c => c.classList.remove('active'));
+  const chip = document.getElementById('mode-' + mode);
+  if (chip) chip.classList.add('active');
+
+  closeScopeModal();
+  saveHistory();
+  render();
+}
+
+function closeScopeModal() {
+  document.getElementById('scopeModalOverlay').style.display = 'none';
+  pendingWaveMode = null;
+}
+
+// Backwards compat — still used by older code paths
+function setWaveMode(mode) {
+  waveMode = mode;
+  elements.forEach(e => { e.waveMode = mode; });
+  document.querySelectorAll('.wave-mode-row .mode-chip').forEach(c => c.classList.remove('active'));
+  const chip = document.getElementById('mode-' + mode);
+  if (chip) chip.classList.add('active');
+  render();
+}
+
+// ============================================================
+//  TOOLS
+// ============================================================
+function setTool(toolId) {
+  currentTool = toolId;
+  document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('tool-' + toolId);
+  if (el) el.classList.add('active');
+  document.getElementById('modeText').textContent = toolId.toUpperCase();
+  const tObj = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  const cfg = ELEM_CONFIGS[toolId];
+  const hint = toolId === 'select'
+    ? tObj.hint_select
+    : cfg ? `${tObj.placeHint || 'Clique para colocar'} ${cfgLabel(toolId).toLowerCase()}` : '';
+  document.getElementById('hintText').textContent = hint;
+}
+
+function selectShape(shape) {
+  currentEditShape = shape;
+  document.querySelectorAll('.shape-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.shape === shape);
+  });
+}
+
+function addCustomItem() {
+  openAddElemModal('custom', snapToGrid(200 / scale), snapToGrid(200 / scale));
+}
+
+// ============================================================
+//  COORDINATE TRANSFORMS
+// ============================================================
+// Orientation transforms the world: 'horizontal' = identity, 'vertical' = swap X/Y so layout appears rotated 90°
+function orientWorld(x, y) {
+  if (currentOrientation === 'vertical') {
+    return { x: y, y: x };
+  }
+  return { x, y };
+}
+function unorientWorld(x, y) {
+  if (currentOrientation === 'vertical') {
+    return { x: y, y: x };
+  }
+  return { x, y };
+}
+
+function screenToWorld(sx, sy) {
+  // Screen → world-with-orientation-applied → underlying world
+  const ox = (sx - viewX) / scale;
+  const oy = (sy - viewY) / scale;
+  return unorientWorld(ox, oy);
+}
+function worldToScreen(wx, wy) {
+  // Underlying world → oriented world → screen
+  const o = orientWorld(wx, wy);
+  return { x: o.x * scale + viewX, y: o.y * scale + viewY };
+}
+function snapToGrid(v) {
+  return document.getElementById('gridSnap').checked
+    ? Math.round(v / gridSize) * gridSize
+    : v;
+}
+
+// ============================================================
+//  ELEMENT AT POINT
+// ============================================================
+function getElementAt(wx, wy) {
+  // Reverse order so top elements get hit first
+  for (let i = elements.length - 1; i >= 0; i--) {
+    const e = elements[i];
+    const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+    const ew = (e.customW || cfg.w) * gridSize;
+    const eh = (e.customH || cfg.h) * gridSize;
+    const ex = e.rotated ? e.x - eh : e.x;
+    const ey = e.rotated ? e.y : e.y;
+    const rw = e.rotated ? eh : ew;
+    const rh = e.rotated ? ew : eh;
+    if (wx >= ex && wx <= ex + rw && wy >= ey && wy <= ey + rh) return e;
+  }
+  return null;
+}
+
+// Resize handle hit test (returns handle name or null)
+const HANDLE_SIZE = 8;
+function getResizeHandle(e, wx, wy) {
+  if (!e) return null;
+  const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+  const ew = (e.customW || cfg.w) * gridSize;
+  const eh = (e.customH || cfg.h) * gridSize;
+  const corners = [
+    { name: 'se', x: e.x + ew, y: e.y + eh },
+    { name: 'sw', x: e.x, y: e.y + eh },
+    { name: 'ne', x: e.x + ew, y: e.y },
+    { name: 'nw', x: e.x, y: e.y },
+    { name: 'e', x: e.x + ew, y: e.y + eh / 2 },
+    { name: 'w', x: e.x, y: e.y + eh / 2 },
+    { name: 's', x: e.x + ew / 2, y: e.y + eh },
+    { name: 'n', x: e.x + ew / 2, y: e.y },
+  ];
+  const hs = HANDLE_SIZE / scale;
+  for (const c of corners) {
+    if (Math.abs(wx - c.x) < hs && Math.abs(wy - c.y) < hs) return c.name;
+  }
+  return null;
+}
+
+// ============================================================
+//  MOUSE EVENTS
+// ============================================================
+let mouseDownEl = null;
+let mouseDownWorld = null;
+let mouseMoved = false;
+
+area.addEventListener('mousedown', e => {
+  if (e.button === 1 || (e.button === 0 && e.altKey) || (e.button === 0 && spaceDown)) {
+    mousePan = true;
+    panStart = { x: e.clientX - viewX, y: e.clientY - viewY };
+    area.classList.add('panning');
+    return;
+  }
+  if (e.button === 2) return;
+
+  const rect = area.getBoundingClientRect();
+  const sx = e.clientX - rect.left;
+  const sy = e.clientY - rect.top;
+  const w = screenToWorld(sx, sy);
+  mouseDownWorld = w;
+  mouseMoved = false;
+
+  if (currentTool === 'select') {
+    // Check resize handles on selected element
+    if (selected) {
+      const handle = getResizeHandle(selected, w.x, w.y);
+      if (handle) {
+        resizeHandle = {
+          el: selected,
+          corner: handle,
+          startMouse: { ...w },
+          startEl: {
+            x: selected.x, y: selected.y,
+            w: (selected.customW || (ELEM_CONFIGS[selected.type]||ELEM_CONFIGS.custom).w),
+            h: (selected.customH || (ELEM_CONFIGS[selected.type]||ELEM_CONFIGS.custom).h)
+          }
+        };
+        return;
+      }
+    }
+    const el = getElementAt(w.x, w.y);
+    if (el) {
+      // If Shift held, add to multiSelected
+      if (e.shiftKey) {
+        if (multiSelected.includes(el)) {
+          multiSelected = multiSelected.filter(x => x !== el);
+        } else {
+          multiSelected.push(el);
+        }
+        selected = el;
+        updatePropPanel();
+        render();
+        return;
+      }
+      // Clear multi if not shift
+      if (!multiSelected.includes(el)) multiSelected = [];
+      selected = el;
+      mouseDownEl = el;
+      elementDragStart = { ex: el.x, ey: el.y, mx: w.x, my: w.y };
+      // Store offsets for multi-drag
+      if (multiSelected.length > 1) {
+        multiSelected.forEach(me => {
+          me._dragStartX = me.x;
+          me._dragStartY = me.y;
+        });
+      }
+      updatePropPanel();
+      render();
+    } else {
+      // Start lasso
+      multiSelected = [];
+      selected = null;
+      isLassoActive = true;
+      lassoStart = { sx, sy, wx: w.x, wy: w.y };
+      lassoEnd = { sx, sy, wx: w.x, wy: w.y };
+      updatePropPanel();
+      render();
+    }
+  } else {
+    // Place element
+    const gx = snapToGrid(w.x);
+    const gy = snapToGrid(w.y);
+    placeElement(currentTool, gx, gy);
+  }
+});
+
+area.addEventListener('mousemove', e => {
+  const rect = area.getBoundingClientRect();
+  const sx = e.clientX - rect.left;
+  const sy = e.clientY - rect.top;
+  const w = screenToWorld(sx, sy);
+
+  document.getElementById('coordText').textContent = `X: ${Math.round(w.x)}  Y: ${Math.round(w.y)}`;
+
+  if (mousePan) {
+    viewX = e.clientX - panStart.x;
+    viewY = e.clientY - panStart.y;
+    render();
+    return;
+  }
+
+  // Lasso drag
+  if (isLassoActive && lassoStart) {
+    lassoEnd = { sx, sy, wx: w.x, wy: w.y };
+    // Draw lasso rect on the DOM overlay
+    const lx = Math.min(lassoStart.sx, sx);
+    const ly = Math.min(lassoStart.sy, sy);
+    const lw = Math.abs(sx - lassoStart.sx);
+    const lh = Math.abs(sy - lassoStart.sy);
+    const lassoEl = document.getElementById('lassoRect');
+    lassoEl.style.display = 'block';
+    lassoEl.style.left = lx + 'px';
+    lassoEl.style.top = ly + 'px';
+    lassoEl.style.width = lw + 'px';
+    lassoEl.style.height = lh + 'px';
+    return;
+  }
+
+  // Resize
+  if (resizeHandle) {
+    const rh = resizeHandle;
+    const dx = (w.x - rh.startMouse.x) / gridSize;
+    const dy = (w.y - rh.startMouse.y) / gridSize;
+    let newW = rh.startEl.w;
+    let newH = rh.startEl.h;
+    let newX = rh.startEl.x;
+    let newY = rh.startEl.y;
+    if (rh.corner.includes('e')) newW = Math.max(1, Math.round(rh.startEl.w + dx));
+    if (rh.corner.includes('s')) newH = Math.max(1, Math.round(rh.startEl.h + dy));
+    if (rh.corner.includes('w')) { newW = Math.max(1, Math.round(rh.startEl.w - dx)); newX = rh.startEl.x + (rh.startEl.w - newW) * gridSize; }
+    if (rh.corner.includes('n')) { newH = Math.max(1, Math.round(rh.startEl.h - dy)); newY = rh.startEl.y + (rh.startEl.h - newH) * gridSize; }
+    rh.el.customW = newW;
+    rh.el.customH = newH;
+    rh.el.x = newX;
+    rh.el.y = newY;
+    render();
+    return;
+  }
+
+  // Drag selected (with multi-drag support)
+  if (mouseDownEl && elementDragStart) {
+    mouseMoved = true;
+    const dx = w.x - elementDragStart.mx;
+    const dy = w.y - elementDragStart.my;
+    if (multiSelected.length > 1) {
+      // Move all selected elements
+      multiSelected.forEach(me => {
+        me.x = snapToGrid((me._dragStartX || me.x) + dx);
+        me.y = snapToGrid((me._dragStartY || me.y) + dy);
+      });
+    } else {
+      mouseDownEl.x = snapToGrid(elementDragStart.ex + dx);
+      mouseDownEl.y = snapToGrid(elementDragStart.ey + dy);
+    }
+    render();
+    return;
+  }
+
+  // Hover cursor feedback
+  if (selected) {
+    const handle = getResizeHandle(selected, w.x, w.y);
+    if (handle) {
+      const cursors = { se: 'se-resize', sw: 'sw-resize', ne: 'ne-resize', nw: 'nw-resize', e: 'e-resize', w: 'w-resize', s: 's-resize', n: 'n-resize' };
+      area.style.cursor = cursors[handle] || 'crosshair';
+    } else {
+      const el = getElementAt(w.x, w.y);
+      area.style.cursor = el ? 'move' : 'crosshair';
+    }
+  }
+});
+
+area.addEventListener('mouseup', e => {
+  const wasDragging = mouseMoved && mouseDownEl;
+  const wasResizing = !!resizeHandle;
+
+  // Finalize lasso selection
+  if (isLassoActive && lassoStart && lassoEnd) {
+    const minWx = Math.min(lassoStart.wx, lassoEnd.wx);
+    const maxWx = Math.max(lassoStart.wx, lassoEnd.wx);
+    const minWy = Math.min(lassoStart.wy, lassoEnd.wy);
+    const maxWy = Math.max(lassoStart.wy, lassoEnd.wy);
+    if (maxWx - minWx > 5 || maxWy - minWy > 5) {
+      multiSelected = elements.filter(el => {
+        const cfg = ELEM_CONFIGS[el.type] || ELEM_CONFIGS.custom;
+        const ew = (el.customW || cfg.w) * gridSize;
+        const eh = (el.customH || cfg.h) * gridSize;
+        // Element center must be inside lasso
+        const cx = el.x + ew / 2;
+        const cy = el.y + eh / 2;
+        return cx >= minWx && cx <= maxWx && cy >= minWy && cy <= maxWy;
+      });
+      if (multiSelected.length === 1) {
+        selected = multiSelected[0];
+        multiSelected = [];
+      } else if (multiSelected.length > 1) {
+        selected = multiSelected[0];
+      }
+      updatePropPanel();
+      render();
+    }
+    document.getElementById('lassoRect').style.display = 'none';
+    isLassoActive = false;
+    lassoStart = null;
+    lassoEnd = null;
+  }
+
+  mousePan = false;
+  area.classList.remove('panning');
+  resizeHandle = null;
+  mouseDownEl = null;
+  elementDragStart = null;
+  if (wasDragging || wasResizing) saveHistory();
+  updatePropPanel();
+  updateStats();
+});
+
+area.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  const rect = area.getBoundingClientRect();
+  const w = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
+  ctxTarget = getElementAt(w.x, w.y);
+  if (ctxTarget) {
+    selected = ctxTarget;
+    updatePropPanel();
+    render();
+    const menu = document.getElementById('ctxMenu');
+    menu.style.display = 'block';
+    menu.style.left = e.clientX + 'px';
+    menu.style.top = e.clientY + 'px';
+  }
+});
+
+area.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.deltaY > 0 ? 1 / 1.1 : 1.1;
+  const rect = area.getBoundingClientRect();
+  const sx = e.clientX - rect.left;
+  const sy = e.clientY - rect.top;
+  viewX = sx - (sx - viewX) * factor;
+  viewY = sy - (sy - viewY) * factor;
+  scale = Math.max(0.1, Math.min(5, scale * factor));
+  document.getElementById('zoomLevel').textContent = Math.round(scale * 100) + '%';
+  render();
+}, { passive: false });
+
+document.addEventListener('mousedown', e => {
+  if (!e.target.closest('#ctxMenu')) {
+    document.getElementById('ctxMenu').style.display = 'none';
+  }
+});
+
+area.addEventListener('dblclick', e => {
+  const rect = area.getBoundingClientRect();
+  const w = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
+  const el = getElementAt(w.x, w.y);
+  if (el) { selected = el; updatePropPanel(); render(); openModal(el); }
+});
+
+// Space pan hint timer
+let spaceHintTimer = null;
+
+document.addEventListener('keydown', e => {
+  // Space to pan
+  if (e.code === 'Space' && !spaceDown) {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'SELECT' || document.activeElement.tagName === 'TEXTAREA') return;
+    e.preventDefault();
+    spaceDown = true;
+    area.classList.add('space-pan');
+    const hint = document.getElementById('spaceHint');
+    hint.classList.add('visible');
+    clearTimeout(spaceHintTimer);
+    return;
+  }
+
+  if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'SELECT' || document.activeElement.tagName === 'TEXTAREA') return;
+
+  // Ctrl shortcuts
+  if (e.ctrlKey || e.metaKey) {
+    if (e.key === 'z' || e.key === 'Z') { e.preventDefault(); undoAction(); return; }
+    if (e.key === 'y' || e.key === 'Y') { e.preventDefault(); redoAction(); return; }
+    if (e.key === 'c' || e.key === 'C') {
+      e.preventDefault();
+      if (selected) clipboard = JSON.parse(JSON.stringify(selected));
+      return;
+    }
+    if (e.key === 'x' || e.key === 'X') {
+      e.preventDefault();
+      if (selected) {
+        clipboard = JSON.parse(JSON.stringify(selected));
+        elements = elements.filter(el => el !== selected);
+        selected = null;
+        updatePropPanel(); render(); updateStats();
+        saveHistory();
+      }
+      return;
+    }
+    if (e.key === 'v' || e.key === 'V') {
+      e.preventDefault();
+      if (clipboard) {
+        const clone = JSON.parse(JSON.stringify(clipboard));
+        clone.id = idCounter++;
+        clone.x += gridSize;
+        clone.y += gridSize;
+        elements.push(clone);
+        selected = clone;
+        updatePropPanel(); render(); updateStats();
+        saveHistory();
+      }
+      return;
+    }
+  }
+
+  if (e.key === 'F2') {
+    e.preventDefault();
+    if (selected) openModal(selected);
+    return;
+  }
+  if (e.key === 'Delete' || e.key === 'Backspace') {
+    if (multiSelected.length > 1) {
+      deleteMultiSelected();
+    } else if (selected) {
+      elements = elements.filter(el => el !== selected);
+      selected = null;
+      updatePropPanel(); render(); updateStats();
+      saveHistory();
+    }
+  }
+  if (e.key === 'r' || e.key === 'R') {
+    if (multiSelected.length > 1) {
+      multiSelected.forEach(el => { el.rotated = !el.rotated; });
+      render(); saveHistory();
+    } else if (selected) {
+      selected.rotated = !selected.rotated; render(); saveHistory();
+    }
+  }
+  if (e.key === 'Escape') {
+    setTool('select'); selected = null; multiSelected = []; updatePropPanel(); render();
+    document.getElementById('ctxMenu').style.display = 'none';
+  }
+});
+
+document.addEventListener('keyup', e => {
+  if (e.code === 'Space') {
+    spaceDown = false;
+    area.classList.remove('space-pan');
+    area.classList.remove('panning');
+    const hint = document.getElementById('spaceHint');
+    spaceHintTimer = setTimeout(() => hint.classList.remove('visible'), 600);
+  }
+});
+
+// ============================================================
+//  ADD ELEMENT MODAL
+// ============================================================
+function openAddElemModal(type, gx, gy) {
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  pendingAddType = type;
+  pendingAddGx = gx;
+  pendingAddGy = gy;
+
+  const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+  currentAddShape = cfg.shape || 'rect';
+
+  // Populate wave select
+  const waveSelect = document.getElementById('addElemWave');
+  waveSelect.innerHTML = '<option value="0">— ' + (currentLang === 'en' ? 'No wave' : currentLang === 'es' ? 'Sin ola' : 'Sem onda') + ' —</option>';
+  waves.forEach(w => {
+    const opt = document.createElement('option');
+    opt.value = w.id;
+    opt.textContent = w.name;
+    if (w.id === currentWave) opt.selected = true;
+    waveSelect.appendChild(opt);
+  });
+
+  // Set defaults
+  const existingCount = elements.filter(e => e.type === type).length;
+  const defaultLabel = cfgLabel(pendingAddType || type);
+  document.getElementById('addElemLabel').value = defaultLabel;
+  document.getElementById('addElemColor').value = cfg.color || '#6B7280';
+  document.getElementById('addElemWidth').value = cfg.w;
+  document.getElementById('addElemHeight').value = cfg.h;
+
+  // Shape buttons
+  document.querySelectorAll('#addElemShapeRow .shape-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.shape === currentAddShape);
+  });
+
+  // Translations
+  document.getElementById('addElemModalTitle').textContent = t.addElemTitle;
+  document.getElementById('addElemModalSubtitle').textContent = t.addElemSubtitle;
+  document.getElementById('addElemLabelLabel').textContent = t.addElemLabelLabel;
+  document.getElementById('addElemConfirmBtn').textContent = t.addElemConfirm;
+
+  // Count info (hidden for now, shown when qty > 1 via multi-select)
+  const countInfo = document.getElementById('addElemCountInfo');
+  countInfo.style.display = 'none';
+
+  document.getElementById('addElemModalOverlay').style.display = 'flex';
+  setTimeout(() => document.getElementById('addElemLabel').focus(), 50);
+}
+
+function openAddElemModalMulti(type, positions) {
+  // positions: array of {gx, gy}
+  pendingAddType = type;
+  pendingAddGx = positions; // store array
+  pendingAddGy = null;
+
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+  currentAddShape = cfg.shape || 'rect';
+
+  const waveSelect = document.getElementById('addElemWave');
+  waveSelect.innerHTML = '<option value="0">— ' + (currentLang === 'en' ? 'No wave' : currentLang === 'es' ? 'Sin ola' : 'Sem onda') + ' —</option>';
+  waves.forEach(w => {
+    const opt = document.createElement('option');
+    opt.value = w.id;
+    opt.textContent = w.name;
+    if (w.id === currentWave) opt.selected = true;
+    waveSelect.appendChild(opt);
+  });
+
+  const defaultLabel = cfgLabel(pendingAddType || type);
+  document.getElementById('addElemLabel').value = defaultLabel;
+  document.getElementById('addElemColor').value = cfg.color || '#6B7280';
+  document.getElementById('addElemWidth').value = cfg.w;
+  document.getElementById('addElemHeight').value = cfg.h;
+
+  document.querySelectorAll('#addElemShapeRow .shape-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.shape === currentAddShape);
+  });
+
+  document.getElementById('addElemModalTitle').textContent = t.addElemTitle;
+  document.getElementById('addElemModalSubtitle').textContent = t.addElemSubtitle;
+  document.getElementById('addElemLabelLabel').textContent = t.addElemLabelLabel;
+  document.getElementById('addElemConfirmBtn').textContent = t.addElemConfirm;
+
+  // Show count info
+  const countInfo = document.getElementById('addElemCountInfo');
+  const n = positions.length;
+  countInfo.textContent = t.addElemCount(n, defaultLabel);
+  countInfo.style.display = 'block';
+
+  // Update info dynamically when label changes
+  document.getElementById('addElemLabel').oninput = () => {
+    const name = document.getElementById('addElemLabel').value || defaultLabel;
+    countInfo.textContent = t.addElemCount(n, name);
+  };
+
+  document.getElementById('addElemModalOverlay').style.display = 'flex';
+  setTimeout(() => document.getElementById('addElemLabel').focus(), 50);
+}
+
+function selectAddShape(shape) {
+  currentAddShape = shape;
+  document.querySelectorAll('#addElemShapeRow .shape-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.shape === shape);
+  });
+}
+
+function closeAddElemModal() {
+  document.getElementById('addElemModalOverlay').style.display = 'none';
+  pendingAddType = null;
+  document.getElementById('addElemLabel').oninput = null;
+}
+
+function confirmAddElements() {
+  if (!pendingAddType) return;
+  const label = document.getElementById('addElemLabel').value || (ELEM_CONFIGS[pendingAddType] || ELEM_CONFIGS.custom).label;
+  const color = document.getElementById('addElemColor').value;
+  const wave = parseInt(document.getElementById('addElemWave').value) || 0;
+  const w = parseInt(document.getElementById('addElemWidth').value) || 3;
+  const h = parseInt(document.getElementById('addElemHeight').value) || 2;
+  const shape = currentAddShape || 'rect';
+  const isStructural = (pendingAddType === 'pilar' || pendingAddType === 'corredor' || pendingAddType === 'comodo');
+
+  if (Array.isArray(pendingAddGx)) {
+    // Multi-position placement
+    const positions = pendingAddGx;
+    const n = positions.length;
+    const newEls = [];
+    positions.forEach((pos, i) => {
+      const elLabel = n === 1 ? label : `${label} ${i + 1}`;
+      const el = {
+        id: idCounter++, type: pendingAddType,
+        x: pos.gx, y: pos.gy,
+        label: elLabel,
+        wave: isStructural ? 0 : wave,
+        rotated: false,
+        shape, waveMode,
+        customColor: color,
+        customW: w, customH: h,
+      };
+      elements.push(el);
+      newEls.push(el);
+    });
+    selected = newEls[newEls.length - 1];
+    multiSelected = newEls;
+  } else {
+    // Single placement
+    const existingCount = elements.filter(e => e.type === pendingAddType).length;
+    const el = {
+      id: idCounter++, type: pendingAddType,
+      x: pendingAddGx, y: pendingAddGy,
+      label,
+      wave: isStructural ? 0 : wave,
+      rotated: false,
+      shape, waveMode,
+      customColor: color,
+      customW: w, customH: h,
+    };
+    elements.push(el);
+    selected = el;
+    multiSelected = [];
+  }
+
+  closeAddElemModal();
+  updatePropPanel();
+  render();
+  updateStats();
+  saveHistory();
+}
+
+// ============================================================
+//  PLACE ELEMENT — now opens naming modal
+// ============================================================
+function placeElement(type, gx, gy) {
+  openAddElemModal(type, gx, gy);
+}
+
+// ============================================================
+//  CONTEXT MENU ACTIONS
+// ============================================================
+function ctxAction(action) {
+  document.getElementById('ctxMenu').style.display = 'none';
+  if (!ctxTarget) return;
+  if (action === 'edit') openModal(ctxTarget);
+  if (action === 'duplicate') {
+    const clone = JSON.parse(JSON.stringify(ctxTarget));
+    clone.id = idCounter++;
+    clone.x += gridSize * 2;
+    clone.y += gridSize * 2;
+    elements.push(clone);
+    selected = clone;
+    updatePropPanel();
+    render();
+    updateStats();
+  }
+  if (action === 'rotate') { ctxTarget.rotated = !ctxTarget.rotated; render(); }
+  if (action === 'delete') {
+    elements = elements.filter(e => e !== ctxTarget);
+    if (selected === ctxTarget) { selected = null; updatePropPanel(); }
+    ctxTarget = null;
+    render();
+    updateStats();
+  }
+}
+
+// ============================================================
+//  EDIT MODAL
+// ============================================================
+function openModal(el) {
+  editingElement = el;
+  const cfg = ELEM_CONFIGS[el.type] || ELEM_CONFIGS.custom;
+  document.getElementById('editLabel').value = el.label || cfgLabel(el.type);
+  document.getElementById('editWave').value = el.wave || 0;
+  document.getElementById('editType').value = el.type;
+  document.getElementById('editCustomColor').value = el.customColor || '#6B7280';
+  document.getElementById('editWidth').value = el.customW || cfg.w;
+  document.getElementById('editHeight').value = el.customH || cfg.h;
+  currentEditShape = el.shape || cfg.shape || 'rect';
+  document.querySelectorAll('.shape-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.shape === currentEditShape);
+  });
+  document.getElementById('modalOverlay').style.display = 'flex';
+  // Focus the label for quick rename
+  setTimeout(() => document.getElementById('editLabel').focus(), 50);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').style.display = 'none';
+  editingElement = null;
+}
+
+function saveEdit() {
+  const label = document.getElementById('editLabel').value;
+  const wave = parseInt(document.getElementById('editWave').value);
+  const type = document.getElementById('editType').value;
+  const color = document.getElementById('editCustomColor').value;
+  const w = parseInt(document.getElementById('editWidth').value) || 3;
+  const h = parseInt(document.getElementById('editHeight').value) || 2;
+  const shape = currentEditShape || 'rect';
+
+  if (editingElement) {
+    editingElement.label = label;
+    editingElement.wave = wave;
+    editingElement.type = type;
+    editingElement.customColor = color;
+    editingElement.customW = w;
+    editingElement.customH = h;
+    editingElement.shape = shape;
+  } else {
+    // New custom item from sidebar
+    const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+    const el = {
+      id: idCounter++, type, x: snapToGrid(200 / scale), y: snapToGrid(200 / scale),
+      label, wave, rotated: false, customColor: color, customW: w, customH: h,
+      shape, waveMode: waveMode
+    };
+    elements.push(el);
+    selected = el;
+  }
+
+  closeModal();
+  updatePropPanel();
+  render();
+  updateStats();
+  saveHistory();
+}
+
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+document.getElementById('waveModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('waveModalOverlay')) closeWaveModal();
+});
+document.getElementById('scopeModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('scopeModalOverlay')) closeScopeModal();
+});
+document.getElementById('modeSwitcherOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modeSwitcherOverlay')) closeModeSwitcher();
+});
+document.getElementById('addElemModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('addElemModalOverlay')) closeAddElemModal();
+});
+document.getElementById('exportWarnOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('exportWarnOverlay')) closeExportPopup();
+});
+
+// ============================================================
+//  PROP PANEL
+// ============================================================
+function updatePropPanel() {
+  const panel = document.getElementById('propPanel');
+
+  // Multi-selection
+  if (multiSelected.length > 1) {
+    const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+    panel.innerHTML = `
+      <div class="multi-select-badge">${multiSelected.length} ${t.stat_elementos || 'elementos'}</div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px;line-height:1.5">
+        ${currentLang === 'en' ? 'Multiple elements selected.' : currentLang === 'es' ? 'Varios elementos seleccionados.' : 'Vários elementos selecionados.'}
+      </div>
+      <div style="display:flex;gap:4px;margin-top:4px">
+        <button class="btn danger" style="flex:1;font-size:10px" onclick="deleteMultiSelected()">✕ ${currentLang === 'en' ? 'Delete all' : currentLang === 'es' ? 'Eliminar' : 'Remover todos'}</button>
+      </div>
+      <div style="margin-top:8px;font-size:10px;color:var(--text-dim);line-height:1.5;border:1px solid var(--border);padding:6px 8px;">
+        ${currentLang === 'en' ? 'Drag any selected element to move all. <strong>DEL</strong> removes all selected.' : currentLang === 'es' ? 'Arrastra para mover todos. <strong>DEL</strong> elimina todos.' : 'Arraste para mover todos. <strong>DEL</strong> remove todos.'}
+      </div>
+    `;
+    return;
+  }
+
+  if (!selected) {
+    panel.innerHTML = '<div style="color:var(--text-dim);font-size:11px;text-align:center;padding:8px 0;">' +
+      (currentLang === 'en' ? 'Select an element' : currentLang === 'es' ? 'Selecciona un elemento' : 'Selecione um elemento') +
+      '</div>';
+    return;
+  }
+  const cfg = ELEM_CONFIGS[selected.type] || ELEM_CONFIGS.custom;
+  const col = selected.customColor || (selected.type === 'pilar' ? cfg.color : getWaveColor(selected.wave));
+  const wname = selected.wave ? getWaveName(selected.wave) : '—';
+  panel.innerHTML = `
+    <div class="prop-row"><span class="prop-label">Tipo</span><span class="prop-val">${selected.type.toUpperCase()}</span></div>
+    <div class="prop-row"><span class="prop-label">Rótulo</span><span class="prop-val" style="max-width:110px;overflow:hidden;text-overflow:ellipsis">${selected.label || cfgLabel(selected.type)}</span></div>
+    <div class="prop-row"><span class="prop-label">Onda</span><span class="prop-val" style="color:${col}">${wname}</span></div>
+    <div class="prop-row"><span class="prop-label">Pos X</span><span class="prop-val">${Math.round(selected.x)}</span></div>
+    <div class="prop-row"><span class="prop-label">Pos Y</span><span class="prop-val">${Math.round(selected.y)}</span></div>
+    <div class="prop-row"><span class="prop-label">W × H</span><span class="prop-val">${(selected.customW || cfg.w)}×${(selected.customH || cfg.h)}</span></div>
+    <div style="display:flex;gap:4px;margin-top:8px">
+      <button class="btn" style="flex:1;font-size:10px" onclick="openModal(selected)">✎ Editar</button>
+      <button class="btn danger" style="flex:1;font-size:10px" onclick="deleteSelected()">✕</button>
+    </div>
+    <div style="margin-top:8px;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:3px;font-size:10px;color:var(--text-dim);line-height:1.5;border:1px solid var(--border)">
+      💡 <strong style="color:var(--text-mid)">F2</strong> ou duplo clique para editar nome<br>
+      <strong style="color:var(--text-mid)">✎ Editar</strong> para alterar tipo, onda e tamanho
+    </div>
+  `;
+}
+
+function deleteMultiSelected() {
+  if (multiSelected.length === 0) return;
+  elements = elements.filter(el => !multiSelected.includes(el));
+  multiSelected = [];
+  selected = null;
+  updatePropPanel(); render(); updateStats();
+  saveHistory();
+}
+
+function deleteSelected() {
+  if (multiSelected.length > 1) { deleteMultiSelected(); return; }
+  if (!selected) return;
+  elements = elements.filter(el => el !== selected);
+  selected = null;
+  updatePropPanel(); render(); updateStats();
+  saveHistory();
+}
+
+// ============================================================
+//  STATS
+// ============================================================
+function updateStats() {
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  document.getElementById('countElements').textContent = elements.length;
+  let pilarType, pilarLabel, esteiraType, esteiraLabel;
+  if (appMode === 'escritorio') {
+    pilarType = 'mesa';     pilarLabel = t.stat_mesas    || 'mesas';
+    esteiraType = 'pessoas'; esteiraLabel = t.stat_pessoas || 'pessoas';
+  } else if (appMode === 'pessoal') {
+    pilarType = 'comodo';   pilarLabel = t.stat_comodos  || 'cômodos';
+    esteiraType = 'pessoas'; esteiraLabel = t.stat_pessoas || 'pessoas';
+  } else {
+    pilarType = 'pilar';   pilarLabel = t.stat_pilares  || 'pilares';
+    esteiraType = 'esteira'; esteiraLabel = t.stat_esteiras || 'esteiras';
+  }
+  document.getElementById('countPilares').textContent = elements.filter(e => e.type === pilarType).length;
+  document.getElementById('countEsteiras').textContent = elements.filter(e => e.type === esteiraType).length;
+  const pl = document.getElementById('statPilarLabel');   if (pl) pl.textContent = pilarLabel;
+  const el = document.getElementById('statEsteiraLabel'); if (el) el.textContent = esteiraLabel;
+}
+
+// ============================================================
+//  AREA CONFIG
+// ============================================================
+function openSetupModal() {
+  document.getElementById('areaNameInput').value = areaConfig.name;
+  document.getElementById('areaDescInput').value = areaConfig.desc;
+  document.getElementById('areaWidthM').value = areaConfig.widthM;
+  document.getElementById('areaLengthM').value = areaConfig.lengthM;
+  document.getElementById('areaDocas').value = areaConfig.docas;
+  document.getElementById('areaPilares').value = areaConfig.pilares;
+  updateAreaPreview();
+  document.getElementById('setupModalOverlay').style.display = 'flex';
+}
+
+function closeSetupModal() {
+  document.getElementById('setupModalOverlay').style.display = 'none';
+}
+
+function updateAreaPreview() {
+  const w = document.getElementById('areaWidthM').value || '—';
+  const l = document.getElementById('areaLengthM').value || '—';
+  document.getElementById('areaPreviewText').textContent = `${w}m × ${l}m`;
+}
+
+function saveSetup() {
+  areaConfig = {
+    name: document.getElementById('areaNameInput').value || 'Área',
+    desc: document.getElementById('areaDescInput').value,
+    widthM: parseFloat(document.getElementById('areaWidthM').value) || 60,
+    lengthM: parseFloat(document.getElementById('areaLengthM').value) || 40,
+    docas: parseInt(document.getElementById('areaDocas').value) || 0,
+    pilares: parseInt(document.getElementById('areaPilares').value) || 0,
+  };
+  updateAreaBanner();
+  closeSetupModal();
+  // If first time, optionally load default layout
+  if (elements.length === 0) loadDefault();
+}
+
+function updateAreaBanner() {
+  document.getElementById('areaNameDisplay').textContent = areaConfig.name;
+  document.getElementById('areaDimsDisplay').textContent = `${areaConfig.widthM}m × ${areaConfig.lengthM}m`;
+}
+
+document.getElementById('setupModalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('setupModalOverlay')) closeSetupModal();
+});
+
+// ============================================================
+//  ORIENTATION (fixed — user-controlled, no auto-rotation)
+// ============================================================
+function setOrientation(dir) {
+  if (currentOrientation === dir) return;
+  currentOrientation = dir;
+  document.querySelectorAll('.dir-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('dir-' + dir);
+  if (btn) btn.classList.add('active');
+  // Subtle fade transition
+  canvas.style.transition = 'opacity 0.18s ease';
+  canvas.style.opacity = '0.3';
+  setTimeout(() => {
+    render();
+    canvas.style.opacity = '1';
+    setTimeout(() => { canvas.style.transition = ''; }, 200);
+  }, 120);
+}
+
+// Backwards compat wrapper (some old references may remain)
+function setPlayDir(dir) { setOrientation(dir); }
+
+// ============================================================
+//  RENDER
+// ============================================================
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+
+  // Draw area boundary (oriented) — strong, clearly visible
+  const areaW = areaConfig.widthM * gridSize / 3;
+  const areaH = areaConfig.lengthM * gridSize / 3;
+  const dispW = currentOrientation === 'vertical' ? areaH : areaW;
+  const dispH = currentOrientation === 'vertical' ? areaW : areaH;
+  const bx = viewX, by = viewY, bw = dispW * scale, bh = dispH * scale;
+  ctx.save();
+  // Subtle fill to show the area interior
+  ctx.fillStyle = lightMode ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.025)';
+  ctx.fillRect(bx, by, bw, bh);
+  // Strong dashed border
+  ctx.strokeStyle = lightMode ? 'rgba(30,30,30,0.65)' : 'rgba(255,255,255,0.55)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8, 6]);
+  ctx.strokeRect(bx, by, bw, bh);
+  ctx.setLineDash([]);
+  // Corner ticks for extra clarity
+  const tick = Math.min(18, bw * 0.06, bh * 0.06);
+  ctx.lineWidth = 2.5;
+  ctx.strokeStyle = lightMode ? 'rgba(20,20,20,0.8)' : 'rgba(255,255,255,0.8)';
+  [[bx,by,1,1],[bx+bw,by,-1,1],[bx,by+bh,1,-1],[bx+bw,by+bh,-1,-1]].forEach(([cx,cy,dx,dy]) => {
+    ctx.beginPath();
+    ctx.moveTo(cx + dx*tick, cy); ctx.lineTo(cx, cy); ctx.lineTo(cx, cy + dy*tick);
+    ctx.stroke();
+  });
+  ctx.restore();
+
+  // Draw elements sorted by y for proper overlap
+  const sorted = [...elements].sort((a, b) => a.y - b.y);
+  sorted.forEach(e => drawElement(e));
+
+  ctx.restore();
+}
+
+function drawElement(e) {
+  const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+  let baseColor;
+  if (e.customColor && e.customColor !== '#6B7280') {
+    baseColor = e.customColor;
+  } else if (e.type === 'pilar') {
+    baseColor = lightMode ? '#475569' : '#2a2a2a';
+  } else if (e.wave) {
+    baseColor = getWaveColor(e.wave);
+  } else {
+    baseColor = cfg.color;
+  }
+
+  const ew = (e.customW || cfg.w) * gridSize;
+  const eh = (e.customH || cfg.h) * gridSize;
+  // Apply per-element rotation first
+  let rw = e.rotated ? eh : ew;
+  let rh = e.rotated ? ew : eh;
+  // Then apply global orientation: vertical swaps width and height on screen
+  if (currentOrientation === 'vertical') {
+    const tmp = rw; rw = rh; rh = tmp;
+  }
+
+  const sp = worldToScreen(e.x, e.y);
+  const isSelected = e === selected;
+  const isMultiSelected = multiSelected.length > 1 && multiSelected.includes(e);
+
+  // Per-element waveMode (falls back to global)
+  const eWaveMode = e.waveMode || waveMode;
+  const shape = e.shape || cfg.shape || 'rect';
+
+  ctx.save();
+
+  // Non-rect shapes always render flat (no ISO) since they're abstract
+  const useIso = isIso && shape === 'rect' && e.type !== 'corredor';
+  if (useIso) {
+    drawIsoBox(e, rw, rh, baseColor, isSelected || isMultiSelected, sp, eWaveMode);
+  } else {
+    drawShape(e, rw, rh, baseColor, isSelected || isMultiSelected, sp, eWaveMode, shape);
+  }
+
+  // Draw dashed multi-select outline on top
+  if (isMultiSelected) {
+    const sw = rw * scale;
+    const sh = rh * scale;
+    ctx.save();
+    ctx.strokeStyle = lightMode ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.7)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.strokeRect(sp.x - 2, sp.y - 2, sw + 4, sh + 4);
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  ctx.restore();
+}
+
+function drawShape(e, rw, rh, color, isSelected, sp, eWaveMode, shape) {
+  const sw = rw * scale;
+  const sh = rh * scale;
+
+  // Opacity based on wave mode
+  const alpha = (eWaveMode === 'calor') ? 0.5 : (eWaveMode === 'bloco') ? 0.62 : 0.22;
+  const borderColor = isSelected ? (lightMode ? '#0f172a' : '#fff') :
+                      (eWaveMode === 'sinal' ? hexToRgba(color, 0.95) : color);
+  const borderWidth = isSelected ? 2.5 : (eWaveMode === 'sinal' ? 1.8 : 1.5);
+
+  ctx.fillStyle = hexToRgba(color, alpha);
+  ctx.strokeStyle = borderColor;
+  ctx.lineWidth = borderWidth;
+  ctx.lineJoin = 'round';
+
+  ctx.beginPath();
+  if (shape === 'rect' || shape === 'square') {
+    // For 'square', use smaller of the two dimensions centered
+    if (shape === 'square') {
+      const side = Math.min(sw, sh);
+      const offX = sp.x + (sw - side) / 2;
+      const offY = sp.y + (sh - side) / 2;
+      ctx.rect(offX, offY, side, side);
+    } else {
+      ctx.rect(sp.x, sp.y, sw, sh);
+    }
+  } else if (shape === 'circle') {
+    const cx = sp.x + sw / 2;
+    const cy = sp.y + sh / 2;
+    const rx = sw / 2;
+    const ry = sh / 2;
+    ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+  } else if (shape === 'triangle') {
+    ctx.moveTo(sp.x + sw / 2, sp.y);
+    ctx.lineTo(sp.x + sw, sp.y + sh);
+    ctx.lineTo(sp.x, sp.y + sh);
+    ctx.closePath();
+  } else if (shape === 'diamond') {
+    ctx.moveTo(sp.x + sw / 2, sp.y);
+    ctx.lineTo(sp.x + sw, sp.y + sh / 2);
+    ctx.lineTo(sp.x + sw / 2, sp.y + sh);
+    ctx.lineTo(sp.x, sp.y + sh / 2);
+    ctx.closePath();
+  }
+  ctx.fill();
+  ctx.stroke();
+
+  // Label
+  if (showLabels && scale > 0.4) {
+    drawLabel(e, sp, sw, sh, shape);
+  }
+
+  // Resize handles when selected (always aligned to bounding box)
+  if (isSelected) drawResizeHandles(e, sp, sw, sh);
+}
+
+function drawLabel(e, sp, sw, sh, shape) {
+  const label = e.label || cfgLabel(e.type);
+  const fontSize = Math.max(10, 11 * scale);
+  ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  const cx = sp.x + sw / 2;
+  let cy = sp.y + sh / 2;
+  if (shape === 'triangle') cy = sp.y + sh * 0.65; // visually balanced inside triangle
+  ctx.globalAlpha = 1;
+  if (lightMode) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+    ctx.lineWidth = 3.5;
+    ctx.lineJoin = 'round';
+    ctx.strokeText(label, cx, cy);
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText(label, cx, cy);
+  } else {
+    ctx.shadowColor = 'rgba(0,0,0,0.85)';
+    ctx.shadowBlur = 5;
+    ctx.fillStyle = '#fff';
+    ctx.fillText(label, cx, cy);
+    ctx.shadowBlur = 0;
+  }
+  ctx.globalAlpha = 1;
+}
+
+// Backwards-compat alias used in a few places
+function draw2DBox(e, rw, rh, color, isSelected, sp, eWaveMode) {
+  drawShape(e, rw, rh, color, isSelected, sp, eWaveMode || e.waveMode || waveMode, e.shape || 'rect');
+}
+
+function drawIsoBox(e, rw, rh, color, isSelected, sp, eWaveMode) {
+  const sw = rw * scale;
+  const sh = rh * scale;
+  const depth = Math.min(12 * scale, sh * 0.4);
+  const mode = eWaveMode || e.waveMode || waveMode;
+
+  // Side face (right)
+  ctx.beginPath();
+  ctx.moveTo(sp.x + sw, sp.y + depth);
+  ctx.lineTo(sp.x + sw, sp.y + sh);
+  ctx.lineTo(sp.x + sw - depth * 0.5, sp.y + sh - depth * 0.3);
+  ctx.closePath();
+  ctx.fillStyle = hexToRgba(color, 0.08);
+  ctx.fill();
+
+  // Front face
+  const alpha = (mode === 'calor') ? 0.45 : (mode === 'bloco') ? 0.55 : (lightMode ? 0.3 : 0.18);
+  ctx.beginPath();
+  ctx.moveTo(sp.x, sp.y + depth);
+  ctx.lineTo(sp.x + sw, sp.y + depth);
+  ctx.lineTo(sp.x + sw, sp.y + sh);
+  ctx.lineTo(sp.x, sp.y + sh);
+  ctx.closePath();
+  ctx.fillStyle = hexToRgba(color, alpha);
+  ctx.fill();
+  ctx.strokeStyle = isSelected ? (lightMode ? '#0f172a' : '#fff') : hexToRgba(color, 0.55);
+  ctx.lineWidth = isSelected ? 1.8 : 0.75;
+  ctx.stroke();
+
+  // Top face
+  ctx.beginPath();
+  ctx.moveTo(sp.x, sp.y + depth);
+  ctx.lineTo(sp.x + sw, sp.y + depth);
+  ctx.lineTo(sp.x + sw, sp.y);
+  ctx.lineTo(sp.x, sp.y);
+  ctx.closePath();
+  ctx.fillStyle = hexToRgba(color, alpha + 0.12);
+  ctx.fill();
+  ctx.strokeStyle = isSelected ? (lightMode ? '#0f172a' : '#fff') : hexToRgba(color, 0.75);
+  ctx.lineWidth = isSelected ? 1.8 : 0.75;
+  ctx.stroke();
+
+  // Label
+  if (showLabels && scale > 0.4) {
+    const label = e.label || cfgLabel(e.type);
+    const fontSize = Math.max(10, 11 * scale);
+    ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const cx = sp.x + sw / 2;
+    const cy = sp.y + depth + (sh - depth) / 2;
+    ctx.globalAlpha = 1;
+    if (lightMode) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+      ctx.lineWidth = 3.5;
+      ctx.lineJoin = 'round';
+      ctx.strokeText(label, cx, cy);
+      ctx.fillStyle = '#0f172a';
+      ctx.fillText(label, cx, cy);
+    } else {
+      ctx.shadowColor = 'rgba(0,0,0,0.85)';
+      ctx.shadowBlur = 6;
+      ctx.fillStyle = '#fff';
+      ctx.fillText(label, cx, cy);
+      ctx.shadowBlur = 0;
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  if (isSelected) drawResizeHandles(e, sp, sw, sh);
+}
+
+function drawResizeHandles(e, sp, sw, sh) {
+  const hs = HANDLE_SIZE;
+  const handles = [
+    { x: sp.x + sw, y: sp.y + sh }, // SE
+    { x: sp.x, y: sp.y + sh },       // SW
+    { x: sp.x + sw, y: sp.y },       // NE
+    { x: sp.x, y: sp.y },            // NW
+    { x: sp.x + sw, y: sp.y + sh/2 }, // E
+    { x: sp.x, y: sp.y + sh/2 },     // W
+    { x: sp.x + sw/2, y: sp.y + sh },// S
+    { x: sp.x + sw/2, y: sp.y },     // N
+  ];
+  handles.forEach(h => {
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(h.x - hs/2, h.y - hs/2, hs, hs);
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(h.x - hs/2, h.y - hs/2, hs, hs);
+  });
+}
+
+// ============================================================
+//  UTILS
+// ============================================================
+function hexToRgba(hex, alpha) {
+  if (hex.startsWith('rgb')) return hex;
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// ============================================================
+//  VIEW
+// ============================================================
+function zoom(factor) {
+  viewX = canvas.width/2 - (canvas.width/2 - viewX) * factor;
+  viewY = canvas.height/2 - (canvas.height/2 - viewY) * factor;
+  scale = Math.max(0.1, Math.min(5, scale * factor));
+  document.getElementById('zoomLevel').textContent = Math.round(scale * 100) + '%';
+  render();
+}
+
+function resetView() {
+  viewX = 120; viewY = 80; scale = 1;
+  document.getElementById('zoomLevel').textContent = '100%';
+  render();
+}
+
+function toggleIso(v) { isIso = v; render(); }
+function toggleLabels(v) { showLabels = v; render(); }
+function changeGridSize(v) { gridSize = parseInt(v); render(); }
+
+// ============================================================
+//  IMPORT / EXPORT
+// ============================================================
+function exportJSON() {
+  const data = JSON.stringify({ version: 2, areaConfig, waves, elements, nextWaveId, idCounter, gridSize }, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.download = 'layout_volumosos.json';
+  link.href = URL.createObjectURL(blob);
+  link.click();
+}
+
+function importJSON() {
+  document.getElementById('importFileInput').click();
+}
+
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (data.elements) elements = data.elements;
+      if (data.waves) waves = data.waves;
+      if (data.areaConfig) areaConfig = data.areaConfig;
+      if (data.nextWaveId) nextWaveId = data.nextWaveId;
+      if (data.idCounter) idCounter = data.idCounter;
+      if (data.gridSize) gridSize = data.gridSize;
+      selected = null;
+      updatePropPanel();
+      updateStats();
+      renderWaveList();
+      updateAreaBanner();
+      resetView();
+      render();
+      saveHistory();
+    } catch (err) {
+      const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+      alert(t.importError + err.message);
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+function exportImage() {
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+
+  // Compute area bounds in screen coords
+  const areaW = areaConfig.widthM * gridSize / 3;
+  const areaH = areaConfig.lengthM * gridSize / 3;
+  const dispW = currentOrientation === 'vertical' ? areaH : areaW;
+  const dispH = currentOrientation === 'vertical' ? areaW : areaH;
+  const bx = Math.round(viewX);
+  const by = Math.round(viewY);
+  const bw = Math.round(dispW * scale);
+  const bh = Math.round(dispH * scale);
+
+  // Check if any element is outside the area boundary
+  let hasOutside = false;
+  elements.forEach(e => {
+    const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+    const ew = (e.customW || cfg.w) * gridSize;
+    const eh = (e.customH || cfg.h) * gridSize;
+    const sp = worldToScreen(e.x, e.y);
+    const sw = ew * scale, sh = eh * scale;
+    if (sp.x < bx || sp.y < by || sp.x + sw > bx + bw || sp.y + sh > by + bh) {
+      hasOutside = true;
+    }
+  });
+
+  // Clamp crop rect to canvas bounds
+  const canvasW = canvas.width, canvasH = canvas.height;
+  const cropX = Math.max(0, bx);
+  const cropY = Math.max(0, by);
+  const cropW = Math.min(bw, canvasW - cropX);
+  const cropH = Math.min(bh, canvasH - cropY);
+  const cropValid = cropW > 10 && cropH > 10;
+
+  function doExport(useFullCanvas) {
+    const link = document.createElement('a');
+    link.download = 'layout_villares.png';
+    if (useFullCanvas) {
+      link.href = canvas.toDataURL('image/png');
+    } else {
+      // Crop to area bounds
+      const offscreen = document.createElement('canvas');
+      offscreen.width = cropW;
+      offscreen.height = cropH;
+      const octx = offscreen.getContext('2d');
+      octx.drawImage(canvas, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+      link.href = offscreen.toDataURL('image/png');
+    }
+    link.click();
+  }
+
+  if (!hasOutside) {
+    // All elements inside — export cleanly cropped to area
+    if (cropValid) doExport(false);
+    else doExport(true);
+    return;
+  }
+
+  // Some elements outside — show popup
+  showExportWarningPopup({
+    t,
+    canAutoFix: cropValid,
+    onCrop: () => { closeExportPopup(); doExport(false); },
+    onFull: () => { closeExportPopup(); doExport(true); },
+  });
+}
+
+function showExportWarningPopup({ t, canAutoFix, onCrop, onFull }) {
+  const lang = currentLang;
+  const msgs = {
+    pt: {
+      title: 'Elementos fora do limite',
+      msg: 'Alguns elementos estão fora da área definida no layout.',
+      auto: 'Cortar automaticamente para a área definida',
+      full: 'Exportar imagem completa (fora do padrão)',
+      cancel: 'Cancelar e ajustar manualmente',
+    },
+    en: {
+      title: 'Elements outside boundary',
+      msg: 'Some elements are outside the defined layout area.',
+      auto: 'Auto-crop to the defined area',
+      full: 'Export full image (non-standard)',
+      cancel: 'Cancel and adjust manually',
+    },
+    es: {
+      title: 'Elementos fuera del límite',
+      msg: 'Algunos elementos están fuera del área definida.',
+      auto: 'Recortar automáticamente al área definida',
+      full: 'Exportar imagen completa (fuera de estándar)',
+      cancel: 'Cancelar y ajustar manualmente',
+    },
+  };
+  const m = msgs[lang] || msgs['pt'];
+  document.getElementById('exportWarnTitle').textContent = m.title;
+  document.getElementById('exportWarnMsg').textContent = m.msg;
+  const autBtn = document.getElementById('exportWarnAuto');
+  autBtn.textContent = m.auto;
+  autBtn.style.display = canAutoFix ? 'block' : 'none';
+  autBtn.onclick = onCrop;
+  document.getElementById('exportWarnFull').textContent = m.full;
+  document.getElementById('exportWarnFull').onclick = onFull;
+  document.getElementById('exportWarnCancel').textContent = m.cancel;
+  document.getElementById('exportWarnCancel').onclick = closeExportPopup;
+  document.getElementById('exportWarnOverlay').style.display = 'flex';
+}
+
+function closeExportPopup() {
+  document.getElementById('exportWarnOverlay').style.display = 'none';
+}
+
+function clearAll() {
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  if (confirm(t.clearConfirm)) {
+    elements = []; selected = null; multiSelected = [];
+    updatePropPanel(); render(); updateStats();
+    saveHistory();
+  }
+}
+
+// ============================================================
+//  DEFAULT LAYOUT (mode-aware)
+// ============================================================
+function addEl(type, gx, gy, opts = {}) {
+  const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+  const el = {
+    id: idCounter++,
+    type,
+    x: gx * gridSize,
+    y: gy * gridSize,
+    label: opts.label || cfgLabel(type),
+    wave: opts.wave !== undefined ? opts.wave : 0,
+    rotated: false,
+    shape: opts.shape || cfg.shape || 'rect',
+    waveMode: 'sinal',
+    ...opts,
+  };
+  elements.push(el);
+  return el;
+}
+
+function loadDefault() {
+  elements = [];
+  idCounter = 1;
+
+  if (appMode === 'logistica') {
+    loadLogisticaDefault();
+  } else if (appMode === 'escritorio') {
+    loadEscritorioDefault();
+  } else if (appMode === 'pessoal') {
+    loadPessoalDefault();
+  }
+
+  selected = null;
+  updatePropPanel();
+  updateStats();
+  resetView();
+  render();
+  saveHistory();
+}
+
+function loadLogisticaDefault() {
+  // Pilares: 3 colunas × 4 linhas
+  [[1,1],[1,5],[1,9],[1,13],[7,1],[7,5],[7,9],[7,13],[13,1],[13,5],[13,9],[13,13]].forEach(([gx,gy]) => {
+    addEl('pilar', gx, gy);
+  });
+  // Docas à esquerda
+  for (let i = 0; i < areaConfig.docas; i++) {
+    addEl('doca', -3, i * 1.8 + 1, { label: 'Doca ' + (i + 1) });
+  }
+  // Corredor
+  addEl('corredor', 0, 0, { label: 'Corredor Principal' });
+  // Esteiras por onda
+  const positions = [2, 8, 14];
+  positions.forEach((cx, ci) => {
+    [2, 6, 10].forEach((ry, ri) => {
+      const waveId = waves[ci % waves.length].id;
+      addEl('esteira', cx, ry, {
+        label: 'Esteira (Barenice) ' + String.fromCharCode(65 + ci) + (ri + 1),
+        wave: waveId,
+      });
+    });
+  });
+  // Impressoras
+  [[3,3],[3,7],[3,11],[9,3],[9,7],[9,11],[15,3],[15,7],[15,11]].forEach(([gx,gy]) => {
+    addEl('impressora', gx, gy);
+  });
+  // Climatizadores
+  [[1,0],[7,0],[13,0]].forEach(([gx,gy]) => addEl('climatizador', gx, gy));
+  // Pessoas (operadores)
+  [[4,4],[10,4],[4,8],[10,8]].forEach(([gx,gy], i) => {
+    addEl('pessoas', gx, gy, { label: 'Operador ' + (i+1), wave: waves[i % waves.length].id });
+  });
+  // Stage Out
+  addEl('setor', 18, 1, { label: 'Stage Out', customColor: '#F59E0B' });
+}
+
+function loadEscritorioDefault() {
+  // Recepção
+  addEl('recepcao', 0, 0, { label: 'Recepção' });
+  // Salas de reunião
+  addEl('sala_reuniao', 14, 0, { label: 'Sala de Reunião A', customColor: '#6366F1' });
+  addEl('sala_reuniao', 14, 7, { label: 'Sala de Reunião B', customColor: '#8B5CF6' });
+  // Mesas — open space
+  const mesaCols = [1, 6];
+  const mesaRows = [5, 8, 11];
+  mesaCols.forEach((cx, ci) => {
+    mesaRows.forEach((ry, ri) => {
+      addEl('mesa', cx, ry, {
+        label: 'Mesa ' + String.fromCharCode(65 + ci) + (ri + 1),
+        wave: waves[ri % waves.length].id,
+      });
+    });
+  });
+  // Pessoas nas mesas
+  mesaCols.forEach((cx, ci) => {
+    mesaRows.forEach((ry, ri) => {
+      addEl('pessoas', cx + 1, ry + 1, {
+        label: 'Pessoa ' + (ci * mesaRows.length + ri + 1),
+        wave: waves[ri % waves.length].id,
+      });
+    });
+  });
+  // Copa
+  addEl('copa', 0, 14, { label: 'Copa' });
+  // Impressora central
+  addEl('impressora', 11, 8);
+  // Corredor
+  addEl('corredor', 0, 4, { label: 'Corredor Central' });
+}
+
+function loadPessoalDefault() {
+  // Cômodos
+  addEl('comodo', 0, 0, { label: 'Sala', customColor: '#475569' });
+  addEl('comodo', 11, 0, { label: 'Quarto', customColor: '#8B5CF6' });
+  addEl('comodo', 0, 9, { label: 'Cozinha', customColor: '#F97316' });
+  addEl('comodo', 11, 9, { label: 'Banheiro', customColor: '#06B6D4', customW: 6, customH: 5 });
+  // Sala
+  addEl('sofa', 1, 2, { label: 'Sofá', wave: waves[0].id });
+  addEl('mesa_jantar', 4, 4, { label: 'Mesa de Centro' });
+  addEl('planta', 8, 1, { label: 'Planta' });
+  // Quarto
+  addEl('cama', 13, 2, { label: 'Cama Casal', wave: waves[2].id });
+  addEl('armario', 17, 2, { label: 'Guarda-Roupa' });
+  // Cozinha
+  addEl('geladeira', 1, 10, { label: 'Geladeira' });
+  addEl('mesa_jantar', 4, 11, { label: 'Mesa de Jantar', wave: waves[1].id });
+  // Pessoas
+  addEl('pessoas', 3, 3, { label: 'Eu' });
+  addEl('pessoas', 14, 4, { label: 'Par', wave: waves[3].id });
+}
+
+// ============================================================
+//  STARTUP
+// ============================================================
+init();
+</script>
+</body>
+</html>
