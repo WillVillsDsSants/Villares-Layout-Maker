@@ -1952,6 +1952,120 @@ body.light-mode .area-banner:hover { box-shadow: 0 8px 24px rgba(15,23,42,0.08);
   border-radius: 3px;
 }
 body.light-mode .area-dims { background: #f1f5f9; }
+
+/* ===== PRESENTATION MODE ===== */
+#presentOverlay {
+  position: fixed;
+  inset: 0;
+  background: #080808;
+  z-index: 9000;
+  display: none;
+  flex-direction: column;
+}
+#presentOverlay.active { display: flex; }
+.present-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+#presentOverlay.show-ui .present-topbar { opacity: 1; pointer-events: all; }
+#presentOverlay:hover .present-topbar { opacity: 1; pointer-events: all; }
+.present-logo { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: rgba(255,255,255,0.5); }
+.present-spacer { flex: 1; }
+.present-zoom-info { font-size: 11px; color: rgba(255,255,255,0.3); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+.present-btn {
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.65);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.present-btn:hover { border-color: rgba(255,255,255,0.45); color: #fff; background: rgba(255,255,255,0.05); }
+.present-btn.exit-btn:hover { border-color: #F43F5E; color: #F43F5E; }
+#presentCanvas { display: block; cursor: grab; position: absolute; inset: 0; }
+#presentCanvas.panning { cursor: grabbing; }
+.present-legend {
+  position: absolute;
+  top: 58px; right: 14px; bottom: 14px;
+  width: 210px;
+  background: rgba(8,8,8,0.92);
+  border: 1px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(20px);
+  overflow-y: auto;
+  padding: 12px 10px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+#presentOverlay.show-ui .present-legend { opacity: 1; pointer-events: all; }
+#presentOverlay:hover .present-legend { opacity: 1; pointer-events: all; }
+.present-legend-title {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25); text-transform: uppercase;
+  margin-bottom: 4px; padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.present-legend-wave-group { margin-bottom: 4px; }
+.present-legend-wave-header {
+  display: flex; align-items: center; gap: 7px;
+  padding: 4px 5px; font-size: 9.5px; font-weight: 700;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 2px;
+}
+.present-legend-wave-bar { height: 2px; flex: 1; opacity: 0.6; }
+.present-legend-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 5px; font-size: 11px;
+  color: rgba(255,255,255,0.7); font-weight: 500; min-width: 0;
+}
+.present-legend-dot { width: 9px; height: 9px; flex-shrink: 0; }
+.present-legend-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.present-legend-type { font-size: 9px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; flex-shrink: 0; }
+.present-fit-btn {
+  position: absolute; bottom: 18px; right: 240px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-family: 'Inter', sans-serif; font-size: 10px; cursor: pointer;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.15s;
+  opacity: 0;
+}
+#presentOverlay:hover .present-fit-btn { opacity: 1; }
+.present-fit-btn:hover { background: rgba(255,255,255,0.09); color: #fff; }
+.present-hint {
+  position: absolute; bottom: 18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px; color: rgba(255,255,255,0.15);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  pointer-events: none; white-space: nowrap;
+  transition: opacity 0.5s;
+}
+#presentOverlay:hover .present-hint { opacity: 0; }
 </style>
 </head>
 <body>
@@ -2199,6 +2313,27 @@ body.light-mode .area-dims { background: #f1f5f9; }
   </div>
 </div>
 
+<!-- ===== PRESENTATION MODE ===== -->
+<div id="presentOverlay">
+  <canvas id="presentCanvas"></canvas>
+
+  <div class="present-topbar">
+    <span class="present-logo">VILLARES · LAYOUT MAKER</span>
+    <span id="presentAreaName" style="font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.06em"></span>
+    <span class="present-spacer"></span>
+    <span class="present-zoom-info" id="presentZoomInfo">100%</span>
+    <button class="present-btn" onclick="presentFitAll()" style="font-size:9px">⤢ FIT</button>
+    <button class="present-btn exit-btn" onclick="exitPresentationMode()">✕ <span data-i18n="presentExit">Sair</span></button>
+  </div>
+
+  <div class="present-legend" id="presentLegend">
+    <div class="present-legend-title" id="presentLegendTitle">LEGENDA</div>
+  </div>
+
+  <button class="present-fit-btn" onclick="presentFitAll()">⤢ Ajustar à tela</button>
+  <div class="present-hint" id="presentHint">Scroll = zoom · Arraste = mover · ESC = sair</div>
+</div>
+
 <header>
   <!-- TOP ROW: Logo | Mode + Theme | Primary actions -->
   <div class="header-row header-row-top">
@@ -2233,6 +2368,10 @@ body.light-mode .area-dims { background: #f1f5f9; }
       <button class="btn primary" onclick="exportImage()" title="Salvar PNG" data-i18n="saveBtn">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
         Salvar PNG
+      </button>
+      <button class="btn" onclick="enterPresentationMode()" id="presentBtn" title="Modo Apresentação" style="gap:5px">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <span data-i18n="presentBtn">Apresentar</span>
       </button>
     </div>
   </div>
@@ -2310,7 +2449,6 @@ body.light-mode .area-dims { background: #f1f5f9; }
         <div class="sidebar-title" style="font-size:8px;margin-bottom:5px;color:var(--text-dim)" data-i18n="vizMode">MODO DE VISUALIZAÇÃO</div>
         <div class="wave-mode-row">
           <div class="mode-chip active" id="mode-sinal" onclick="requestWaveMode('sinal')" data-i18n="chipSignal">Sinal</div>
-          <div class="mode-chip" id="mode-bloco" onclick="requestWaveMode('bloco')" data-i18n="chipBlock">Bloco</div>
           <div class="mode-chip" id="mode-calor" onclick="requestWaveMode('calor')" data-i18n="chipHeat">Calor</div>
         </div>
         <div style="font-size:9px;color:var(--text-dim);margin-top:6px;line-height:1.4" data-i18n="waveHint">
@@ -4941,72 +5079,500 @@ function handleImport(e) {
   e.target.value = '';
 }
 
+// ============================================================
+//  EXPORT IMAGE — renders offscreen at full resolution
+// ============================================================
 function exportImage() {
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
 
-  // Compute area bounds in screen coords
+  // Area world dimensions
   const areaW = areaConfig.widthM * gridSize / 3;
   const areaH = areaConfig.lengthM * gridSize / 3;
   const dispW = currentOrientation === 'vertical' ? areaH : areaW;
   const dispH = currentOrientation === 'vertical' ? areaW : areaH;
-  const bx = Math.round(viewX);
-  const by = Math.round(viewY);
-  const bw = Math.round(dispW * scale);
-  const bh = Math.round(dispH * scale);
 
-  // Check if any element is outside the area boundary
+  // Check if elements are within area in WORLD coordinates (not screen)
+  const areaWorldW = currentOrientation === 'vertical' ? areaH : areaW;
+  const areaWorldH = currentOrientation === 'vertical' ? areaW : areaH;
   let hasOutside = false;
   elements.forEach(e => {
     const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
     const ew = (e.customW || cfg.w) * gridSize;
     const eh = (e.customH || cfg.h) * gridSize;
-    const sp = worldToScreen(e.x, e.y);
-    const sw = ew * scale, sh = eh * scale;
-    if (sp.x < bx || sp.y < by || sp.x + sw > bx + bw || sp.y + sh > by + bh) {
+    const rw = e.rotated ? eh : ew;
+    const rh = e.rotated ? ew : eh;
+    if (e.x < 0 || e.y < 0 || e.x + rw > areaWorldW || e.y + rh > areaWorldH) {
       hasOutside = true;
     }
   });
 
-  // Clamp crop rect to canvas bounds
-  const canvasW = canvas.width, canvasH = canvas.height;
-  const cropX = Math.max(0, bx);
-  const cropY = Math.max(0, by);
-  const cropW = Math.min(bw, canvasW - cropX);
-  const cropH = Math.min(bh, canvasH - cropY);
-  const cropValid = cropW > 10 && cropH > 10;
+  // Render at fixed high resolution (2× the area for crisp output)
+  const EXPORT_SCALE = 2;
+  const exportW = Math.round(dispW * EXPORT_SCALE);
+  const exportH = Math.round(dispH * EXPORT_SCALE);
 
-  function doExport(useFullCanvas) {
+  function doExport(cropToArea) {
+    const off = document.createElement('canvas');
+    if (cropToArea) {
+      off.width = exportW;
+      off.height = exportH;
+    } else {
+      // Full layout bounding box
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      elements.forEach(e => {
+        const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+        const ew = (e.customW || cfg.w) * gridSize;
+        const eh = (e.customH || cfg.h) * gridSize;
+        const rw = e.rotated ? eh : ew;
+        const rh = e.rotated ? ew : eh;
+        minX = Math.min(minX, e.x); minY = Math.min(minY, e.y);
+        maxX = Math.max(maxX, e.x + rw); maxY = Math.max(maxY, e.y + rh);
+      });
+      if (!isFinite(minX)) { minX = 0; minY = 0; maxX = dispW; maxY = dispH; }
+      const pad = gridSize;
+      minX -= pad; minY -= pad; maxX += pad; maxY += pad;
+      off.width = Math.round((maxX - minX) * EXPORT_SCALE);
+      off.height = Math.round((maxY - minY) * EXPORT_SCALE);
+      // Adjust so we render with an offset origin
+      off._offsetX = -minX * EXPORT_SCALE;
+      off._offsetY = -minY * EXPORT_SCALE;
+    }
+
+    const octx = off.getContext('2d');
+    const savedScale = scale, savedViewX = viewX, savedViewY = viewY;
+    const savedCanvas = canvas;
+
+    // Temporarily redirect render to offscreen canvas
+    const origCtx = ctx;
+    // Render to offscreen by temporarily swapping state
+    const offVX = cropToArea ? 0 : (off._offsetX || 0);
+    const offVY = cropToArea ? 0 : (off._offsetY || 0);
+
+    // Draw background
+    octx.fillStyle = lightMode ? '#eef1f6' : '#0a0a0a';
+    octx.fillRect(0, 0, off.width, off.height);
+
+    // Draw grid
+    const gs = gridSize * EXPORT_SCALE;
+    octx.strokeStyle = lightMode ? 'rgba(15,23,42,0.06)' : 'rgba(255,255,255,0.04)';
+    octx.lineWidth = 0.5;
+    for (let x = offVX % gs; x < off.width; x += gs) {
+      octx.beginPath(); octx.moveTo(x, 0); octx.lineTo(x, off.height); octx.stroke();
+    }
+    for (let y = offVY % gs; y < off.height; y += gs) {
+      octx.beginPath(); octx.moveTo(0, y); octx.lineTo(off.width, y); octx.stroke();
+    }
+
+    // Draw area boundary
+    if (cropToArea) {
+      octx.strokeStyle = lightMode ? 'rgba(30,30,30,0.5)' : 'rgba(255,255,255,0.4)';
+      octx.lineWidth = 2;
+      octx.setLineDash([8, 6]);
+      octx.strokeRect(1, 1, off.width - 2, off.height - 2);
+      octx.setLineDash([]);
+    }
+
+    // Save current canvas context and redirect drawing
+    const origCanvas = canvas;
+    // We'll use a temporary redirect approach: patch worldToScreen
+    const _origWorldToScreen = worldToScreen;
+    // Override worldToScreen for export rendering
+    window._exportMode = { octx, scl: EXPORT_SCALE, vx: offVX, vy: offVY };
+
+    // Draw all elements
+    elements.forEach(e => {
+      const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+      let baseColor;
+      if (e.customColor && e.customColor !== '#6B7280') baseColor = e.customColor;
+      else if (e.type === 'pilar') baseColor = lightMode ? '#475569' : '#2a2a2a';
+      else if (e.wave) baseColor = getWaveColor(e.wave);
+      else baseColor = cfg.color;
+
+      const ew = (e.customW || cfg.w) * gridSize;
+      const eh = (e.customH || cfg.h) * gridSize;
+      let rw = e.rotated ? eh : ew;
+      let rh = e.rotated ? ew : eh;
+      if (currentOrientation === 'vertical') { const tmp = rw; rw = rh; rh = tmp; }
+
+      // World → offscreen coords
+      const wx = e.x * EXPORT_SCALE + offVX;
+      const wy = e.y * EXPORT_SCALE + offVY;
+      const sw = rw * EXPORT_SCALE;
+      const sh = rh * EXPORT_SCALE;
+
+      const eWaveMode = e.waveMode || waveMode;
+      const shape = e.shape || cfg.shape || 'rect';
+
+      drawExportElement(octx, e, wx, wy, sw, sh, baseColor, eWaveMode, shape, EXPORT_SCALE);
+    });
+
+    window._exportMode = null;
+
     const link = document.createElement('a');
     link.download = 'layout_villares.png';
-    if (useFullCanvas) {
-      link.href = canvas.toDataURL('image/png');
-    } else {
-      // Crop to area bounds
-      const offscreen = document.createElement('canvas');
-      offscreen.width = cropW;
-      offscreen.height = cropH;
-      const octx = offscreen.getContext('2d');
-      octx.drawImage(canvas, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
-      link.href = offscreen.toDataURL('image/png');
-    }
+    link.href = off.toDataURL('image/png');
     link.click();
   }
 
   if (!hasOutside) {
-    // All elements inside — export cleanly cropped to area
-    if (cropValid) doExport(false);
-    else doExport(true);
+    doExport(true);
     return;
   }
-
-  // Some elements outside — show popup
   showExportWarningPopup({
     t,
-    canAutoFix: cropValid,
-    onCrop: () => { closeExportPopup(); doExport(false); },
-    onFull: () => { closeExportPopup(); doExport(true); },
+    canAutoFix: true,
+    onCrop: () => { closeExportPopup(); doExport(true); },
+    onFull: () => { closeExportPopup(); doExport(false); },
   });
 }
+
+// Draw a single element to an offscreen canvas context
+function drawExportElement(octx, e, x, y, sw, sh, color, eWaveMode, shape, scl) {
+  const alpha = eWaveMode === 'calor' ? 0.5 : 0.22;
+  const isIsoEl = isIso && shape === 'rect' && e.type !== 'corredor';
+
+  octx.save();
+  if (isIsoEl) {
+    const depth = Math.min(12 * scl, sh * 0.4);
+    // Front
+    octx.fillStyle = hexToRgba(color, alpha + 0.1);
+    octx.fillRect(x, y + depth, sw, sh - depth);
+    octx.strokeStyle = hexToRgba(color, 0.55);
+    octx.lineWidth = 1;
+    octx.strokeRect(x, y + depth, sw, sh - depth);
+    // Top
+    octx.fillStyle = hexToRgba(color, alpha + 0.2);
+    octx.fillRect(x, y, sw, depth);
+    octx.strokeStyle = hexToRgba(color, 0.75);
+    octx.strokeRect(x, y, sw, depth);
+  } else {
+    octx.fillStyle = hexToRgba(color, alpha);
+    octx.strokeStyle = hexToRgba(color, 0.95);
+    octx.lineWidth = 1.5;
+    octx.beginPath();
+    if (shape === 'circle') {
+      octx.ellipse(x + sw/2, y + sh/2, sw/2, sh/2, 0, 0, Math.PI*2);
+    } else if (shape === 'triangle') {
+      octx.moveTo(x + sw/2, y); octx.lineTo(x + sw, y + sh); octx.lineTo(x, y + sh);
+      octx.closePath();
+    } else if (shape === 'diamond') {
+      octx.moveTo(x + sw/2, y); octx.lineTo(x + sw, y + sh/2);
+      octx.lineTo(x + sw/2, y + sh); octx.lineTo(x, y + sh/2); octx.closePath();
+    } else {
+      octx.rect(x, y, sw, sh);
+    }
+    octx.fill(); octx.stroke();
+  }
+
+  // Label
+  const label = e.label || cfgLabel(e.type);
+  const fontSize = Math.max(11, 12 * scl * 0.55);
+  octx.font = `600 ${fontSize}px Inter, sans-serif`;
+  octx.textAlign = 'center';
+  octx.textBaseline = 'middle';
+  const cx = x + sw / 2;
+  const cy = isIsoEl ? y + (Math.min(12*scl, sh*0.4)) + (sh - Math.min(12*scl, sh*0.4)) / 2 : y + sh / 2;
+  if (lightMode) {
+    octx.strokeStyle = 'rgba(255,255,255,0.95)'; octx.lineWidth = 3;
+    octx.lineJoin = 'round'; octx.strokeText(label, cx, cy);
+    octx.fillStyle = '#0f172a'; octx.fillText(label, cx, cy);
+  } else {
+    octx.shadowColor = 'rgba(0,0,0,0.9)'; octx.shadowBlur = 5;
+    octx.fillStyle = '#fff'; octx.fillText(label, cx, cy);
+    octx.shadowBlur = 0;
+  }
+  octx.restore();
+}
+
+// ============================================================
+//  PRESENTATION MODE
+// ============================================================
+let presentScale = 1;
+let presentVX = 0, presentVY = 0;
+let presentPanning = false, presentPanStart = null;
+const pCanvas = document.getElementById('presentCanvas');
+const pCtx = pCanvas ? pCanvas.getContext('2d') : null;
+
+function enterPresentationMode() {
+  document.getElementById('presentOverlay').classList.add('active');
+  document.getElementById('presentAreaName').textContent = areaConfig.name;
+  // Set canvas size to window
+  pCanvas.width = window.innerWidth;
+  pCanvas.height = window.innerHeight;
+  // Build legend
+  buildPresentLegend();
+  // Fit all elements
+  presentFitAll();
+  // Translate hint
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  document.getElementById('presentHint').textContent =
+    currentLang === 'en' ? 'Scroll = zoom · Drag = pan · ESC = exit' :
+    currentLang === 'es' ? 'Scroll = zoom · Arrastrar = mover · ESC = salir' :
+    'Scroll = zoom · Arraste = mover · ESC = sair';
+  document.getElementById('presentOverlay').classList.add('show-ui');
+  setTimeout(() => document.getElementById('presentOverlay').classList.remove('show-ui'), 2500);
+}
+
+function exitPresentationMode() {
+  document.getElementById('presentOverlay').classList.remove('active');
+  document.getElementById('presentOverlay').classList.remove('show-ui');
+}
+
+function buildPresentLegend() {
+  const legend = document.getElementById('presentLegend');
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+  legend.innerHTML = `<div class="present-legend-title">${currentLang === 'en' ? 'LEGEND' : currentLang === 'es' ? 'LEYENDA' : 'LEGENDA'}</div>`;
+
+  // Group by wave
+  const noWave = elements.filter(e => !e.wave || e.wave === 0);
+  const byWave = {};
+  elements.filter(e => e.wave && e.wave > 0).forEach(e => {
+    if (!byWave[e.wave]) byWave[e.wave] = [];
+    byWave[e.wave].push(e);
+  });
+
+  // No-wave elements
+  if (noWave.length > 0) {
+    noWave.forEach(e => {
+      const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+      const color = (e.customColor && e.customColor !== '#6B7280') ? e.customColor : cfg.color;
+      const item = document.createElement('div');
+      item.className = 'present-legend-item';
+      item.innerHTML = `
+        <div class="present-legend-dot" style="background:${color}"></div>
+        <span class="present-legend-label">${e.label || cfgLabel(e.type)}</span>
+        <span class="present-legend-type">${cfgLabel(e.type).substring(0,6).toUpperCase()}</span>`;
+      legend.appendChild(item);
+    });
+  }
+
+  // Grouped by wave
+  Object.entries(byWave).forEach(([wid, els]) => {
+    const wave = waves.find(w => w.id === parseInt(wid));
+    if (!wave) return;
+    const grp = document.createElement('div');
+    grp.className = 'present-legend-wave-group';
+    const header = document.createElement('div');
+    header.className = 'present-legend-wave-header';
+    header.innerHTML = `<div class="present-legend-wave-bar" style="background:${wave.color}"></div><span>${wave.name}</span><div class="present-legend-wave-bar" style="background:${wave.color}"></div>`;
+    grp.appendChild(header);
+    els.forEach(e => {
+      const item = document.createElement('div');
+      item.className = 'present-legend-item';
+      item.innerHTML = `
+        <div class="present-legend-dot" style="background:${wave.color}"></div>
+        <span class="present-legend-label">${e.label || cfgLabel(e.type)}</span>
+        <span class="present-legend-type">${cfgLabel(e.type).substring(0,6).toUpperCase()}</span>`;
+      grp.appendChild(item);
+    });
+    legend.appendChild(grp);
+  });
+}
+
+function presentFitAll() {
+  if (!pCanvas) return;
+  const LEGEND_W = 230;
+  const TOP_H = 58;
+  const PAD = 40;
+  const availW = pCanvas.width - LEGEND_W - PAD * 2;
+  const availH = pCanvas.height - TOP_H - PAD * 2;
+
+  // Bounding box of all elements in world coords
+  let minX = 0, minY = 0, maxX = 0, maxY = 0;
+  if (elements.length === 0) {
+    const areaW = areaConfig.widthM * gridSize / 3;
+    const areaH = areaConfig.lengthM * gridSize / 3;
+    maxX = currentOrientation === 'vertical' ? areaH : areaW;
+    maxY = currentOrientation === 'vertical' ? areaW : areaH;
+  } else {
+    minX = Infinity; minY = Infinity; maxX = -Infinity; maxY = -Infinity;
+    elements.forEach(e => {
+      const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+      const ew = (e.customW || cfg.w) * gridSize;
+      const eh = (e.customH || cfg.h) * gridSize;
+      const rw = e.rotated ? eh : ew;
+      const rh = e.rotated ? ew : eh;
+      minX = Math.min(minX, e.x); minY = Math.min(minY, e.y);
+      maxX = Math.max(maxX, e.x + rw); maxY = Math.max(maxY, e.y + rh);
+    });
+    // Also include area boundary
+    const areaW = (currentOrientation === 'vertical' ? areaConfig.lengthM : areaConfig.widthM) * gridSize / 3;
+    const areaH = (currentOrientation === 'vertical' ? areaConfig.widthM : areaConfig.lengthM) * gridSize / 3;
+    minX = Math.min(minX, 0); minY = Math.min(minY, 0);
+    maxX = Math.max(maxX, areaW); maxY = Math.max(maxY, areaH);
+  }
+
+  const contentW = maxX - minX;
+  const contentH = maxY - minY;
+  if (contentW <= 0 || contentH <= 0) return;
+
+  presentScale = Math.min(availW / contentW, availH / contentH);
+  presentVX = PAD + (availW - contentW * presentScale) / 2 - minX * presentScale;
+  presentVY = TOP_H + PAD + (availH - contentH * presentScale) / 2 - minY * presentScale;
+
+  renderPresentation();
+}
+
+function renderPresentation() {
+  if (!pCtx || !pCanvas) return;
+  pCanvas.width = window.innerWidth;
+  pCanvas.height = window.innerHeight;
+  const pc = pCanvas, pct = pCtx;
+
+  // Background
+  pct.fillStyle = '#080808';
+  pct.fillRect(0, 0, pc.width, pc.height);
+
+  // Grid
+  const gs = gridSize * presentScale;
+  if (gs > 8) {
+    pct.strokeStyle = 'rgba(255,255,255,0.03)';
+    pct.lineWidth = 0.5;
+    for (let x = presentVX % gs; x < pc.width; x += gs) {
+      pct.beginPath(); pct.moveTo(x, 0); pct.lineTo(x, pc.height); pct.stroke();
+    }
+    for (let y = presentVY % gs; y < pc.height; y += gs) {
+      pct.beginPath(); pct.moveTo(0, y); pct.lineTo(pc.width, y); pct.stroke();
+    }
+  }
+
+  // Area boundary
+  const areaW = (currentOrientation === 'vertical' ? areaConfig.lengthM : areaConfig.widthM) * gridSize / 3;
+  const areaH = (currentOrientation === 'vertical' ? areaConfig.widthM : areaConfig.lengthM) * gridSize / 3;
+  const bx = presentVX, by = presentVY;
+  const bw = areaW * presentScale, bh = areaH * presentScale;
+  pct.save();
+  pct.fillStyle = 'rgba(255,255,255,0.018)';
+  pct.fillRect(bx, by, bw, bh);
+  pct.strokeStyle = 'rgba(255,255,255,0.45)';
+  pct.lineWidth = 2;
+  pct.setLineDash([8, 6]);
+  pct.strokeRect(bx, by, bw, bh);
+  pct.setLineDash([]);
+  // Corners
+  const tick = Math.min(22, bw * 0.05, bh * 0.05);
+  pct.lineWidth = 2.5;
+  pct.strokeStyle = 'rgba(255,255,255,0.7)';
+  [[bx,by,1,1],[bx+bw,by,-1,1],[bx,by+bh,1,-1],[bx+bw,by+bh,-1,-1]].forEach(([cx,cy,dx,dy]) => {
+    pct.beginPath();
+    pct.moveTo(cx+dx*tick,cy); pct.lineTo(cx,cy); pct.lineTo(cx,cy+dy*tick);
+    pct.stroke();
+  });
+  pct.restore();
+
+  // Elements
+  const sorted = [...elements].sort((a,b) => a.y - b.y);
+  sorted.forEach(e => {
+    const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+    let color;
+    if (e.customColor && e.customColor !== '#6B7280') color = e.customColor;
+    else if (e.type === 'pilar') color = '#2a2a2a';
+    else if (e.wave) color = getWaveColor(e.wave);
+    else color = cfg.color;
+
+    const ew = (e.customW || cfg.w) * gridSize;
+    const eh = (e.customH || cfg.h) * gridSize;
+    let rw = e.rotated ? eh : ew, rh = e.rotated ? ew : eh;
+    if (currentOrientation === 'vertical') { const t=rw; rw=rh; rh=t; }
+
+    const px = e.x * presentScale + presentVX;
+    const py = e.y * presentScale + presentVY;
+    const sw = rw * presentScale, sh = rh * presentScale;
+
+    const shape = e.shape || cfg.shape || 'rect';
+    const eWaveMode = e.waveMode || waveMode;
+    drawExportElement(pct, e, px, py, sw, sh, color, eWaveMode, shape, presentScale / 60);
+  });
+
+  // Zoom info
+  document.getElementById('presentZoomInfo').textContent = Math.round(presentScale * 100) + '%';
+}
+
+// Present canvas events
+if (pCanvas) {
+  pCanvas.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    const factor = ev.deltaY > 0 ? 1/1.12 : 1.12;
+    const rect = pCanvas.getBoundingClientRect();
+    const sx = ev.clientX - rect.left, sy = ev.clientY - rect.top;
+    presentVX = sx - (sx - presentVX) * factor;
+    presentVY = sy - (sy - presentVY) * factor;
+    presentScale = Math.max(0.05, Math.min(8, presentScale * factor));
+    renderPresentation();
+  }, { passive: false });
+
+  pCanvas.addEventListener('mousedown', ev => {
+    if (ev.button !== 0) return;
+    presentPanning = true;
+    presentPanStart = { x: ev.clientX - presentVX, y: ev.clientY - presentVY };
+    pCanvas.classList.add('panning');
+  });
+
+  pCanvas.addEventListener('mousemove', ev => {
+    if (!presentPanning) return;
+    presentVX = ev.clientX - presentPanStart.x;
+    presentVY = ev.clientY - presentPanStart.y;
+    renderPresentation();
+  });
+
+  pCanvas.addEventListener('mouseup', () => {
+    presentPanning = false;
+    pCanvas.classList.remove('panning');
+  });
+
+  // Touch support for HDMI/tablet
+  let lastTouchDist = null;
+  pCanvas.addEventListener('touchstart', ev => {
+    if (ev.touches.length === 1) {
+      presentPanning = true;
+      presentPanStart = { x: ev.touches[0].clientX - presentVX, y: ev.touches[0].clientY - presentVY };
+    }
+    if (ev.touches.length === 2) {
+      lastTouchDist = Math.hypot(
+        ev.touches[0].clientX - ev.touches[1].clientX,
+        ev.touches[0].clientY - ev.touches[1].clientY
+      );
+    }
+  }, { passive: true });
+
+  pCanvas.addEventListener('touchmove', ev => {
+    ev.preventDefault();
+    if (ev.touches.length === 1 && presentPanning) {
+      presentVX = ev.touches[0].clientX - presentPanStart.x;
+      presentVY = ev.touches[0].clientY - presentPanStart.y;
+      renderPresentation();
+    }
+    if (ev.touches.length === 2 && lastTouchDist) {
+      const dist = Math.hypot(
+        ev.touches[0].clientX - ev.touches[1].clientX,
+        ev.touches[0].clientY - ev.touches[1].clientY
+      );
+      const factor = dist / lastTouchDist;
+      const cx = (ev.touches[0].clientX + ev.touches[1].clientX) / 2;
+      const cy = (ev.touches[0].clientY + ev.touches[1].clientY) / 2;
+      presentVX = cx - (cx - presentVX) * factor;
+      presentVY = cy - (cy - presentVY) * factor;
+      presentScale = Math.max(0.05, Math.min(8, presentScale * factor));
+      lastTouchDist = dist;
+      renderPresentation();
+    }
+  }, { passive: false });
+
+  pCanvas.addEventListener('touchend', () => { presentPanning = false; lastTouchDist = null; });
+}
+
+// ESC exits presentation
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape' && document.getElementById('presentOverlay').classList.contains('active')) {
+    exitPresentationMode();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (document.getElementById('presentOverlay').classList.contains('active')) {
+    renderPresentation();
+  }
+});
 
 function showExportWarningPopup({ t, canAutoFix, onCrop, onFull }) {
   const lang = currentLang;
