@@ -2021,6 +2021,42 @@ body.light-mode .area-dims { background: #f1f5f9; }
   z-index: 9000; display: none; flex-direction: column;
 }
 #presentOverlay.active { display: flex; }
+#presentOverlay.present-light { background: #f0f2f5; }
+#presentOverlay.present-light .present-topbar {
+  background: rgba(240,242,245,0.96);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+#presentOverlay.present-light .present-logo { color: rgba(0,0,0,0.35); }
+#presentOverlay.present-light .present-area-name { color: rgba(0,0,0,0.65); }
+#presentOverlay.present-light .present-zoom-info { color: rgba(0,0,0,0.3); }
+#presentOverlay.present-light .present-btn {
+  border-color: rgba(0,0,0,0.18); color: rgba(0,0,0,0.55);
+}
+#presentOverlay.present-light .present-btn:hover {
+  border-color: rgba(0,0,0,0.4); color: #000; background: rgba(0,0,0,0.05);
+}
+#presentOverlay.present-light .present-btn.exit-btn:hover { border-color: #F43F5E99; color: #F43F5E; }
+#presentOverlay.present-light .present-legend {
+  background: rgba(240,242,245,0.97);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+#presentOverlay.present-light .present-legend-header {
+  border-bottom: 1px solid rgba(0,0,0,0.08); color: rgba(0,0,0,0.4);
+}
+#presentOverlay.present-light .present-legend-reset { color: rgba(0,0,0,0.35); border-color: rgba(0,0,0,0.12); }
+#presentOverlay.present-light .present-legend-reset:hover { color: rgba(0,0,0,0.6); }
+#presentOverlay.present-light .present-legend-group-header { border-color: rgba(0,0,0,0.06); }
+#presentOverlay.present-light .present-legend-group-header:hover { background: rgba(0,0,0,0.04); }
+#presentOverlay.present-light .present-legend-group-header.active { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.15); }
+#presentOverlay.present-light .present-legend-group-name { color: rgba(0,0,0,0.65); }
+#presentOverlay.present-light .present-legend-group-header.active .present-legend-group-name { color: #000; }
+#presentOverlay.present-light .present-legend-group-count { color: rgba(0,0,0,0.35); }
+#presentOverlay.present-light .present-legend-item { color: rgba(0,0,0,0.55); border-left-color: rgba(0,0,0,0.1); }
+#presentOverlay.present-light .present-legend-item:hover { color: rgba(0,0,0,0.8); border-left-color: rgba(0,0,0,0.3); }
+#presentOverlay.present-light .present-legend-item.active { color: #000; border-left-color: #000; }
+#presentOverlay.present-light .present-fit-btn { background: rgba(0,0,0,0.06); color: rgba(0,0,0,0.55); }
+#presentOverlay.present-light .present-fit-btn:hover { background: rgba(0,0,0,0.1); color: #000; }
+#presentOverlay.present-light .present-hint { color: rgba(0,0,0,0.35); }
 
 .present-topbar {
   position: absolute; top: 0; left: 0; right: 0; height: 52px;
@@ -2403,6 +2439,7 @@ body.light-mode .area-dims { background: #f1f5f9; }
     <span class="present-spacer"></span>
     <span class="present-zoom-info" id="presentZoomInfo">100%</span>
     <button class="present-btn" onclick="presentFitAll()">⤢ FIT</button>
+    <button class="present-btn" id="presentThemeBtn" onclick="togglePresentTheme()" title="Alternar tema">☀ CLARO</button>
     <button class="present-btn exit-btn" onclick="exitPresentationMode()">✕ ESC</button>
   </div>
 
@@ -5568,6 +5605,14 @@ function exitPresentationMode() {
   presentHighlightType = null;
 }
 
+function togglePresentTheme() {
+  const overlay = document.getElementById('presentOverlay');
+  const isLight = overlay.classList.toggle('present-light');
+  const btn = document.getElementById('presentThemeBtn');
+  btn.textContent = isLight ? '🌙 ESCURO' : '☀ CLARO';
+  renderPresentation();
+}
+
 function presentClearHighlight() {
   presentHighlightType = null;
   document.getElementById('presentResetBtn').style.display = 'none';
@@ -5687,15 +5732,16 @@ function renderPresentation() {
   pCanvas.width = window.innerWidth;
   pCanvas.height = window.innerHeight;
   const pct = pCtx;
+  const isLight = document.getElementById('presentOverlay').classList.contains('present-light');
 
   // Background
-  pct.fillStyle = '#060606';
+  pct.fillStyle = isLight ? '#f0f2f5' : '#060606';
   pct.fillRect(0, 0, pCanvas.width, pCanvas.height);
 
   // Subtle grid
   const gs = gridSize * presentScale;
   if (gs > 10) {
-    pct.strokeStyle = 'rgba(255,255,255,0.025)';
+    pct.strokeStyle = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.025)';
     pct.lineWidth = 0.5;
     for (let x = presentVX % gs; x < pCanvas.width; x += gs) {
       pct.beginPath(); pct.moveTo(x, 0); pct.lineTo(x, pCanvas.height); pct.stroke();
@@ -5712,16 +5758,16 @@ function renderPresentation() {
   const bw = areaW * presentScale, bh = areaH * presentScale;
 
   pct.save();
-  pct.fillStyle = 'rgba(255,255,255,0.015)';
+  pct.fillStyle = isLight ? 'rgba(0,0,0,0.02)' : 'rgba(255,255,255,0.015)';
   pct.fillRect(bx, by, bw, bh);
-  pct.strokeStyle = 'rgba(255,255,255,0.4)';
+  pct.strokeStyle = isLight ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.4)';
   pct.lineWidth = 1.5;
   pct.setLineDash([7, 5]);
   pct.strokeRect(bx, by, bw, bh);
   pct.setLineDash([]);
   // Corner ticks
   const tick = Math.min(20, bw * 0.04, bh * 0.04);
-  pct.lineWidth = 2.5; pct.strokeStyle = 'rgba(255,255,255,0.65)';
+  pct.lineWidth = 2.5; pct.strokeStyle = isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.65)';
   [[bx,by,1,1],[bx+bw,by,-1,1],[bx,by+bh,1,-1],[bx+bw,by+bh,-1,-1]].forEach(([cx,cy,dx,dy]) => {
     pct.beginPath(); pct.moveTo(cx+dx*tick,cy); pct.lineTo(cx,cy); pct.lineTo(cx,cy+dy*tick); pct.stroke();
   });
@@ -5759,7 +5805,10 @@ function renderPresentation() {
 
     const shape = e.shape || cfg.shape || 'rect';
     const scl = presentScale / 60;
+    const _prevLightMode = lightMode;
+    if (isLight) lightMode = true;
     drawExportElement(pct, e, px, py, sw, sh, color, 'sinal', shape, scl);
+    lightMode = _prevLightMode;
 
     pct.restore();
   });
