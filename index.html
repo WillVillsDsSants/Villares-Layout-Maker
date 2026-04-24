@@ -2544,6 +2544,13 @@ body.light-mode .area-dims { background: #f1f5f9; }
       </div>
     </div>
 
+    <!-- ONDAS / FLUXO -->
+    <div class="sidebar-section" id="wavesSection">
+      <div class="sidebar-title" data-i18n="waves">Ondas / Fluxo</div>
+      <div class="wave-list" id="waveList"></div>
+      <button class="add-wave-btn" onclick="addWave()" data-i18n="addWave">+ Nova Onda</button>
+    </div>
+
     <!-- LEGENDA UNIFICADA -->
     <div class="sidebar-section" id="legendSection">
       <div class="sidebar-title" data-i18n="legend">Legenda</div>
@@ -3697,6 +3704,7 @@ function getWaveName(waveId) {
 
 function renderWaveList() {
   const list = document.getElementById('waveList');
+  if (!list) return;
   list.innerHTML = '';
   waves.forEach(w => {
     const row = document.createElement('div');
@@ -5180,7 +5188,7 @@ function changeGridSize(v) { gridSize = parseInt(v); render(); }
 //  IMPORT / EXPORT
 // ============================================================
 function exportJSON() {
-  const data = JSON.stringify({ version: 2, areaConfig, waves, elements, nextWaveId, idCounter, gridSize }, null, 2);
+  const data = JSON.stringify({ version: 2, appMode, areaConfig, waves, elements, nextWaveId, idCounter, gridSize }, null, 2);
   const blob = new Blob([data], { type: 'application/json' });
   const link = document.createElement('a');
   link.download = 'layout_volumosos.json';
@@ -5199,6 +5207,9 @@ function handleImport(e) {
   reader.onload = ev => {
     try {
       const data = JSON.parse(ev.target.result);
+      if (data.appMode && ['logistica', 'escritorio', 'pessoal'].includes(data.appMode)) {
+        appMode = data.appMode;
+      }
       if (data.elements) elements = data.elements;
       if (data.waves) waves = data.waves;
       if (data.areaConfig) areaConfig = data.areaConfig;
@@ -5206,6 +5217,9 @@ function handleImport(e) {
       if (data.idCounter) idCounter = data.idCounter;
       if (data.gridSize) gridSize = data.gridSize;
       selected = null;
+      renderToolGrid();
+      populateTypeDropdown();
+      updateModeBadge();
       updatePropPanel();
       updateStats();
       renderWaveList();
@@ -5216,10 +5230,11 @@ function handleImport(e) {
     } catch (err) {
       const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
       alert(t.importError + err.message);
+    } finally {
+      e.target.value = '';
     }
   };
   reader.readAsText(file);
-  e.target.value = '';
 }
 
 // ============================================================
