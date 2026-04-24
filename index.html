@@ -1953,119 +1953,199 @@ body.light-mode .area-banner:hover { box-shadow: 0 8px 24px rgba(15,23,42,0.08);
 }
 body.light-mode .area-dims { background: #f1f5f9; }
 
-/* ===== PRESENTATION MODE ===== */
+/* ===== SEARCH ===== */
+.search-result-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 8px; cursor: pointer;
+  border: 1px solid transparent; transition: all 0.12s;
+  font-size: 11px; color: var(--text-mid);
+}
+.search-result-item:hover { border-color: var(--border); background: var(--btn-hover-bg); color: var(--text); }
+.search-result-item.active { border-color: var(--text); background: var(--btn-active-bg); color: var(--text); font-weight: 600; }
+.search-result-dot { width: 8px; height: 8px; flex-shrink: 0; }
+.search-result-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-result-type { font-size: 9px; color: var(--text-dim); letter-spacing: 0.06em; flex-shrink: 0; }
+.search-no-results { font-size: 11px; color: var(--text-dim); text-align: center; padding: 8px; }
+
+/* ===== SUMMARY BADGE in header ===== */
+.summary-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 9px; border: 1px solid var(--border);
+  font-size: 9.5px; font-weight: 600; color: var(--text-dim);
+  letter-spacing: 0.06em; cursor: default;
+  transition: all 0.15s;
+}
+
+.legend-group { margin-bottom: 6px; }
+.legend-type-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 7px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+  margin-bottom: 2px;
+}
+.legend-type-header:hover { border-color: var(--border); background: var(--btn-hover-bg); }
+.legend-type-header.active { border-color: var(--text); background: var(--btn-active-bg); }
+.legend-type-dot {
+  width: 10px; height: 10px; flex-shrink: 0;
+}
+.legend-type-name {
+  flex: 1; font-size: 11px; font-weight: 600; color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+.legend-type-header.active .legend-type-name { color: var(--text); }
+.legend-type-count {
+  font-size: 10px; color: var(--text-dim); font-weight: 600;
+  background: var(--btn-hover-bg);
+  padding: 1px 5px;
+  font-variant-numeric: tabular-nums;
+}
+.legend-type-header.active .legend-type-count { color: var(--text); }
+.legend-item-list { padding-left: 8px; display: flex; flex-direction: column; gap: 2px; }
+.legend-item {
+  font-size: 10.5px; color: var(--text-dim); padding: 2px 6px;
+  cursor: pointer; transition: all 0.12s;
+  border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.legend-item:hover { color: var(--text); border-left-color: var(--border2); background: var(--btn-hover-bg); }
+.legend-item.active { color: var(--text); border-left-color: var(--text); font-weight: 600; }
+
+/* ===== IMPROVED PRESENTATION OVERLAY ===== */
 #presentOverlay {
-  position: fixed;
-  inset: 0;
-  background: #080808;
-  z-index: 9000;
-  display: none;
-  flex-direction: column;
+  position: fixed; inset: 0; background: #060606;
+  z-index: 9000; display: none; flex-direction: column;
 }
 #presentOverlay.active { display: flex; }
+
 .present-topbar {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 48px;
-  background: rgba(0,0,0,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  gap: 12px;
-  z-index: 10;
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute; top: 0; left: 0; right: 0; height: 52px;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center; padding: 0 20px; gap: 12px;
+  z-index: 10; opacity: 0; transition: opacity 0.25s;
   pointer-events: none;
 }
-#presentOverlay.show-ui .present-topbar { opacity: 1; pointer-events: all; }
+#presentOverlay.show-ui .present-topbar,
 #presentOverlay:hover .present-topbar { opacity: 1; pointer-events: all; }
-.present-logo { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: rgba(255,255,255,0.5); }
+
+.present-logo {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.24em;
+  color: rgba(255,255,255,0.45);
+}
+.present-area-name {
+  font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500;
+  letter-spacing: 0.04em;
+}
 .present-spacer { flex: 1; }
-.present-zoom-info { font-size: 11px; color: rgba(255,255,255,0.3); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+.present-zoom-info {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.05em;
+  min-width: 40px; text-align: right;
+}
 .present-btn {
-  padding: 5px 12px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.65);
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.15s;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  padding: 5px 12px; background: transparent;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.15s;
+  display: inline-flex; align-items: center; gap: 6px;
 }
 .present-btn:hover { border-color: rgba(255,255,255,0.45); color: #fff; background: rgba(255,255,255,0.05); }
-.present-btn.exit-btn:hover { border-color: #F43F5E; color: #F43F5E; }
+.present-btn.exit-btn:hover { border-color: #F43F5E55; color: #F43F5E; }
+
 #presentCanvas { display: block; cursor: grab; position: absolute; inset: 0; }
 #presentCanvas.panning { cursor: grabbing; }
+
+/* Presentation legend */
 .present-legend {
-  position: absolute;
-  top: 58px; right: 14px; bottom: 14px;
-  width: 210px;
-  background: rgba(8,8,8,0.92);
-  border: 1px solid rgba(255,255,255,0.09);
+  position: absolute; top: 62px; right: 14px; bottom: 14px;
+  width: 220px;
+  background: rgba(6,6,6,0.94);
+  border: 1px solid rgba(255,255,255,0.07);
   backdrop-filter: blur(20px);
-  overflow-y: auto;
-  padding: 12px 10px;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  opacity: 0;
-  transition: opacity 0.3s;
+  overflow-y: auto; z-index: 5;
+  display: flex; flex-direction: column;
+  opacity: 0; transition: opacity 0.25s;
   pointer-events: none;
 }
-#presentOverlay.show-ui .present-legend { opacity: 1; pointer-events: all; }
+#presentOverlay.show-ui .present-legend,
 #presentOverlay:hover .present-legend { opacity: 1; pointer-events: all; }
-.present-legend-title {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.25); text-transform: uppercase;
-  margin-bottom: 4px; padding-bottom: 8px;
+
+.present-legend-header {
+  padding: 12px 12px 8px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.25); text-transform: uppercase;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.present-legend-wave-group { margin-bottom: 4px; }
-.present-legend-wave-header {
-  display: flex; align-items: center; gap: 7px;
-  padding: 4px 5px; font-size: 9.5px; font-weight: 700;
-  color: rgba(255,255,255,0.4); letter-spacing: 0.08em;
-  text-transform: uppercase; margin-bottom: 2px;
+.present-legend-reset {
+  font-size: 9px; color: rgba(255,255,255,0.2); cursor: pointer;
+  letter-spacing: 0.1em; padding: 2px 6px; border: 1px solid transparent;
+  transition: all 0.12s;
 }
-.present-legend-wave-bar { height: 2px; flex: 1; opacity: 0.6; }
-.present-legend-item {
+.present-legend-reset:hover { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15); }
+
+.present-legend-body { padding: 8px 10px; flex: 1; display: flex; flex-direction: column; gap: 3px; }
+
+.present-legend-group-header {
   display: flex; align-items: center; gap: 8px;
-  padding: 4px 5px; font-size: 11px;
-  color: rgba(255,255,255,0.7); font-weight: 500; min-width: 0;
+  padding: 6px 6px; cursor: pointer;
+  border: 1px solid transparent; transition: all 0.15s; margin-bottom: 1px;
 }
-.present-legend-dot { width: 9px; height: 9px; flex-shrink: 0; }
-.present-legend-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.present-legend-type { font-size: 9px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; flex-shrink: 0; }
+.present-legend-group-header:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+.present-legend-group-header.active { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+.present-legend-group-dot { width: 10px; height: 10px; flex-shrink: 0; }
+.present-legend-group-name {
+  flex: 1; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.6);
+}
+.present-legend-group-header.active .present-legend-group-name { color: #fff; }
+.present-legend-group-count {
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  font-variant-numeric: tabular-nums; font-weight: 600;
+}
+.present-legend-group-header.active .present-legend-group-count { color: rgba(255,255,255,0.5); }
+
+.present-legend-items { padding: 0 0 4px 18px; display: flex; flex-direction: column; gap: 1px; }
+.present-legend-item {
+  font-size: 10.5px; color: rgba(255,255,255,0.4);
+  padding: 3px 6px; cursor: pointer; transition: all 0.12s;
+  border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.present-legend-item:hover { color: rgba(255,255,255,0.8); border-left-color: rgba(255,255,255,0.3); }
+.present-legend-item.active { color: #fff; border-left-color: #fff; font-weight: 600; }
+
 .present-fit-btn {
-  position: absolute; bottom: 18px; right: 240px;
-  padding: 6px 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.4);
+  position: absolute; bottom: 18px; right: 248px;
+  padding: 6px 14px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09); color: rgba(255,255,255,0.35);
   font-family: 'Inter', sans-serif; font-size: 10px; cursor: pointer;
   letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.15s;
   opacity: 0;
 }
 #presentOverlay:hover .present-fit-btn { opacity: 1; }
 .present-fit-btn:hover { background: rgba(255,255,255,0.09); color: #fff; }
+
 .present-hint {
-  position: absolute; bottom: 18px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px; color: rgba(255,255,255,0.15);
-  letter-spacing: 0.12em; text-transform: uppercase;
-  pointer-events: none; white-space: nowrap;
-  transition: opacity 0.5s;
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; color: rgba(255,255,255,0.13); letter-spacing: 0.14em;
+  text-transform: uppercase; pointer-events: none; white-space: nowrap; transition: opacity 0.4s;
 }
 #presentOverlay:hover .present-hint { opacity: 0; }
+
+/* highlight pulse for type-group clicks */
+@keyframes highlightPulse {
+  0% { filter: brightness(1.8) drop-shadow(0 0 8px currentColor); }
+  100% { filter: brightness(1); }
+}
+.element-highlighted { animation: highlightPulse 0.6s ease-out; }
 </style>
 </head>
 <body>
@@ -2318,16 +2398,20 @@ body.light-mode .area-dims { background: #f1f5f9; }
   <canvas id="presentCanvas"></canvas>
 
   <div class="present-topbar">
-    <span class="present-logo">VILLARES · LAYOUT MAKER</span>
-    <span id="presentAreaName" style="font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.06em"></span>
+    <span class="present-logo">VILLARES</span>
+    <span class="present-area-name" id="presentAreaName"></span>
     <span class="present-spacer"></span>
     <span class="present-zoom-info" id="presentZoomInfo">100%</span>
-    <button class="present-btn" onclick="presentFitAll()" style="font-size:9px">⤢ FIT</button>
-    <button class="present-btn exit-btn" onclick="exitPresentationMode()">✕ <span data-i18n="presentExit">Sair</span></button>
+    <button class="present-btn" onclick="presentFitAll()">⤢ FIT</button>
+    <button class="present-btn exit-btn" onclick="exitPresentationMode()">✕ ESC</button>
   </div>
 
   <div class="present-legend" id="presentLegend">
-    <div class="present-legend-title" id="presentLegendTitle">LEGENDA</div>
+    <div class="present-legend-header">
+      <span id="presentLegendTitle">LEGENDA</span>
+      <span class="present-legend-reset" onclick="presentClearHighlight()" id="presentResetBtn" style="display:none">✕ LIMPAR</span>
+    </div>
+    <div class="present-legend-body" id="presentLegendBody"></div>
   </div>
 
   <button class="present-fit-btn" onclick="presentFitAll()">⤢ Ajustar à tela</button>
@@ -2428,6 +2512,24 @@ body.light-mode .area-dims { background: #f1f5f9; }
   <!-- SIDEBAR -->
   <div class="sidebar">
 
+    <!-- BUSCA RÁPIDA -->
+    <div class="sidebar-section" style="padding-bottom:10px">
+      <div style="position:relative">
+        <input type="text" id="searchInput" placeholder="🔍  Buscar elemento..." 
+          style="width:100%;background:var(--bg);border:1px solid var(--border2);color:var(--text);
+          padding:7px 10px 7px 10px;font-size:11px;font-family:'Inter',sans-serif;
+          letter-spacing:0.02em;outline:none;transition:border-color 0.15s"
+          oninput="onSearchInput(this.value)"
+          onfocus="this.style.borderColor='var(--text)'"
+          onblur="this.style.borderColor='var(--border2)'">
+        <button id="searchClear" onclick="clearSearch()" 
+          style="display:none;position:absolute;right:6px;top:50%;transform:translateY(-50%);
+          background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:13px;padding:2px 4px">✕</button>
+      </div>
+      <div id="searchResults" style="display:none;margin-top:4px;display:none;flex-direction:column;gap:2px;max-height:180px;overflow-y:auto"></div>
+    </div>
+
+    <!-- TOOLS -->
     <div class="sidebar-section">
       <div class="sidebar-title" data-i18n="tools">Ferramentas</div>
       <div class="tool-grid" id="toolGrid"></div>
@@ -2442,21 +2544,10 @@ body.light-mode .area-dims { background: #f1f5f9; }
       </div>
     </div>
 
-    <!-- ONDAS -->
-    <div class="sidebar-section">
-      <div class="sidebar-title" data-i18n="waves">Ondas / Fluxo</div>
-      <div style="margin-bottom:6px;">
-        <div class="sidebar-title" style="font-size:8px;margin-bottom:5px;color:var(--text-dim)" data-i18n="vizMode">MODO DE VISUALIZAÇÃO</div>
-        <div class="wave-mode-row">
-          <div class="mode-chip active" id="mode-sinal" onclick="requestWaveMode('sinal')" data-i18n="chipSignal">Sinal</div>
-          <div class="mode-chip" id="mode-calor" onclick="requestWaveMode('calor')" data-i18n="chipHeat">Calor</div>
-        </div>
-        <div style="font-size:9px;color:var(--text-dim);margin-top:6px;line-height:1.4" data-i18n="waveHint">
-          A troca pergunta se aplica em tudo, em seleção ou em conjuntos salvos.
-        </div>
-      </div>
-      <div class="wave-list" id="waveList"></div>
-      <button class="add-wave-btn" onclick="addWave()" data-i18n="addWave">+ Nova Onda</button>
+    <!-- LEGENDA UNIFICADA -->
+    <div class="sidebar-section" id="legendSection">
+      <div class="sidebar-title" data-i18n="legend">Legenda</div>
+      <div id="legendPanel" style="display:flex;flex-direction:column;gap:4px"></div>
     </div>
 
     <!-- PROPRIEDADES -->
@@ -2811,12 +2902,8 @@ body.light-mode .area-dims { background: #f1f5f9; }
         <label>COR PERSONALIZADA</label>
         <div class="color-row" style="margin-top:4px">
           <input type="color" id="addElemColor" class="color-input" value="#6B7280">
-          <span style="font-size:10px;color:var(--text-dim)">Cinza = cor da onda</span>
+          <span style="font-size:10px;color:var(--text-dim)">Cor do elemento</span>
         </div>
-      </div>
-      <div>
-        <label>ONDA / FLUXO</label>
-        <select id="addElemWave" style="margin-top:4px"></select>
       </div>
     </div>
     <label>FORMA</label>
@@ -2918,31 +3005,27 @@ let scopeSelection = 'all';
 let selectedPresets = []; // array of "type:xxx" or "wave:N"
 
 function saveHistory() {
-  // Trim any forward history
   history = history.slice(0, historyIndex + 1);
   history.push(JSON.parse(JSON.stringify(elements)));
   if (history.length > 50) history.shift();
   historyIndex = history.length - 1;
+  renderLegendPanel();
 }
 
 function undoAction() {
   if (historyIndex <= 0) return;
   historyIndex--;
   elements = JSON.parse(JSON.stringify(history[historyIndex]));
-  selected = null;
-  updatePropPanel();
-  render();
-  updateStats();
+  selected = null; multiSelected = [];
+  updatePropPanel(); render(); updateStats(); renderLegendPanel();
 }
 
 function redoAction() {
   if (historyIndex >= history.length - 1) return;
   historyIndex++;
   elements = JSON.parse(JSON.stringify(history[historyIndex]));
-  selected = null;
-  updatePropPanel();
-  render();
-  updateStats();
+  selected = null; multiSelected = [];
+  updatePropPanel(); render(); updateStats(); renderLegendPanel();
 }
 
 function toggleTheme() {
@@ -2979,6 +3062,9 @@ const TRANSLATIONS = {
     areaBtn: 'Área', defaultBtn: 'Layout Padrão', clearBtn: 'Limpar',
     // Sidebar
     tools: 'Ferramentas', waves: 'Ondas / Fluxo', properties: 'Propriedades', visualization: 'Visualização',
+    legend: 'Legenda',
+    presentBtn: 'Apresentar', presentExit: 'Sair',
+    searchPlaceholder: '🔍  Buscar elemento...',
     vizMode: 'MODO DE VISUALIZAÇÃO',
     chipSignal: 'Sinal', chipBlock: 'Bloco', chipHeat: 'Calor',
     waveHint: 'A troca pergunta se aplica em tudo, em seleção ou em conjuntos salvos.',
@@ -2987,7 +3073,7 @@ const TRANSLATIONS = {
     isoMode: 'Modo ISO', labels: 'Rótulos', snapGrid: 'Snap Grade', gridSize: 'Tamanho Grade',
     show: 'Mostrar', active: 'Ativo',
     f2hint: 'Pressione <strong>F2</strong> ou dê duplo clique em um elemento para editar o nome rapidamente.',
-    shortcuts: '<strong>R</strong> = Rotacionar · <strong>DEL</strong> = Remover<br><strong>Espaço</strong> = Mover tela · <strong>Ctrl+Z/Y</strong> = Desfazer/Refazer<br><strong>Ctrl+C/V/X</strong> = Copiar/Colar/Recortar',
+    shortcuts: '<strong>R</strong> = Rotacionar · <strong>DEL</strong> = Remover<br><strong>Espaço</strong> = Mover tela · <strong>Ctrl+Z/Y</strong> = Desfazer/Refazer<br><strong>Ctrl+C/V/X</strong> = Copiar/Colar/Recortar · <strong>Ctrl+D</strong> = Duplicar',
     // Canvas
     areaBannerLabel: 'Área:',
     spaceHint: '🖐 Segure ESPAÇO e arraste para mover a tela',
@@ -3068,6 +3154,9 @@ const TRANSLATIONS = {
     undo: 'Undo', redo: 'Redo',
     areaBtn: 'Area', defaultBtn: 'Default Layout', clearBtn: 'Clear',
     tools: 'Tools', waves: 'Waves / Flow', properties: 'Properties', visualization: 'Visualization',
+    legend: 'Legend',
+    presentBtn: 'Present', presentExit: 'Exit',
+    searchPlaceholder: '🔍  Search element...',
     vizMode: 'VISUALIZATION MODE',
     chipSignal: 'Signal', chipBlock: 'Block', chipHeat: 'Heat',
     waveHint: 'The switch asks whether to apply to all, selection or saved groups.',
@@ -3076,7 +3165,7 @@ const TRANSLATIONS = {
     isoMode: 'ISO Mode', labels: 'Labels', snapGrid: 'Snap Grid', gridSize: 'Grid Size',
     show: 'Show', active: 'Active',
     f2hint: 'Press <strong>F2</strong> or double-click an element to quickly edit its name.',
-    shortcuts: '<strong>R</strong> = Rotate · <strong>DEL</strong> = Remove<br><strong>Space</strong> = Pan view · <strong>Ctrl+Z/Y</strong> = Undo/Redo<br><strong>Ctrl+C/V/X</strong> = Copy/Paste/Cut',
+    shortcuts: '<strong>R</strong> = Rotate · <strong>DEL</strong> = Remove<br><strong>Space</strong> = Pan view · <strong>Ctrl+Z/Y</strong> = Undo/Redo<br><strong>Ctrl+C/V/X</strong> = Copy/Paste/Cut · <strong>Ctrl+D</strong> = Duplicate',
     areaBannerLabel: 'Area:',
     spaceHint: '🖐 Hold SPACE and drag to pan the view',
     layoutOrientation: 'Layout Orientation',
@@ -3145,6 +3234,9 @@ const TRANSLATIONS = {
     undo: 'Deshacer', redo: 'Rehacer',
     areaBtn: 'Área', defaultBtn: 'Layout Predeterminado', clearBtn: 'Limpiar',
     tools: 'Herramientas', waves: 'Olas / Flujo', properties: 'Propiedades', visualization: 'Visualización',
+    legend: 'Leyenda',
+    presentBtn: 'Presentar', presentExit: 'Salir',
+    searchPlaceholder: '🔍  Buscar elemento...',
     vizMode: 'MODO DE VISUALIZACIÓN',
     chipSignal: 'Señal', chipBlock: 'Bloque', chipHeat: 'Calor',
     waveHint: 'El cambio pregunta si se aplica a todo, a la selección o a conjuntos guardados.',
@@ -3153,7 +3245,7 @@ const TRANSLATIONS = {
     isoMode: 'Modo ISO', labels: 'Etiquetas', snapGrid: 'Snap Cuadrícula', gridSize: 'Tamaño Cuadrícula',
     show: 'Mostrar', active: 'Activo',
     f2hint: 'Presiona <strong>F2</strong> o haz doble clic en un elemento para editar su nombre rápidamente.',
-    shortcuts: '<strong>R</strong> = Rotar · <strong>DEL</strong> = Eliminar<br><strong>Espacio</strong> = Mover vista · <strong>Ctrl+Z/Y</strong> = Deshacer/Rehacer<br><strong>Ctrl+C/V/X</strong> = Copiar/Pegar/Cortar',
+    shortcuts: '<strong>R</strong> = Rotar · <strong>DEL</strong> = Eliminar<br><strong>Espacio</strong> = Mover vista · <strong>Ctrl+Z/Y</strong> = Deshacer/Rehacer<br><strong>Ctrl+C/V/X</strong> = Copiar/Pegar/Cortar · <strong>Ctrl+D</strong> = Duplicar',
     areaBannerLabel: 'Área:',
     spaceHint: '🖐 Mantén ESPACIO y arrastra para mover la vista',
     layoutOrientation: 'Orientación del Layout',
@@ -3300,6 +3392,10 @@ function applyLanguageToUI() {
   populateTypeDropdown();
   updateModeBadge();
   updateStats();
+  renderLegendPanel();
+  // Search placeholder
+  const si = document.getElementById('searchInput');
+  if (si) si.placeholder = t.searchPlaceholder || '🔍  Buscar elemento...';
 }
 
 // ============================================================
@@ -3425,7 +3521,6 @@ const MODE_TOOLS = {
 //  INIT
 // ============================================================
 function init() {
-  renderWaveList();
   renderToolGrid();
   populateTypeDropdown();
   updateAreaBanner();
@@ -3433,6 +3528,7 @@ function init() {
   resizeCanvas();
   saveHistory();
   applyLanguageToUI();
+  renderLegendPanel();
   showSplashThenWelcome();
 }
 
@@ -4202,34 +4298,81 @@ document.addEventListener('keydown', e => {
   if (e.ctrlKey || e.metaKey) {
     if (e.key === 'z' || e.key === 'Z') { e.preventDefault(); undoAction(); return; }
     if (e.key === 'y' || e.key === 'Y') { e.preventDefault(); redoAction(); return; }
+
     if (e.key === 'c' || e.key === 'C') {
       e.preventDefault();
-      if (selected) clipboard = JSON.parse(JSON.stringify(selected));
+      if (multiSelected.length > 1) {
+        clipboard = multiSelected.map(el => JSON.parse(JSON.stringify(el)));
+      } else if (selected) {
+        clipboard = JSON.parse(JSON.stringify(selected));
+      }
       return;
     }
+
     if (e.key === 'x' || e.key === 'X') {
       e.preventDefault();
-      if (selected) {
+      if (multiSelected.length > 1) {
+        clipboard = multiSelected.map(el => JSON.parse(JSON.stringify(el)));
+        elements = elements.filter(el => !multiSelected.includes(el));
+        multiSelected = []; selected = null;
+        updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
+      } else if (selected) {
         clipboard = JSON.parse(JSON.stringify(selected));
         elements = elements.filter(el => el !== selected);
         selected = null;
-        updatePropPanel(); render(); updateStats();
-        saveHistory();
+        updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
       }
       return;
     }
+
     if (e.key === 'v' || e.key === 'V') {
       e.preventDefault();
       if (clipboard) {
-        const clone = JSON.parse(JSON.stringify(clipboard));
-        clone.id = idCounter++;
-        clone.x += gridSize;
-        clone.y += gridSize;
-        elements.push(clone);
-        selected = clone;
-        updatePropPanel(); render(); updateStats();
-        saveHistory();
+        const OFFSET = gridSize;
+        if (Array.isArray(clipboard)) {
+          // multi-paste
+          const newEls = clipboard.map(src => {
+            const clone = JSON.parse(JSON.stringify(src));
+            clone.id = idCounter++;
+            clone.x += OFFSET; clone.y += OFFSET;
+            elements.push(clone);
+            return clone;
+          });
+          multiSelected = newEls;
+          selected = newEls[0];
+        } else {
+          const clone = JSON.parse(JSON.stringify(clipboard));
+          clone.id = idCounter++;
+          clone.x += OFFSET; clone.y += OFFSET;
+          elements.push(clone);
+          selected = clone; multiSelected = [];
+        }
+        updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
       }
+      return;
+    }
+
+    // Ctrl+D = duplicate in place (offset by 1 grid)
+    if (e.key === 'd' || e.key === 'D') {
+      e.preventDefault();
+      const OFFSET = gridSize;
+      if (multiSelected.length > 1) {
+        const newEls = multiSelected.map(src => {
+          const clone = JSON.parse(JSON.stringify(src));
+          clone.id = idCounter++;
+          clone.x += OFFSET; clone.y += OFFSET;
+          elements.push(clone);
+          return clone;
+        });
+        multiSelected = newEls; selected = newEls[0];
+      } else if (selected) {
+        const clone = JSON.parse(JSON.stringify(selected));
+        clone.id = idCounter++;
+        clone.x += OFFSET; clone.y += OFFSET;
+        elements.push(clone);
+        selected = clone; multiSelected = [];
+      }
+      updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
       return;
     }
   }
@@ -4285,20 +4428,8 @@ function openAddElemModal(type, gx, gy) {
   const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
   currentAddShape = cfg.shape || 'rect';
 
-  // Populate wave select
-  const waveSelect = document.getElementById('addElemWave');
-  waveSelect.innerHTML = '<option value="0">— ' + (currentLang === 'en' ? 'No wave' : currentLang === 'es' ? 'Sin ola' : 'Sem onda') + ' —</option>';
-  waves.forEach(w => {
-    const opt = document.createElement('option');
-    opt.value = w.id;
-    opt.textContent = w.name;
-    if (w.id === currentWave) opt.selected = true;
-    waveSelect.appendChild(opt);
-  });
-
-  // Set defaults
-  const existingCount = elements.filter(e => e.type === type).length;
-  const defaultLabel = cfgLabel(pendingAddType || type);
+  // Default label
+  const defaultLabel = cfgLabel(type);
   document.getElementById('addElemLabel').value = defaultLabel;
   document.getElementById('addElemColor').value = cfg.color || '#6B7280';
   document.getElementById('addElemWidth').value = cfg.w;
@@ -4314,36 +4445,23 @@ function openAddElemModal(type, gx, gy) {
   document.getElementById('addElemModalSubtitle').textContent = t.addElemSubtitle;
   document.getElementById('addElemLabelLabel').textContent = t.addElemLabelLabel;
   document.getElementById('addElemConfirmBtn').textContent = t.addElemConfirm;
-
-  // Count info (hidden for now, shown when qty > 1 via multi-select)
-  const countInfo = document.getElementById('addElemCountInfo');
-  countInfo.style.display = 'none';
+  document.getElementById('addElemCountInfo').style.display = 'none';
+  document.getElementById('addElemLabel').oninput = null;
 
   document.getElementById('addElemModalOverlay').style.display = 'flex';
   setTimeout(() => document.getElementById('addElemLabel').focus(), 50);
 }
 
 function openAddElemModalMulti(type, positions) {
-  // positions: array of {gx, gy}
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
   pendingAddType = type;
-  pendingAddGx = positions; // store array
+  pendingAddGx = positions;
   pendingAddGy = null;
 
-  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
   const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
   currentAddShape = cfg.shape || 'rect';
 
-  const waveSelect = document.getElementById('addElemWave');
-  waveSelect.innerHTML = '<option value="0">— ' + (currentLang === 'en' ? 'No wave' : currentLang === 'es' ? 'Sin ola' : 'Sem onda') + ' —</option>';
-  waves.forEach(w => {
-    const opt = document.createElement('option');
-    opt.value = w.id;
-    opt.textContent = w.name;
-    if (w.id === currentWave) opt.selected = true;
-    waveSelect.appendChild(opt);
-  });
-
-  const defaultLabel = cfgLabel(pendingAddType || type);
+  const defaultLabel = cfgLabel(type);
   document.getElementById('addElemLabel').value = defaultLabel;
   document.getElementById('addElemColor').value = cfg.color || '#6B7280';
   document.getElementById('addElemWidth').value = cfg.w;
@@ -4358,13 +4476,11 @@ function openAddElemModalMulti(type, positions) {
   document.getElementById('addElemLabelLabel').textContent = t.addElemLabelLabel;
   document.getElementById('addElemConfirmBtn').textContent = t.addElemConfirm;
 
-  // Show count info
   const countInfo = document.getElementById('addElemCountInfo');
   const n = positions.length;
   countInfo.textContent = t.addElemCount(n, defaultLabel);
   countInfo.style.display = 'block';
 
-  // Update info dynamically when label changes
   document.getElementById('addElemLabel').oninput = () => {
     const name = document.getElementById('addElemLabel').value || defaultLabel;
     countInfo.textContent = t.addElemCount(n, name);
@@ -4389,16 +4505,13 @@ function closeAddElemModal() {
 
 function confirmAddElements() {
   if (!pendingAddType) return;
-  const label = document.getElementById('addElemLabel').value || (ELEM_CONFIGS[pendingAddType] || ELEM_CONFIGS.custom).label;
+  const label = document.getElementById('addElemLabel').value.trim() || cfgLabel(pendingAddType);
   const color = document.getElementById('addElemColor').value;
-  const wave = parseInt(document.getElementById('addElemWave').value) || 0;
   const w = parseInt(document.getElementById('addElemWidth').value) || 3;
   const h = parseInt(document.getElementById('addElemHeight').value) || 2;
   const shape = currentAddShape || 'rect';
-  const isStructural = (pendingAddType === 'pilar' || pendingAddType === 'corredor' || pendingAddType === 'comodo');
 
   if (Array.isArray(pendingAddGx)) {
-    // Multi-position placement
     const positions = pendingAddGx;
     const n = positions.length;
     const newEls = [];
@@ -4408,11 +4521,8 @@ function confirmAddElements() {
         id: idCounter++, type: pendingAddType,
         x: pos.gx, y: pos.gy,
         label: elLabel,
-        wave: isStructural ? 0 : wave,
-        rotated: false,
-        shape, waveMode,
-        customColor: color,
-        customW: w, customH: h,
+        rotated: false, shape,
+        customColor: color, customW: w, customH: h,
       };
       elements.push(el);
       newEls.push(el);
@@ -4420,17 +4530,12 @@ function confirmAddElements() {
     selected = newEls[newEls.length - 1];
     multiSelected = newEls;
   } else {
-    // Single placement
-    const existingCount = elements.filter(e => e.type === pendingAddType).length;
     const el = {
       id: idCounter++, type: pendingAddType,
       x: pendingAddGx, y: pendingAddGy,
       label,
-      wave: isStructural ? 0 : wave,
-      rotated: false,
-      shape, waveMode,
-      customColor: color,
-      customW: w, customH: h,
+      rotated: false, shape,
+      customColor: color, customW: w, customH: h,
     };
     elements.push(el);
     selected = el;
@@ -4438,10 +4543,8 @@ function confirmAddElements() {
   }
 
   closeAddElemModal();
-  updatePropPanel();
-  render();
-  updateStats();
-  saveHistory();
+  updatePropPanel(); render(); updateStats();
+  saveHistory(); renderLegendPanel();
 }
 
 // ============================================================
@@ -4459,23 +4562,34 @@ function ctxAction(action) {
   if (!ctxTarget) return;
   if (action === 'edit') openModal(ctxTarget);
   if (action === 'duplicate') {
-    const clone = JSON.parse(JSON.stringify(ctxTarget));
-    clone.id = idCounter++;
-    clone.x += gridSize * 2;
-    clone.y += gridSize * 2;
-    elements.push(clone);
-    selected = clone;
-    updatePropPanel();
-    render();
-    updateStats();
+    if (multiSelected.length > 1 && multiSelected.includes(ctxTarget)) {
+      multiDuplicate();
+    } else {
+      const clone = JSON.parse(JSON.stringify(ctxTarget));
+      clone.id = idCounter++;
+      clone.x += gridSize; clone.y += gridSize;
+      elements.push(clone);
+      selected = clone; multiSelected = [];
+      updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
+    }
   }
-  if (action === 'rotate') { ctxTarget.rotated = !ctxTarget.rotated; render(); }
+  if (action === 'rotate') {
+    if (multiSelected.length > 1 && multiSelected.includes(ctxTarget)) {
+      multiSelected.forEach(el => { el.rotated = !el.rotated; });
+    } else {
+      ctxTarget.rotated = !ctxTarget.rotated;
+    }
+    render(); saveHistory();
+  }
   if (action === 'delete') {
-    elements = elements.filter(e => e !== ctxTarget);
-    if (selected === ctxTarget) { selected = null; updatePropPanel(); }
-    ctxTarget = null;
-    render();
-    updateStats();
+    if (multiSelected.length > 1 && multiSelected.includes(ctxTarget)) {
+      deleteMultiSelected();
+    } else {
+      elements = elements.filter(e => e !== ctxTarget);
+      if (selected === ctxTarget) { selected = null; updatePropPanel(); }
+      ctxTarget = null;
+      render(); updateStats(); saveHistory(); renderLegendPanel();
+    }
   }
 }
 
@@ -4569,16 +4683,20 @@ function updatePropPanel() {
   // Multi-selection
   if (multiSelected.length > 1) {
     const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
+    const btnStyle = 'flex:1;font-size:10px;justify-content:center;padding:7px 4px';
     panel.innerHTML = `
       <div class="multi-select-badge">${multiSelected.length} ${t.stat_elementos || 'elementos'}</div>
-      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px;line-height:1.5">
+      <div style="font-size:10.5px;color:var(--text-dim);margin-bottom:10px;line-height:1.5">
         ${currentLang === 'en' ? 'Multiple elements selected.' : currentLang === 'es' ? 'Varios elementos seleccionados.' : 'Vários elementos selecionados.'}
       </div>
-      <div style="display:flex;gap:4px;margin-top:4px">
-        <button class="btn danger" style="flex:1;font-size:10px" onclick="deleteMultiSelected()">✕ ${currentLang === 'en' ? 'Delete all' : currentLang === 'es' ? 'Eliminar' : 'Remover todos'}</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:5px">
+        <button class="btn" style="${btnStyle}" onclick="multiCopy()">⎘ ${currentLang === 'en' ? 'Copy' : currentLang === 'es' ? 'Copiar' : 'Copiar'}</button>
+        <button class="btn" style="${btnStyle}" onclick="multiDuplicate()">+ ${currentLang === 'en' ? 'Duplicate' : currentLang === 'es' ? 'Duplicar' : 'Duplicar'}</button>
       </div>
-      <div style="margin-top:8px;font-size:10px;color:var(--text-dim);line-height:1.5;border:1px solid var(--border);padding:6px 8px;">
-        ${currentLang === 'en' ? 'Drag any selected element to move all. <strong>DEL</strong> removes all selected.' : currentLang === 'es' ? 'Arrastra para mover todos. <strong>DEL</strong> elimina todos.' : 'Arraste para mover todos. <strong>DEL</strong> remove todos.'}
+      <button class="btn danger" style="width:100%;justify-content:center;padding:7px" onclick="deleteMultiSelected()">✕ ${currentLang === 'en' ? 'Delete all' : currentLang === 'es' ? 'Eliminar todos' : 'Remover todos'}</button>
+      <div style="margin-top:8px;font-size:10px;color:var(--text-dim);line-height:1.6;border:1px solid var(--border);padding:6px 8px">
+        <strong>Ctrl+C</strong> ${currentLang === 'en' ? 'copy' : 'copiar'} · <strong>Ctrl+V</strong> ${currentLang === 'en' ? 'paste' : 'colar'} · <strong>Ctrl+D</strong> ${currentLang === 'en' ? 'duplicate' : 'duplicar'}<br>
+        <strong>DEL</strong> ${currentLang === 'en' ? 'remove all' : 'remover todos'} · <strong>R</strong> ${currentLang === 'en' ? 'rotate all' : 'rotacionar todos'}
       </div>
     `;
     return;
@@ -4611,13 +4729,32 @@ function updatePropPanel() {
   `;
 }
 
+function multiCopy() {
+  if (multiSelected.length > 1) {
+    clipboard = multiSelected.map(el => JSON.parse(JSON.stringify(el)));
+  }
+}
+
+function multiDuplicate() {
+  const OFFSET = gridSize;
+  const newEls = (multiSelected.length > 1 ? multiSelected : (selected ? [selected] : [])).map(src => {
+    const clone = JSON.parse(JSON.stringify(src));
+    clone.id = idCounter++;
+    clone.x += OFFSET; clone.y += OFFSET;
+    elements.push(clone);
+    return clone;
+  });
+  if (newEls.length === 0) return;
+  multiSelected = newEls; selected = newEls[0];
+  updatePropPanel(); render(); updateStats(); saveHistory(); renderLegendPanel();
+}
+
 function deleteMultiSelected() {
   if (multiSelected.length === 0) return;
   elements = elements.filter(el => !multiSelected.includes(el));
-  multiSelected = [];
-  selected = null;
+  multiSelected = []; selected = null;
   updatePropPanel(); render(); updateStats();
-  saveHistory();
+  saveHistory(); renderLegendPanel();
 }
 
 function deleteSelected() {
@@ -4626,7 +4763,7 @@ function deleteSelected() {
   elements = elements.filter(el => el !== selected);
   selected = null;
   updatePropPanel(); render(); updateStats();
-  saveHistory();
+  saveHistory(); renderLegendPanel();
 }
 
 // ============================================================
@@ -4789,6 +4926,7 @@ function drawElement(e) {
   const sp = worldToScreen(e.x, e.y);
   const isSelected = e === selected;
   const isMultiSelected = multiSelected.length > 1 && multiSelected.includes(e);
+  const isLegendDimmed = legendHighlightType && e.type !== legendHighlightType;
 
   // Per-element waveMode (falls back to global)
   const eWaveMode = e.waveMode || waveMode;
@@ -4798,21 +4936,26 @@ function drawElement(e) {
 
   // Non-rect shapes always render flat (no ISO) since they're abstract
   const useIso = isIso && shape === 'rect' && e.type !== 'corredor';
+
+  ctx.save();
+  if (isLegendDimmed) ctx.globalAlpha = 0.13;
+
   if (useIso) {
     drawIsoBox(e, rw, rh, baseColor, isSelected || isMultiSelected, sp, eWaveMode);
   } else {
     drawShape(e, rw, rh, baseColor, isSelected || isMultiSelected, sp, eWaveMode, shape);
   }
+  ctx.restore();
 
-  // Draw dashed multi-select outline on top
+  // Multi-select dashed outline (always full opacity)
   if (isMultiSelected) {
-    const sw = rw * scale;
-    const sh = rh * scale;
+    const sw2 = rw * scale;
+    const sh2 = rh * scale;
     ctx.save();
     ctx.strokeStyle = lightMode ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.7)';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 3]);
-    ctx.strokeRect(sp.x - 2, sp.y - 2, sw + 4, sh + 4);
+    ctx.strokeRect(sp.x - 2, sp.y - 2, sw2 + 4, sh2 + 4);
     ctx.setLineDash([]);
     ctx.restore();
   }
@@ -5285,131 +5428,242 @@ function drawExportElement(octx, e, x, y, sw, sh, color, eWaveMode, shape, scl) 
 }
 
 // ============================================================
-//  PRESENTATION MODE
+//  UNIFIED LEGEND PANEL (sidebar)
+// ============================================================
+let legendHighlightType = null; // type string being highlighted
+
+function renderLegendPanel() {
+  const panel = document.getElementById('legendPanel');
+  if (!panel) return;
+  panel.innerHTML = '';
+
+  // Group elements by type
+  const groups = {};
+  elements.forEach(e => {
+    if (!groups[e.type]) groups[e.type] = [];
+    groups[e.type].push(e);
+  });
+
+  if (Object.keys(groups).length === 0) {
+    panel.innerHTML = `<div style="color:var(--text-dim);font-size:11px;text-align:center;padding:8px 0" data-i18n="selectEl">Adicione elementos para ver a legenda</div>`;
+    return;
+  }
+
+  Object.entries(groups).forEach(([type, els]) => {
+    const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+    const color = cfg.color || '#6B7280';
+    const isActive = legendHighlightType === type;
+
+    const group = document.createElement('div');
+    group.className = 'legend-group';
+
+    const header = document.createElement('div');
+    header.className = 'legend-type-header' + (isActive ? ' active' : '');
+    header.innerHTML = `
+      <div class="legend-type-dot" style="background:${color}"></div>
+      <span class="legend-type-name">${cfgLabel(type)}</span>
+      <span class="legend-type-count">${els.length}</span>`;
+    header.onclick = () => {
+      legendHighlightType = isActive ? null : type;
+      if (legendHighlightType) {
+        multiSelected = els;
+        selected = els[0];
+      } else {
+        multiSelected = [];
+        selected = null;
+      }
+      updatePropPanel();
+      render();
+      renderLegendPanel();
+    };
+    group.appendChild(header);
+
+    // Individual items
+    const list = document.createElement('div');
+    list.className = 'legend-item-list';
+    els.forEach(e => {
+      const item = document.createElement('div');
+      item.className = 'legend-item' + (selected === e ? ' active' : '');
+      item.textContent = e.label || cfgLabel(type);
+      item.title = e.label || cfgLabel(type);
+      item.onclick = () => {
+        legendHighlightType = null;
+        multiSelected = [];
+        selected = e;
+        updatePropPanel();
+        render();
+        renderLegendPanel();
+        // Pan canvas to element
+        const sp = worldToScreen(e.x, e.y);
+        const cfg2 = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+        const ew = (e.customW || cfg2.w) * gridSize * scale;
+        const eh = (e.customH || cfg2.h) * gridSize * scale;
+        const canvasCx = canvas.width / 2, canvasCy = canvas.height / 2;
+        const elCx = sp.x + ew / 2, elCy = sp.y + eh / 2;
+        viewX += canvasCx - elCx;
+        viewY += canvasCy - elCy;
+        render();
+      };
+      list.appendChild(item);
+    });
+    group.appendChild(list);
+    panel.appendChild(group);
+  });
+}
+
+// ============================================================
+//  PRESENTATION MODE — complete rewrite
 // ============================================================
 let presentScale = 1;
 let presentVX = 0, presentVY = 0;
 let presentPanning = false, presentPanStart = null;
+let presentHighlightType = null;
 const pCanvas = document.getElementById('presentCanvas');
 const pCtx = pCanvas ? pCanvas.getContext('2d') : null;
 
 function enterPresentationMode() {
-  document.getElementById('presentOverlay').classList.add('active');
-  document.getElementById('presentAreaName').textContent = areaConfig.name;
-  // Set canvas size to window
+  const overlay = document.getElementById('presentOverlay');
+  overlay.classList.add('active');
   pCanvas.width = window.innerWidth;
   pCanvas.height = window.innerHeight;
-  // Build legend
-  buildPresentLegend();
-  // Fit all elements
-  presentFitAll();
-  // Translate hint
+
+  document.getElementById('presentAreaName').textContent = areaConfig.name;
+  presentHighlightType = null;
+
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
-  document.getElementById('presentHint').textContent =
-    currentLang === 'en' ? 'Scroll = zoom · Drag = pan · ESC = exit' :
-    currentLang === 'es' ? 'Scroll = zoom · Arrastrar = mover · ESC = salir' :
-    'Scroll = zoom · Arraste = mover · ESC = sair';
-  document.getElementById('presentOverlay').classList.add('show-ui');
-  setTimeout(() => document.getElementById('presentOverlay').classList.remove('show-ui'), 2500);
+  const legendTitle = currentLang === 'en' ? 'LEGEND' : currentLang === 'es' ? 'LEYENDA' : 'LEGENDA';
+  document.getElementById('presentLegendTitle').textContent = legendTitle;
+
+  const hints = {
+    pt: 'Scroll = zoom · Arraste = mover · Clique na legenda = destacar · ESC = sair',
+    en: 'Scroll = zoom · Drag = pan · Click legend = highlight · ESC = exit',
+    es: 'Scroll = zoom · Arrastra = mover · Clic leyenda = destacar · ESC = salir',
+  };
+  document.getElementById('presentHint').textContent = hints[currentLang] || hints.pt;
+
+  buildPresentLegend();
+  presentFitAll();
+
+  overlay.classList.add('show-ui');
+  setTimeout(() => overlay.classList.remove('show-ui'), 3000);
 }
 
 function exitPresentationMode() {
-  document.getElementById('presentOverlay').classList.remove('active');
-  document.getElementById('presentOverlay').classList.remove('show-ui');
+  document.getElementById('presentOverlay').classList.remove('active', 'show-ui');
+  presentHighlightType = null;
+}
+
+function presentClearHighlight() {
+  presentHighlightType = null;
+  document.getElementById('presentResetBtn').style.display = 'none';
+  // Clear active classes
+  document.querySelectorAll('.present-legend-group-header').forEach(h => h.classList.remove('active'));
+  document.querySelectorAll('.present-legend-item').forEach(i => i.classList.remove('active'));
+  renderPresentation();
 }
 
 function buildPresentLegend() {
-  const legend = document.getElementById('presentLegend');
-  const t = TRANSLATIONS[currentLang] || TRANSLATIONS['pt'];
-  legend.innerHTML = `<div class="present-legend-title">${currentLang === 'en' ? 'LEGEND' : currentLang === 'es' ? 'LEYENDA' : 'LEGENDA'}</div>`;
+  const body = document.getElementById('presentLegendBody');
+  body.innerHTML = '';
 
-  // Group by wave
-  const noWave = elements.filter(e => !e.wave || e.wave === 0);
-  const byWave = {};
-  elements.filter(e => e.wave && e.wave > 0).forEach(e => {
-    if (!byWave[e.wave]) byWave[e.wave] = [];
-    byWave[e.wave].push(e);
+  // Group by type
+  const groups = {};
+  elements.forEach(e => {
+    if (!groups[e.type]) groups[e.type] = [];
+    groups[e.type].push(e);
   });
 
-  // No-wave elements
-  if (noWave.length > 0) {
-    noWave.forEach(e => {
-      const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
-      const color = (e.customColor && e.customColor !== '#6B7280') ? e.customColor : cfg.color;
-      const item = document.createElement('div');
-      item.className = 'present-legend-item';
-      item.innerHTML = `
-        <div class="present-legend-dot" style="background:${color}"></div>
-        <span class="present-legend-label">${e.label || cfgLabel(e.type)}</span>
-        <span class="present-legend-type">${cfgLabel(e.type).substring(0,6).toUpperCase()}</span>`;
-      legend.appendChild(item);
-    });
-  }
+  Object.entries(groups).forEach(([type, els]) => {
+    const cfg = ELEM_CONFIGS[type] || ELEM_CONFIGS.custom;
+    const color = els[0].customColor && els[0].customColor !== '#6B7280'
+      ? els[0].customColor : cfg.color || '#6B7280';
 
-  // Grouped by wave
-  Object.entries(byWave).forEach(([wid, els]) => {
-    const wave = waves.find(w => w.id === parseInt(wid));
-    if (!wave) return;
     const grp = document.createElement('div');
-    grp.className = 'present-legend-wave-group';
+    grp.className = 'legend-group';
+
     const header = document.createElement('div');
-    header.className = 'present-legend-wave-header';
-    header.innerHTML = `<div class="present-legend-wave-bar" style="background:${wave.color}"></div><span>${wave.name}</span><div class="present-legend-wave-bar" style="background:${wave.color}"></div>`;
+    header.className = 'present-legend-group-header';
+    header.dataset.type = type;
+    header.innerHTML = `
+      <div class="present-legend-group-dot" style="background:${color}"></div>
+      <span class="present-legend-group-name">${cfgLabel(type)}</span>
+      <span class="present-legend-group-count">${els.length}</span>`;
+    header.onclick = () => {
+      const wasActive = presentHighlightType === type;
+      presentHighlightType = wasActive ? null : type;
+      document.querySelectorAll('.present-legend-group-header').forEach(h => h.classList.remove('active'));
+      document.querySelectorAll('.present-legend-item').forEach(i => i.classList.remove('active'));
+      document.getElementById('presentResetBtn').style.display = presentHighlightType ? 'block' : 'none';
+      if (!wasActive) {
+        header.classList.add('active');
+        grp.querySelectorAll('.present-legend-item').forEach(i => i.classList.add('active'));
+      }
+      renderPresentation();
+    };
     grp.appendChild(header);
+
+    const itemList = document.createElement('div');
+    itemList.className = 'present-legend-items';
     els.forEach(e => {
       const item = document.createElement('div');
       item.className = 'present-legend-item';
-      item.innerHTML = `
-        <div class="present-legend-dot" style="background:${wave.color}"></div>
-        <span class="present-legend-label">${e.label || cfgLabel(e.type)}</span>
-        <span class="present-legend-type">${cfgLabel(e.type).substring(0,6).toUpperCase()}</span>`;
-      grp.appendChild(item);
+      item.textContent = e.label || cfgLabel(type);
+      item.title = e.label || cfgLabel(type);
+      item.onclick = (ev) => {
+        ev.stopPropagation();
+        // Pan to element
+        const cfg2 = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+        const ew = (e.customW || cfg2.w) * gridSize;
+        const eh = (e.customH || cfg2.h) * gridSize;
+        const elCx = e.x * presentScale + presentVX + ew * presentScale / 2;
+        const elCy = e.y * presentScale + presentVY + eh * presentScale / 2;
+        const cx = pCanvas.width / 2 - 110; // account for legend
+        const cy = pCanvas.height / 2;
+        presentVX += cx - elCx;
+        presentVY += cy - elCy;
+        renderPresentation();
+      };
+      itemList.appendChild(item);
     });
-    legend.appendChild(grp);
+    grp.appendChild(itemList);
+    body.appendChild(grp);
   });
 }
 
 function presentFitAll() {
   if (!pCanvas) return;
-  const LEGEND_W = 230;
-  const TOP_H = 58;
-  const PAD = 40;
+  const LEGEND_W = 244;
+  const TOP_H = 62;
+  const PAD = 48;
   const availW = pCanvas.width - LEGEND_W - PAD * 2;
   const availH = pCanvas.height - TOP_H - PAD * 2;
 
-  // Bounding box of all elements in world coords
-  let minX = 0, minY = 0, maxX = 0, maxY = 0;
+  let minX = 0, minY = 0, maxX, maxY;
+  const areaW = (currentOrientation === 'vertical' ? areaConfig.lengthM : areaConfig.widthM) * gridSize / 3;
+  const areaH = (currentOrientation === 'vertical' ? areaConfig.widthM : areaConfig.lengthM) * gridSize / 3;
+
   if (elements.length === 0) {
-    const areaW = areaConfig.widthM * gridSize / 3;
-    const areaH = areaConfig.lengthM * gridSize / 3;
-    maxX = currentOrientation === 'vertical' ? areaH : areaW;
-    maxY = currentOrientation === 'vertical' ? areaW : areaH;
+    maxX = areaW; maxY = areaH;
   } else {
     minX = Infinity; minY = Infinity; maxX = -Infinity; maxY = -Infinity;
     elements.forEach(e => {
       const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
       const ew = (e.customW || cfg.w) * gridSize;
       const eh = (e.customH || cfg.h) * gridSize;
-      const rw = e.rotated ? eh : ew;
-      const rh = e.rotated ? ew : eh;
+      const rw = e.rotated ? eh : ew, rh = e.rotated ? ew : eh;
       minX = Math.min(minX, e.x); minY = Math.min(minY, e.y);
       maxX = Math.max(maxX, e.x + rw); maxY = Math.max(maxY, e.y + rh);
     });
-    // Also include area boundary
-    const areaW = (currentOrientation === 'vertical' ? areaConfig.lengthM : areaConfig.widthM) * gridSize / 3;
-    const areaH = (currentOrientation === 'vertical' ? areaConfig.widthM : areaConfig.lengthM) * gridSize / 3;
     minX = Math.min(minX, 0); minY = Math.min(minY, 0);
     maxX = Math.max(maxX, areaW); maxY = Math.max(maxY, areaH);
   }
 
-  const contentW = maxX - minX;
-  const contentH = maxY - minY;
+  const contentW = maxX - minX, contentH = maxY - minY;
   if (contentW <= 0 || contentH <= 0) return;
 
-  presentScale = Math.min(availW / contentW, availH / contentH);
+  presentScale = Math.min(availW / contentW, availH / contentH) * 0.94;
   presentVX = PAD + (availW - contentW * presentScale) / 2 - minX * presentScale;
   presentVY = TOP_H + PAD + (availH - contentH * presentScale) / 2 - minY * presentScale;
-
   renderPresentation();
 }
 
@@ -5417,22 +5671,22 @@ function renderPresentation() {
   if (!pCtx || !pCanvas) return;
   pCanvas.width = window.innerWidth;
   pCanvas.height = window.innerHeight;
-  const pc = pCanvas, pct = pCtx;
+  const pct = pCtx;
 
   // Background
-  pct.fillStyle = '#080808';
-  pct.fillRect(0, 0, pc.width, pc.height);
+  pct.fillStyle = '#060606';
+  pct.fillRect(0, 0, pCanvas.width, pCanvas.height);
 
-  // Grid
+  // Subtle grid
   const gs = gridSize * presentScale;
-  if (gs > 8) {
-    pct.strokeStyle = 'rgba(255,255,255,0.03)';
+  if (gs > 10) {
+    pct.strokeStyle = 'rgba(255,255,255,0.025)';
     pct.lineWidth = 0.5;
-    for (let x = presentVX % gs; x < pc.width; x += gs) {
-      pct.beginPath(); pct.moveTo(x, 0); pct.lineTo(x, pc.height); pct.stroke();
+    for (let x = presentVX % gs; x < pCanvas.width; x += gs) {
+      pct.beginPath(); pct.moveTo(x, 0); pct.lineTo(x, pCanvas.height); pct.stroke();
     }
-    for (let y = presentVY % gs; y < pc.height; y += gs) {
-      pct.beginPath(); pct.moveTo(0, y); pct.lineTo(pc.width, y); pct.stroke();
+    for (let y = presentVY % gs; y < pCanvas.height; y += gs) {
+      pct.beginPath(); pct.moveTo(0, y); pct.lineTo(pCanvas.width, y); pct.stroke();
     }
   }
 
@@ -5441,63 +5695,72 @@ function renderPresentation() {
   const areaH = (currentOrientation === 'vertical' ? areaConfig.widthM : areaConfig.lengthM) * gridSize / 3;
   const bx = presentVX, by = presentVY;
   const bw = areaW * presentScale, bh = areaH * presentScale;
+
   pct.save();
-  pct.fillStyle = 'rgba(255,255,255,0.018)';
+  pct.fillStyle = 'rgba(255,255,255,0.015)';
   pct.fillRect(bx, by, bw, bh);
-  pct.strokeStyle = 'rgba(255,255,255,0.45)';
-  pct.lineWidth = 2;
-  pct.setLineDash([8, 6]);
+  pct.strokeStyle = 'rgba(255,255,255,0.4)';
+  pct.lineWidth = 1.5;
+  pct.setLineDash([7, 5]);
   pct.strokeRect(bx, by, bw, bh);
   pct.setLineDash([]);
-  // Corners
-  const tick = Math.min(22, bw * 0.05, bh * 0.05);
-  pct.lineWidth = 2.5;
-  pct.strokeStyle = 'rgba(255,255,255,0.7)';
+  // Corner ticks
+  const tick = Math.min(20, bw * 0.04, bh * 0.04);
+  pct.lineWidth = 2.5; pct.strokeStyle = 'rgba(255,255,255,0.65)';
   [[bx,by,1,1],[bx+bw,by,-1,1],[bx,by+bh,1,-1],[bx+bw,by+bh,-1,-1]].forEach(([cx,cy,dx,dy]) => {
-    pct.beginPath();
-    pct.moveTo(cx+dx*tick,cy); pct.lineTo(cx,cy); pct.lineTo(cx,cy+dy*tick);
-    pct.stroke();
+    pct.beginPath(); pct.moveTo(cx+dx*tick,cy); pct.lineTo(cx,cy); pct.lineTo(cx,cy+dy*tick); pct.stroke();
   });
   pct.restore();
 
-  // Elements
+  // Draw elements — dimmed when a type is highlighted
   const sorted = [...elements].sort((a,b) => a.y - b.y);
   sorted.forEach(e => {
     const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
     let color;
     if (e.customColor && e.customColor !== '#6B7280') color = e.customColor;
-    else if (e.type === 'pilar') color = '#2a2a2a';
+    else if (e.type === 'pilar') color = '#3a3a3a';
     else if (e.wave) color = getWaveColor(e.wave);
     else color = cfg.color;
 
     const ew = (e.customW || cfg.w) * gridSize;
     const eh = (e.customH || cfg.h) * gridSize;
     let rw = e.rotated ? eh : ew, rh = e.rotated ? ew : eh;
-    if (currentOrientation === 'vertical') { const t=rw; rw=rh; rh=t; }
+    if (currentOrientation === 'vertical') { const tmp = rw; rw = rh; rh = tmp; }
 
     const px = e.x * presentScale + presentVX;
     const py = e.y * presentScale + presentVY;
     const sw = rw * presentScale, sh = rh * presentScale;
 
+    const isHighlighted = !presentHighlightType || e.type === presentHighlightType;
+    const dimAlpha = isHighlighted ? 1 : 0.12;
+    const glowIt = presentHighlightType && e.type === presentHighlightType;
+
+    pct.save();
+    pct.globalAlpha = dimAlpha;
+    if (glowIt) {
+      pct.shadowColor = color;
+      pct.shadowBlur = 18;
+    }
+
     const shape = e.shape || cfg.shape || 'rect';
-    const eWaveMode = e.waveMode || waveMode;
-    drawExportElement(pct, e, px, py, sw, sh, color, eWaveMode, shape, presentScale / 60);
+    const scl = presentScale / 60;
+    drawExportElement(pct, e, px, py, sw, sh, color, 'sinal', shape, scl);
+
+    pct.restore();
   });
 
-  // Zoom info
+  // Zoom label
   document.getElementById('presentZoomInfo').textContent = Math.round(presentScale * 100) + '%';
 }
 
-// Present canvas events
+// Presentation canvas events
 if (pCanvas) {
   pCanvas.addEventListener('wheel', ev => {
     ev.preventDefault();
-    const factor = ev.deltaY > 0 ? 1/1.12 : 1.12;
-    const rect = pCanvas.getBoundingClientRect();
-    const sx = ev.clientX - rect.left, sy = ev.clientY - rect.top;
-    presentVX = sx - (sx - presentVX) * factor;
-    presentVY = sy - (sy - presentVY) * factor;
-    presentScale = Math.max(0.05, Math.min(8, presentScale * factor));
+    const factor = ev.deltaY > 0 ? 1/1.1 : 1.1;
+    presentVX = ev.clientX - (ev.clientX - presentVX) * factor;
+    presentVY = ev.clientY - (ev.clientY - presentVY) * factor;
+    presentScale = Math.max(0.04, Math.min(10, presentScale * factor));
     renderPresentation();
   }, { passive: false });
 
@@ -5507,34 +5770,25 @@ if (pCanvas) {
     presentPanStart = { x: ev.clientX - presentVX, y: ev.clientY - presentVY };
     pCanvas.classList.add('panning');
   });
-
   pCanvas.addEventListener('mousemove', ev => {
     if (!presentPanning) return;
     presentVX = ev.clientX - presentPanStart.x;
     presentVY = ev.clientY - presentPanStart.y;
     renderPresentation();
   });
+  pCanvas.addEventListener('mouseup', () => { presentPanning = false; pCanvas.classList.remove('panning'); });
+  pCanvas.addEventListener('mouseleave', () => { presentPanning = false; pCanvas.classList.remove('panning'); });
 
-  pCanvas.addEventListener('mouseup', () => {
-    presentPanning = false;
-    pCanvas.classList.remove('panning');
-  });
-
-  // Touch support for HDMI/tablet
-  let lastTouchDist = null;
+  let lastTouchDist2 = null;
   pCanvas.addEventListener('touchstart', ev => {
     if (ev.touches.length === 1) {
       presentPanning = true;
       presentPanStart = { x: ev.touches[0].clientX - presentVX, y: ev.touches[0].clientY - presentVY };
     }
     if (ev.touches.length === 2) {
-      lastTouchDist = Math.hypot(
-        ev.touches[0].clientX - ev.touches[1].clientX,
-        ev.touches[0].clientY - ev.touches[1].clientY
-      );
+      lastTouchDist2 = Math.hypot(ev.touches[0].clientX - ev.touches[1].clientX, ev.touches[0].clientY - ev.touches[1].clientY);
     }
   }, { passive: true });
-
   pCanvas.addEventListener('touchmove', ev => {
     ev.preventDefault();
     if (ev.touches.length === 1 && presentPanning) {
@@ -5542,36 +5796,38 @@ if (pCanvas) {
       presentVY = ev.touches[0].clientY - presentPanStart.y;
       renderPresentation();
     }
-    if (ev.touches.length === 2 && lastTouchDist) {
-      const dist = Math.hypot(
-        ev.touches[0].clientX - ev.touches[1].clientX,
-        ev.touches[0].clientY - ev.touches[1].clientY
-      );
-      const factor = dist / lastTouchDist;
+    if (ev.touches.length === 2 && lastTouchDist2) {
+      const dist = Math.hypot(ev.touches[0].clientX - ev.touches[1].clientX, ev.touches[0].clientY - ev.touches[1].clientY);
+      const factor = dist / lastTouchDist2;
       const cx = (ev.touches[0].clientX + ev.touches[1].clientX) / 2;
       const cy = (ev.touches[0].clientY + ev.touches[1].clientY) / 2;
       presentVX = cx - (cx - presentVX) * factor;
       presentVY = cy - (cy - presentVY) * factor;
-      presentScale = Math.max(0.05, Math.min(8, presentScale * factor));
-      lastTouchDist = dist;
+      presentScale = Math.max(0.04, Math.min(10, presentScale * factor));
+      lastTouchDist2 = dist;
       renderPresentation();
     }
   }, { passive: false });
-
-  pCanvas.addEventListener('touchend', () => { presentPanning = false; lastTouchDist = null; });
+  pCanvas.addEventListener('touchend', () => { presentPanning = false; lastTouchDist2 = null; });
 }
 
-// ESC exits presentation
+// ESC + keyboard shortcuts for presentation
 document.addEventListener('keydown', ev => {
-  if (ev.key === 'Escape' && document.getElementById('presentOverlay').classList.contains('active')) {
-    exitPresentationMode();
+  if (!document.getElementById('presentOverlay').classList.contains('active')) return;
+  if (ev.key === 'Escape') exitPresentationMode();
+  if (ev.key === 'f' || ev.key === 'F') presentFitAll();
+  if (ev.key === '+' || ev.key === '=') {
+    presentScale = Math.min(10, presentScale * 1.15);
+    renderPresentation();
+  }
+  if (ev.key === '-') {
+    presentScale = Math.max(0.04, presentScale / 1.15);
+    renderPresentation();
   }
 });
 
 window.addEventListener('resize', () => {
-  if (document.getElementById('presentOverlay').classList.contains('active')) {
-    renderPresentation();
-  }
+  if (document.getElementById('presentOverlay').classList.contains('active')) renderPresentation();
 });
 
 function showExportWarningPopup({ t, canAutoFix, onCrop, onFull }) {
@@ -5756,6 +6012,75 @@ function loadPessoalDefault() {
   // Pessoas
   addEl('pessoas', 3, 3, { label: 'Eu' });
   addEl('pessoas', 14, 4, { label: 'Par', wave: waves[3].id });
+}
+
+// ============================================================
+//  SEARCH / FILTER
+// ============================================================
+let searchQuery = '';
+
+function onSearchInput(val) {
+  searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('searchClear');
+  const resultsDiv = document.getElementById('searchResults');
+
+  if (!searchQuery) {
+    clearSearch();
+    return;
+  }
+  clearBtn.style.display = 'block';
+  // Filter elements
+  const matches = elements.filter(e => {
+    const label = (e.label || cfgLabel(e.type)).toLowerCase();
+    const type = cfgLabel(e.type).toLowerCase();
+    return label.includes(searchQuery) || type.includes(searchQuery);
+  });
+
+  resultsDiv.style.display = 'flex';
+  resultsDiv.innerHTML = '';
+
+  if (matches.length === 0) {
+    resultsDiv.innerHTML = `<div class="search-no-results">Nenhum resultado</div>`;
+    // Dim all on canvas
+    selectedSearchTypes = null;
+    render();
+    return;
+  }
+
+  matches.forEach(e => {
+    const cfg = ELEM_CONFIGS[e.type] || ELEM_CONFIGS.custom;
+    const color = (e.customColor && e.customColor !== '#6B7280') ? e.customColor : cfg.color;
+    const item = document.createElement('div');
+    item.className = 'search-result-item' + (selected === e ? ' active' : '');
+    item.innerHTML = `
+      <div class="search-result-dot" style="background:${color}"></div>
+      <span class="search-result-label">${e.label || cfgLabel(e.type)}</span>
+      <span class="search-result-type">${cfgLabel(e.type).substring(0,8).toUpperCase()}</span>`;
+    item.onclick = () => {
+      selected = e;
+      multiSelected = [];
+      updatePropPanel();
+      // Pan to element
+      const sp = worldToScreen(e.x, e.y);
+      const ew = (e.customW || cfg.w) * gridSize * scale;
+      const eh = (e.customH || cfg.h) * gridSize * scale;
+      viewX += canvas.width / 2 - (sp.x + ew / 2);
+      viewY += canvas.height / 2 - (sp.y + eh / 2);
+      render();
+      renderLegendPanel();
+      onSearchInput(searchQuery); // refresh active state
+    };
+    resultsDiv.appendChild(item);
+  });
+}
+
+function clearSearch() {
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').style.display = 'none';
+  const rd = document.getElementById('searchResults');
+  rd.style.display = 'none';
+  rd.innerHTML = '';
 }
 
 // ============================================================
